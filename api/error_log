@@ -1,0 +1,626 @@
+[16-Jul-2014 14:32:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:28] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:28] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:28] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:28] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:32:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:33:34] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:33:34] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:33:34] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(128): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:33:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(128): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:33:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:33:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'medica_webusr'@'med.medicavial.net' (using password: YES)' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(128): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:13] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:13] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:13] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:34:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:37:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:37:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(128): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:37:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:38:15] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:38:15] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(128): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:38:15] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:41:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:41:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:41:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:41:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(128): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:18] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:18] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:42:22] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:48:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(35): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:48:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(107): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:48:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(86): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:48:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:24
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(24): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(149): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 24
+[16-Jul-2014 14:49:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(150): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:49:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(87): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:49:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(108): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:49:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:24] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(150): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:24] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:24] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(87): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:24] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(108): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(150): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(87): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:50:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(108): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:51:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(108): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:51:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(87): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:51:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(150): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:51:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 14:56:27] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 15:39:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(150): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 15:39:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 15:39:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(108): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 15:39:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(87): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 16:04:04] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 16:04:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 16:04:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 16:04:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 16:04:08] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1129] Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'' in /home/medica/public_html/registrosmedicos/api/api.php:25
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(25): PDO->__construct('mysql:host=www....', 'medica_webusr', 'tosnav50')
+#1 /home/medica/public_html/registrosmedicos/api/api.php(36): conectarMySQL()
+#2 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 25
+[16-Jul-2014 16:06:33] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts' in /home/medica/public_html/registrosmedicos/api/api.php on line 12
+[16-Jul-2014 16:08:03] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts' in /home/medica/public_html/registrosmedicos/api/api.php on line 12
+[16-Jul-2014 16:08:04] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts' in /home/medica/public_html/registrosmedicos/api/api.php on line 12
+[16-Jul-2014 16:14:56] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts' in /home/medica/public_html/registrosmedicos/api/api.php on line 12
+[16-Jul-2014 16:14:58] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Host 'med.medicavial.net' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts' in /home/medica/public_html/registrosmedicos/api/api.php on line 12
+[16-Jul-2014 16:15:44] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/medica/public_html/registrosmedicos/api/api.php on line 48
+[16-Jul-2014 16:16:46] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/medica/public_html/registrosmedicos/api/api.php on line 48
+[17-Jul-2014 09:39:26] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 09:43:30] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 09:50:01] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 09:50:26] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 09:50:49] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 10:31:07] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 10:44:14] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 174
+[17-Jul-2014 11:18:01] PHP Fatal error:  Call to a member function execute() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 145
+[17-Jul-2014 11:20:13] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/medica/public_html/registrosmedicos/api/api.php:145
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(145): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 145
+[17-Jul-2014 11:27:53] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/medica/public_html/registrosmedicos/api/api.php:145
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(145): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 145
+[17-Jul-2014 12:12:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PAS_folio' in 'field list'' in /home/medica/public_html/registrosmedicos/api/api.php:147
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(147): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 147
+[17-Jul-2014 12:14:26] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'RIE_clave' in 'field list'' in /home/medica/public_html/registrosmedicos/api/api.php:147
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(147): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 147
+[17-Jul-2014 12:15:22] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'HOS_quienAutoriza' in 'field list'' in /home/medica/public_html/registrosmedicos/api/api.php:147
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(147): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 147
+[17-Jul-2014 12:17:31] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'USU_capturo' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:147
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(147): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 147
+[17-Jul-2014 13:29:29] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/medica/public_html/registrosmedicos/api/api.php on line 89
+[17-Jul-2014 13:29:29] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'USU_capturo' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:149
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(149): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 149
+[17-Jul-2014 14:17:45] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/medica/public_html/registrosmedicos/api/api.php on line 89
+[17-Jul-2014 14:17:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'USU_capturo' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:149
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(149): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 149
+[17-Jul-2014 14:25:05] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/medica/public_html/registrosmedicos/api/api.php on line 89
+[17-Jul-2014 14:25:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'USU_capturo' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:149
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(149): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 149
+[17-Jul-2014 14:25:05] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/medica/public_html/registrosmedicos/api/api.php on line 89
+[17-Jul-2014 14:25:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'USU_capturo' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:149
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(149): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 149
+[17-Jul-2014 14:28:07] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/medica/public_html/registrosmedicos/api/api.php on line 89
+[17-Jul-2014 14:35:57] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/medica/public_html/registrosmedicos/api/api.php on line 89
+[17-Jul-2014 21:16:56] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/medica/public_html/registrosmedicos/api/api.php on line 83
+[17-Jul-2014 21:17:12] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/medica/public_html/registrosmedicos/api/api.php on line 83
+[17-Jul-2014 21:17:56] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/medica/public_html/registrosmedicos/api/api.php on line 83
+[17-Jul-2014 17:32:31] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in /home/medica/public_html/registrosmedicos/api/api.php:149
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(149): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 149
+[17-Jul-2014 17:38:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: parameter was not defined' in /home/medica/public_html/registrosmedicos/api/api.php:148
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(148): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 148
+[17-Jul-2014 17:52:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'AUM_fecha' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:148
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(148): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 148
+[17-Jul-2014 17:56:17] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'AUM_fecha' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:148
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(148): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 148
+[18-Aug-2014 17:23:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IR43N' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[18-Aug-2014 17:24:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OG87Q' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[20-Aug-2014 17:26:31] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AH85M' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[25-Aug-2014 17:28:48] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IY45U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[26-Aug-2014 12:21:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'UR67I' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:723
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(723): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 723
+[26-Aug-2014 12:47:36] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EF45D' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[26-Aug-2014 18:23:55] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OY418' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[29-Aug-2014 13:55:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AQ43R' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[01-Sep-2014 11:24:24] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AK63Z' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[04-Sep-2014 10:57:18] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EB61I' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[04-Sep-2014 16:33:51] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OK45O' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[11-Sep-2014 12:45:25] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EX21P' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[15-Sep-2014 10:38:57] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AD61Q' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:604
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(604): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 604
+[23-Sep-2014 20:50:33] PHP Parse error:  syntax error, unexpected ';' in /home/medica/public_html/registrosmedicos/api/api.php on line 980
+[23-Sep-2014 21:30:20] PHP Parse error:  syntax error, unexpected ';' in /home/medica/public_html/registrosmedicos/api/api.php on line 980
+[23-Sep-2014 17:17:56] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 980
+[23-Sep-2014 17:20:23] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 980
+[23-Sep-2014 17:21:49] PHP Fatal error:  Call to a member function query() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 980
+[23-Sep-2014 17:24:25] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/medica/public_html/registrosmedicos/api/api.php on line 998
+[23-Sep-2014 17:25:41] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'AUM_clave' cannot be null' in /home/medica/public_html/registrosmedicos/api/api.php:1010
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1010): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1010
