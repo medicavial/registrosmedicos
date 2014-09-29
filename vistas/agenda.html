@@ -1,6 +1,18 @@
 
 <div class="container" ng-init="inicio()">
-    <form class="form-horizontal" ng-submit="agenda()">
+        <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-target="#tab-one" ng-click="" data-toggle="tab">Agendar Cita</a>
+        </li>
+         <li >
+            <a href="#/hospitalarios" data-target="#tab-one" data-toggle="tab">Buscar Citas Pendientes</a>
+        </li>
+    </ul>
+    <form class="form-horizontal">
+    <br>
+    <fieldset>
+        <legend>Datos</legend>
+    </fieldset>
     <br>
     <div class="form-group">
         <label class="control-label col-xs-3">Clave Auntorización:</label>
@@ -21,10 +33,17 @@
         </div>
     </div>
     <div class="form-group">
-            <label for="folio" class="control-label col-xs-3">Fecha Registro</label>
+            <label for="folio" class="control-label col-xs-3">Fecha Registro:</label>
         <div class="col-xs-2">
-            <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.fecharegistro" data-date-format="YYYY-MM-DD" id="fechaAt">
+            <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.fecharegistro" data-date-format="YYYY-MM-DD" id="fechaAt" placeholder="Fecha">
         </div>
+    </div>
+    <div class="form-group">
+            <label for="folio" class="control-label col-xs-3">Hora de la Cita:</label>
+            <div class="col-xs-2">
+                    <input type='text' ng-disabled="edicion1"  class="form-control input-lg" ng-model="datos.horacita" id="hora" placeholder="Hora de la Cita">
+            </div>
+
     </div>
     <div class="form-group">
         <label class="control-label col-xs-3">Notas:</label>
@@ -39,11 +58,21 @@
         </div>
     </div>
     <br>
-    <div class="form-group">
-        <div class="col-xs-offset-3 col-xs-2">
-            <buttom type="submit" ng-click="agenda()" class="btn btn-primary" id="boton"> Enviar</buttom>
-            <buttom type="reset" class="btn btn-default"> Limpiar</buttom>
+    <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
+        <div class="row text-left">
+        <div class="col-md-4">
+            <button type="button" ng-click="agenda()" ng-hide="edicion" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar Confirmar</button>
+            <br>
         </div>
+        <div class="col-md-4">
+            <a type="button" ng-click="confirmar()" class="btn btn-danger btn-lg glyphicon glyphicon-book btn-block" > Guardar sin Confirmar </a>
+            <br>
+        </div>
+        <div class="col-md-4">
+            <a href="#/agenda" ng-click="inicio()" class="btn btn-default btn-lg glyphicon glyphicon-book btn-block" > Limpiar</a>
+            <br>
+        </div>
+
     </div>
 
     </form>
@@ -59,4 +88,9 @@
         language:'es'                  //sets language locale
 
     });
+        $(function () {
+                $('#hora').datetimepicker({
+                    pickDate: false
+                });
+            });
 </script>

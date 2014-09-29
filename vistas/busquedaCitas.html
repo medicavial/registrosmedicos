@@ -1,0 +1,77 @@
+<div ng-init="inicio()">
+<div id="tab-two" class="tab-pane">
+	    	<div ng-show="hospitalario == 1">
+		    	<form ng-submit="buscarAut">
+			        <div class="padding">
+				    	<div class="row">
+							<div class="col-md-3">
+								<label for="criterio">Folio</label>
+							    <input type="text" ng-model="busqueda.autorizacion" class="form-control input-lg" folio="verificaAutorizacion">
+							    <br>
+							</div>
+								</div>
+								<br>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<br>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+							</div>
+							
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="table-responsive">
+									<table class="table">
+								    <thead>
+								        <tr>
+								          <th>Clave</th>
+								          <th>Proveedor</th>
+								          <th>Costo</th>
+								          <th>Fecha</th>
+								          <th>Hora</th>
+								          <th>Observaciones</th>
+								          <th>Referencia</th>
+								          <th>Estatus</th>
+								      
+								        </tr>
+								    </thead>
+
+								    <tbody>
+								        <tr ng-repeat="hos in hospitalarios" >
+
+								          <td>{{hos.clave}}</td>
+								          <td>{{hos.unidad}}</td>
+								          <td>{{hos.cliente}}</td>
+								          <td>{{hos.folio}}</td>
+								          <td>{{hos.lesionado}}</td>
+								          <td>{{hos.poliza}}</td>
+								          <td>{{hos.siniestro}}</td>
+								          <td>{{hos.riesgo}}</td>
+								          <td>{{hos.reporte}}</td>
+								          <td>{{hos.fechacaptura}}</td>
+								          <td>{{hos.fechahospitalario}}</td>
+								          <td>{{hos.reporta}}</td>
+								          <td>{{hos.autoriza}}</td>
+								          <td>{{hos.motivo}}</td>
+								          <td>
+								              <a ng-href="#/hospitalario/{{hos.clave}}">Detalle</a>
+								          </td>
+								        </tr> 
+								    </tbody>
+								    
+								    </table>
+								</div>			
+							</div>
+						</div>		
+			    	</div>
+			    </form>
+	    	</div>
+	    	<div ng-hide="hospitalario == 0">
+	    		Tu usuario no tiene permisos para acceder aqui
+	    	</div>
+</div>
+</div>

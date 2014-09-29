@@ -624,3 +624,306 @@ Stack trace:
 #0 /home/medica/public_html/registrosmedicos/api/api.php(1010): PDOStatement->execute()
 #1 {main}
   thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1010
+[23-Sep-2014 20:08:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IW634' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:607
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(607): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 607
+[25-Sep-2014 18:11:32] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 630
+[25-Sep-2014 18:11:41] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 630
+[25-Sep-2014 18:11:41] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 630
+[25-Sep-2014 18:11:41] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 630
+[25-Sep-2014 18:11:41] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 630
+[25-Sep-2014 18:14:30] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 629
+[25-Sep-2014 18:14:32] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 629
+[25-Sep-2014 18:14:32] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 629
+[25-Sep-2014 18:14:32] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 629
+[25-Sep-2014 18:14:32] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 629
+[25-Sep-2014 18:16:02] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 623
+[25-Sep-2014 18:16:02] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 623
+[25-Sep-2014 18:16:02] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 623
+[25-Sep-2014 18:16:02] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home/medica/public_html/registrosmedicos/api/api.php on line 623
+[25-Sep-2014 13:22:22] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:22:22] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:22:22] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:22:22] PHP Warning:  include_once(lib/nomad_mimemail.inc.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 668
+[25-Sep-2014 13:22:22] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'lib/nomad_mimemail.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 668
+[25-Sep-2014 13:22:22] PHP Fatal error:  Class 'nomad_mimemail' not found in /home/medica/public_html/registrosmedicos/api/api.php on line 670
+[25-Sep-2014 13:37:11] PHP Warning:  Missing argument 1 for correo(), called in /home/medica/public_html/registrosmedicos/api/api.php on line 650 and defined in /home/medica/public_html/registrosmedicos/api/api.php on line 664
+[25-Sep-2014 13:37:11] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 666
+[25-Sep-2014 13:37:11] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 666
+[25-Sep-2014 13:37:11] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 666
+[25-Sep-2014 13:37:11] PHP Warning:  Missing argument 1 for correo(), called in /home/medica/public_html/registrosmedicos/api/api.php on line 650 and defined in /home/medica/public_html/registrosmedicos/api/api.php on line 664
+[25-Sep-2014 13:37:11] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 666
+[25-Sep-2014 13:37:11] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 666
+[25-Sep-2014 13:37:11] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 666
+[25-Sep-2014 13:37:11] PHP Warning:  include_once(lib/nomad_mimemail.inc.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:37:11] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'lib/nomad_mimemail.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:37:11] PHP Fatal error:  Class 'nomad_mimemail' not found in /home/medica/public_html/registrosmedicos/api/api.php on line 669
+[25-Sep-2014 13:37:11] PHP Warning:  include_once(lib/nomad_mimemail.inc.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:37:11] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'lib/nomad_mimemail.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 667
+[25-Sep-2014 13:37:11] PHP Fatal error:  Class 'nomad_mimemail' not found in /home/medica/public_html/registrosmedicos/api/api.php on line 669
+[25-Sep-2014 13:41:27] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 668
+[25-Sep-2014 13:41:27] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 668
+[25-Sep-2014 13:41:27] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 668
+[25-Sep-2014 13:41:27] PHP Warning:  include_once(lib/nomad_mimemail.inc.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 669
+[25-Sep-2014 13:41:27] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'lib/nomad_mimemail.inc.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 669
+[25-Sep-2014 13:41:27] PHP Fatal error:  Class 'nomad_mimemail' not found in /home/medica/public_html/registrosmedicos/api/api.php on line 671
+[25-Sep-2014 13:45:32] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IP476' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:649
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(649): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 649
+[25-Sep-2014 18:47:53] PHP Parse error:  syntax error, unexpected $end in /home/medica/public_html/registrosmedicos/api/api.php on line 308
+[25-Sep-2014 15:14:10] PHP Fatal error:  Function name must be a string in /home/medica/public_html/registrosmedicos/api/api.php on line 650
+[25-Sep-2014 16:38:07] PHP Fatal error:  Function name must be a string in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:39:14] PHP Fatal error:  Function name must be a string in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:51:53] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:51:53] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:51:53] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:51:53] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:51:53] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:51:53] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 652
+[25-Sep-2014 17:52:30] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 656
+[25-Sep-2014 17:52:30] PHP Warning:  include(lib/smtp.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 656
+[25-Sep-2014 17:52:30] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/smtp.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/medica/public_html/registrosmedicos/api/api.php on line 656
+[26-Sep-2014 12:40:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:40:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:40:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:40:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:40:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:40:45] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:40:46] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:41:25] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:52:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:56:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:56:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:56:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:56:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 12:59:51] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:02:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:12:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:12:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:13:27] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:15:53] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:28:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:28:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:32:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:32:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:32:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 13:32:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:01:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:25:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:28:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:22] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:22] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:32:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:42:41] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:44:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:44:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:44:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 14:59:36] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:18:25] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:20:19] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:20:19] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:21:33] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:24:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:30:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:32:04] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212
+[26-Sep-2014 15:32:41] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'AUM_clave' in where clause is ambiguous' in /home/medica/public_html/registrosmedicos/api/api.php:1212
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1212): PDO->query('SELECT a.AUM_cl...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1212

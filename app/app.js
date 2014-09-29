@@ -30,6 +30,16 @@ app.config(function($routeProvider){
             controller : 'busquedasCtrl'
     });
 
+    $routeProvider.when('/busquedaCitas',{
+            templateUrl: 'vistas/busquedaCitas.html',
+            controller : 'busquedaCitasCtrl'
+    });
+
+    $routeProvider.when('/cita',{
+            templateUrl: 'vistas/cita.html',
+            controller : 'citaCtrl'
+    });
+
 
     $routeProvider.when('/home',{
   			templateUrl: 'vistas/home.html'
@@ -187,6 +197,9 @@ app.factory("busqueda", function($http){
     return{
         autorizaciones:function(){
             return $http.get('api/api.php?funcion=consultaAutorizaciones');
+        },
+        citas:function(){
+            return $http.get('api/api.php?funcion=consultaAut');
         },
         empresas:function(){
             return $http.get('api/api.php?funcion=empresas');

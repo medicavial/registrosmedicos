@@ -532,6 +532,10 @@ if ($funcion == 'detalleAutorizacionMovimiento') {
 
 if ($funcion == 'guardaAutorizacion') {
 
+    include_once('../lib/nomad_mimemail.inc.php');
+
+     
+
     $postdata = file_get_contents("php://input");
     //aplicacmos json_decode para manejar los datos como arreglos de php
     //En este caso lo que mando es este objeto JSON {user:username,psw:password}
@@ -552,6 +556,48 @@ if ($funcion == 'guardaAutorizacion') {
     
     $fechacaprtura = date("Y-m-d H:i:s"); 
 
+
+    $html="<style type='text/css'>
+            <!--
+            .Estilo5 {font-size: smaller; font-weight: bold; border-collapse:collapse }
+            .Estilo7 {
+              color: #FFFFFF;
+              font-weight: bold;
+            }
+            .Estilo9 {font-size: smaller; font-weight: bold; color: #4A597A;}
+            .Estilo10 {color: #4A597A}
+            .Estilo11 {font-size: small; font-weight: bold; color: #4A597A; }
+            table {font-family: verdana,arial,sans-serif; font-size:11px; border-width: 1px; border-color:#D0E6FE; border-collapse: collapse;}
+            -->
+            </style>";
+    $html.="<table width='597' height='96' border='1'>
+          <tr>
+            <td colspan='9' align='center' bgcolor='#4A597A'><div align='center' class='Estilo7'>Autorizaciones Comerciales</div></td>
+          </tr>
+          <tr>
+            <td>Folio</td>
+            <td>Fecha</td>
+            <td>Cliente</td>
+            <td>Unidad</td>
+            <td>Lesionado</td>
+            <td>Edad</td>
+            <td>Medico Tratante</td>
+            <td>Diagnostico</td>
+            <td>Autorizacion Comercial</td>
+          </tr>
+          <tr>
+            <td>".$clave."</td>
+            <td>".$fecha."</td>
+            <td>".$empresa."</td>
+            <td>".$unidad."</td>
+            <td>".$lesionado."</td>
+            <td>".$edad."</td>
+            <td>".$medico."</td>
+            <td>".$diagnostico."</td>
+            <td>".$usuariocomercial."</td>
+          </tr>
+        </table>";
+    
     $db = conectarMySQL();
 
     if(!$db) {
@@ -605,7 +651,28 @@ if ($funcion == 'guardaAutorizacion') {
         $temporal->bindParam("usuariocomercial", $usuariocomercial, PDO::PARAM_INT);
         
         if ($temporal->execute()){
+
+           
             $respuesta = array('respuesta' => "Los Datos se guardaron Correctamente", "clave" => $clave);
+            //$correo($html);
+
+            $mimemail = new nomad_mimemail();
+            $mimemail->set_from("reportes@medicavial.com.mx");
+            $mimemail->set_to("agutierrez@medicavial.com.mx");
+            $mimemail->add_cc("jsanchez@medicavial.com.mx");
+            $mimemail->add_bcc("adominguez@medicavial.com.mx");
+
+            $mimemail->set_subject("Autorizaciones Comerciales");
+        
+            $mimemail->set_html("$html");
+
+            if ($mimemail->send()){
+        //    echo "The MIME Mail has been sent";
+            }
+             else {
+        //    echo "An error has occurred, mail was not sent";
+            }
+
         }else{
             $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información", "clave" => $clave);
         }
@@ -957,6 +1024,7 @@ if ($funcion == 'usuariosComerciales') {
     }
      
 }
+///     ANA  //////
 
 if ($funcion == 'agenda') {
 
@@ -969,6 +1037,7 @@ if ($funcion == 'agenda') {
     $proveedor = $datos->proveedor;
     $costo = $datos->costo;
     $fecharegistro = $datos->fecharegistro;
+    $horacita = $datos ->horacita;
     $notas = $datos->notas;
     $referencia = $datos->referencia;
 
@@ -991,9 +1060,11 @@ if ($funcion == 'agenda') {
                             ,RC_proveedor
                             ,RC_costo
                             ,RC_fechahora
+                            ,RC_hora
                             ,RC_obs
                             ,RC_inforeferencia
-                ) VALUES (:aum_clave,:proveedor,:costo,:fecharegistro,:notas,:referencia)";
+                            ,RC_status
+                ) VALUES (:aum_clave,:proveedor,:costo,:fecharegistro,:horacita,:notas,:referencia,'Confirmado')";
         
         $temporal = $db->prepare($sql);
 
@@ -1004,11 +1075,12 @@ if ($funcion == 'agenda') {
         $temporal->bindParam("proveedor", $proveedor);
         $temporal->bindParam("costo", $costo);
         $temporal->bindParam("fecharegistro", $fecharegistro);
+        $temporal->bindParam("horacita", $horacita);
         $temporal->bindParam("notas", $notas);
         $temporal->bindParam("referencia", $referencia);
         
         if ($temporal->execute()){
-            $respuesta = array('respuesta' => "Los Datos se guardaron Correctamente");
+            $respuesta = array('respuesta' => "Cita Confirmada");
         }else{
             $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información");
         }
@@ -1022,5 +1094,157 @@ if ($funcion == 'agenda') {
     $conexion = null;
 }
 
+if ($funcion == 'confirmar') {
+
+    $postdata = file_get_contents("php://input");
+    //aplicacmos json_decode para manejar los datos como arreglos de php
+    //En este caso lo que mando es este objeto JSON {user:username,psw:password}
+    $datos = json_decode($postdata);
+
+    $AUMClave = $datos->aum_clave;
+    $proveedor = $datos->proveedor;
+    $costo = $datos->costo;
+    $fecharegistro = $datos->fecharegistro;
+    $horacita = $datos ->horacita;
+    $notas = $datos->notas;
+    $referencia = $datos->referencia;
+
+    $db = conectarMySQL();
+
+    
+    $sql = "SELECT * FROM RegistroCitas 
+                WHERE AUM_clave = '$AUMClave'";
+    $result = $db->query($sql);
+    $numero = $result->rowCount();
+    
+    if ($numero>0){
+
+        $respuesta = array('respuesta' => 'La autorización ya existe');
+        
+    }else{
+
+        $sql = "INSERT INTO RegistroCitas  (
+                            AUM_clave
+                            ,RC_proveedor
+                            ,RC_costo
+                            ,RC_fechahora
+                            ,RC_hora
+                            ,RC_obs
+                            ,RC_inforeferencia
+                            ,RC_status
+                ) VALUES (:aum_clave,:proveedor,:costo,:fecharegistro,:horacita,:notas,:referencia,'Por confirmar')";
+        
+        $temporal = $db->prepare($sql);
+
+        // $temporal->bindParam("clave", $clave, PDO::PARAM_INT);
+        // $temporal->bindParam("nombre", $nombre, PDO::PARAM_STR);
+
+        $temporal->bindParam("aum_clave", $AUMClave);
+        $temporal->bindParam("proveedor", $proveedor);
+        $temporal->bindParam("costo", $costo);
+        $temporal->bindParam("fecharegistro", $fecharegistro);
+        $temporal->bindParam("horacita", $horacita);
+        $temporal->bindParam("notas", $notas);
+        $temporal->bindParam("referencia", $referencia);
+        
+        if ($temporal->execute()){
+            $respuesta = array('respuesta' => "Cita Agendada");
+        }else{
+            $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información");
+        }
+        
+    }
+
+
+    
+    echo json_encode($respuesta);
+
+    $conexion = null;
+}
+
+if ($funcion == 'buscarAutorizacion') {
+   
+    $postdata = file_get_contents("php://input");
+
+    $datos = json_decode($postdata);
+
+
+    $db = conectarMySQL();
+
+    $folio = $datos->folio;
+    $autorizacion = $datos->autorizacion;
+
+
+
+    $sql = "SELECT a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
+            INNER JOIN MovimientoAut b on a.AUM_clave=b.AUM_clave
+            INNER JOIN TipoMovimiento c on b.TIM_claveint=c.TIM_claveint
+            INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
+            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave";
+
+    if ($folio != '') {
+        
+        $criterio1 = " WHERE ";
+        $criterio1 .= "AUM_folioMV = '$folio'";
+
+    }else{
+        $criterio1 = "";
+    }
+
+    if ($autorizacion != '') {
+
+        if ($criterio1 == '' ) {
+            $criterio2 = " WHERE ";
+        }else{
+            $criterio2 = " AND ";
+        }
+
+        $criterio2 .= "AUM_clave = '$autorizacion' ";
+
+    }else{
+
+        $criterio2 = "";
+
+    }
+
+    $sql .= $criterio1 . $criterio2;
+
+    $result = $db->query($sql);
+    $autorizaciones = $result->fetchAll(PDO::FETCH_OBJ);
+    $db = null;
+
+
+    echo json_encode($autorizaciones);
+
+     //echo $sql;
+
+}
+if ($funcion == 'consultaAut') {
+
+    $db = conectarMySQL();
+
+    if(!$db) {
+
+        die('Something went wrong while connecting to MSSQL');
+
+    }else{
+        
+        $sql = "SELECT  a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
+                INNER JOIN MovimientoAut b on a.AUM_clave=b.AUM_clave
+                INNER JOIN TipoMovimiento c on b.TIM_claveint=c.TIM_claveint
+                INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
+                INNER JOIN Compania e on a.EMP_claveint=e.cia_clave";
+
+
+        $result = $db->query($sql);
+        $empresas = $result->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+
+        echo json_encode($empresas);
+        echo $sql;
+
+    }
+    
+}
 
 ?>

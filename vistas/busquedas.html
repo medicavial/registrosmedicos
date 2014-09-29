@@ -4,7 +4,7 @@
 	    <li class="active">
 	        <a data-target="#tab-one" ng-click="buscaautorizaciones()" data-toggle="tab">Autorizaciones</a>
 	    </li>
-	    <li  ng-show="hospitalario == 1">
+	    <li >
 	        <a data-target="#tab-two" ng-click="buscahospitalarios()" data-toggle="tab">Hosptalarios</a>
 	    </li>
 	</ul>
@@ -121,7 +121,7 @@
 	    	</form>
 	    </div>
 	    <div id="tab-two" class="tab-pane">
-	    	<div ng-show="hospitalario == 1">
+	    <!--	<div ng-show="hospitalario == 1"> !-->
 		    	<form ng-submit="buscarHos()">
 			        <div class="padding">
 				    	<div class="row">
@@ -239,10 +239,10 @@
 						</div>		
 			    	</div>
 			    </form>
-	    	</div>
-	    	<div ng-hide="hospitalario == 0">
+	<!--    	</div> 
+   	    	<div ng-hide="hospitalario == 0">
 	    		Tu usuario no tiene permisos para acceder aqui
-	    	</div>
+	    	</div> !-->
 	    </div>
 	</div>
 
