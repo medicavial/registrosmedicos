@@ -4,12 +4,12 @@
 			<h1>{{ titulo }}</h1>
 		</div>
 		<div class="col-md-8">
-			<div class="valor row">
+			<div class="valor row" ng-show="autorizacion">
 
 				<div class="clave">
 					Autorizacion No.:<span class="digito">{{ autorizacion }}</span>
 				</div>
-				<div class="imprime">
+				<div class="imprime" >
 					<a href="#/impresion/autorizacion/{{ autorizacion }}"><i class="glyphicon glyphicon-print"></i></a>
 				</div>
 
@@ -75,10 +75,21 @@
 	</div>
 	<br>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-sm-4 col-md-4 text-center">
+
+			<label for="">¿Requiere autorización comercial?</label>
+			<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a><br>
+			<label class="radio-inline">
+			  <input type="radio" name="valor" id="1" ng-click="aut = true"> SI
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="valor" id="2" ng-click="aut = false" checked > NO
+			</label>
+
+		</div>
+		<div class="col-sm-4 col-md-4" ng-show="aut">
 			<label for="unidad">Autorización Comercial</label>
-			<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a>
-			<select class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.autorizacioncomercial" ng-options="usuario.id as usuario.Nombre for usuario in usuarios">
+			<select class="form-control  input-lg" ng-model="datos.autorizacioncomercial" ng-options="usuario.id as usuario.Nombre for usuario in usuarios">
 				<option value="">Autorización Comercial</option>
 			</select>
 			
