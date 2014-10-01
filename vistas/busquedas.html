@@ -5,7 +5,7 @@
 	        <a data-target="#tab-one" ng-click="buscaautorizaciones()" data-toggle="tab">Autorizaciones</a>
 	    </li>
 	    <li >
-	        <a data-target="#tab-two" ng-click="buscahospitalarios()" data-toggle="tab"  ng-show="hospitalario == 1">Hosptalarios</a>
+	        <a data-target="#tab-two" ng-click="buscahospitalarios()" data-toggle="tab" ng-show="hospitalario" >Hosptalarios</a>
 	    </li>
 	</ul>
 
@@ -99,7 +99,10 @@
 							    <tbody>
 							        <tr ng-repeat="auto in autorizaciones" >
 
-							          <td>{{auto.clave}}</td>
+							          <td>
+							          	<a ng-href="#/autorizacion/{{auto.clave}}">{{auto.clave}}
+							          	</a>
+							          </td>
 							          <td>{{auto.fecha}}</td>
 							          <td>{{auto.cliente}}</td>
 							          <td>{{auto.unidad}}</td>
@@ -107,9 +110,6 @@
 							          <td>{{auto.folio}}</td>
 							          <td>{{auto.fecharegistro}}</td>
 							          <td>{{auto.usuario}}</td>
-							          <td>
-							              <a ng-href="#/autorizacion/{{auto.clave}}">Detalle</a>
-							          </td>
 							        </tr> 
 							    </tbody>
 							    
@@ -213,7 +213,9 @@
 								    <tbody>
 								        <tr ng-repeat="hos in hospitalarios" >
 
-								          <td>{{hos.clave}}</td>
+								          <td>
+								          	<a ng-href="#/hospitalario/{{hos.clave}}">{{hos.clave}}</a>
+								          </td>
 								          <td>{{hos.unidad}}</td>
 								          <td>{{hos.cliente}}</td>
 								          <td>{{hos.folio}}</td>
@@ -227,9 +229,6 @@
 								          <td>{{hos.reporta}}</td>
 								          <td>{{hos.autoriza}}</td>
 								          <td>{{hos.motivo}}</td>
-								          <td>
-								              <a ng-href="#/hospitalario/{{hos.clave}}">Detalle</a>
-								          </td>
 								        </tr> 
 								    </tbody>
 								    

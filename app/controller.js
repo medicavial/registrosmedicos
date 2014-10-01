@@ -30,6 +30,7 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 	
 	$scope.inicio = function(){
 		$scope.titulo = 'Autorizaciones Médicas';
+		$scope.autoriza = 0;
 		$scope.altaunidad();
 		$scope.altacliente();
 		$scope.tipoMov();
@@ -209,6 +210,10 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 
 		try{
 
+			if (!$scope.aut) {
+				$scope.datos.autorizacioncomercial = '';
+			};
+
 			$scope.mensaje ='';
 
 			$http({
@@ -346,10 +351,19 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 				medico:data[0].AUM_medico,
 				diagnostico:data[0].AUM_diagnostico,
 				folio:data[0].AUM_folioMV,
-				usuario:$rootScope.clave
+				usuario:$rootScope.clave,
+				autorizacioncomercial:data[0].UCO_claveint
 			}
 
 			$scope.autorizacion = data[0].AUM_clave;
+
+			if ($scope.datos.autorizacioncomercial) {
+				$scope.aut = true;
+				$scope.autoriza = 1;
+			}else{
+				$scope.aut = false;
+				$scope.autoriza = 0;
+			}
 
 			$scope.muestramovimientos();
 
@@ -741,6 +755,8 @@ function hospitalariosCtrl($scope,$http, busqueda,$rootScope, $filter){
 	
 	$scope.inicio = function(){
 		$scope.titulo = 'Hospitalarios';
+
+		$scope.hospitalario = '';
 		$scope.altaunidad();
 		$scope.altacliente();
 		$scope.altariesgo();
@@ -775,6 +791,7 @@ function hospitalariosCtrl($scope,$http, busqueda,$rootScope, $filter){
 			unidad:'',
 			usuario:$rootScope.clave
 		}
+
 
 		$scope.edicion = false;
 	}

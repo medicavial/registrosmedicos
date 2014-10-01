@@ -80,10 +80,10 @@
 			<label for="">¿Requiere autorización comercial?</label>
 			<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a><br>
 			<label class="radio-inline">
-			  <input type="radio" name="valor" id="1" ng-click="aut = true"> SI
+			  <input type="radio" name="valor" id="1" ng-model="autoriza" value="1" ng-click="aut = true"> SI
 			</label>
 			<label class="radio-inline">
-			  <input type="radio" name="valor" id="2" ng-click="aut = false" checked > NO
+			  <input type="radio" name="valor" id="2" ng-model="autoriza" value="0"ng-click="aut = false"> NO
 			</label>
 
 		</div>
