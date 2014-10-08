@@ -1,16 +1,19 @@
-app.controller('agendaCtrl', function($scope, $http) {
+app.controller('agendaCtrl', function($scope, $http, $location) {
     
     $scope.inicio = function(){
 
     	$scope.datos= {
 
-	    	aum_clave : '',
+            autorizacion : autorizacion,
 	    	proveedor :'',
 	    	costo : '',
-	    	fecharegistro :FechaAct,
-	    	horacita :hora,
+	    	cita:'',
 	    	notas : '',
 	    	referencia : '',
+	    	fechacita :FechaAct,
+	    	horacita :hora,
+	    	paciente :'',
+	    	proveedor1 :''
     	}
     	
     }
@@ -37,7 +40,8 @@ app.controller('agendaCtrl', function($scope, $http) {
 		         console.log(data);
 		        $scope.mensaje = data.respuesta;
 		        $scope.alerta = 'alert-success';
-		        $scope.aum_clave = data.aum_clave;
+		        $scope.autorizacion = data.autorizacion;
+		        $location.path("/seguimiento");
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){
@@ -75,7 +79,8 @@ app.controller('agendaCtrl', function($scope, $http) {
 		         console.log(data);
 		        $scope.mensaje = data.respuesta;
 		        $scope.alerta = 'alert-success';
-		        $scope.aum_clave = data.aum_clave;
+		        $scope.autorizacion = data.autorizacion;
+
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){

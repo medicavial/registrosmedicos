@@ -15,19 +15,19 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Proveedor:</label>
         <div class="col-xs-3">
-            <input type="text" class="form-control" id="proveedor" ng-model="datos.proveedor" placeholder="Proveedor" mayusculas>
+            <input type="text" class="form-control" id="proveedor" ng-model="datos.proveedor" placeholder="Proveedor" ng-disabled="edicion" mayusculas>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-3">Costo Estimado:</label>
         <div class="col-xs-2">
-            <input type="text" class="form-control" id="costo" ng-model="datos.costo" placeholder="Costo"  mayusculas>
+            <input type="text" class="form-control" id="costo" ng-model="datos.costo" placeholder="Costo"  ng-disabled="edicion" mayusculas>
         </div>
     </div>
     <div class="form-group">
           <label class="control-label col-xs-3">Tipo de Cita</label>
           <div class="col-xs-4">
-          <select class="form-control  input-lg" ng-model="datos.cita" mayusculas>
+          <select class="form-control  input-lg" ng-model="datos.cita" ng-disabled="edicion" mayusculas>
             <option value="">Tipo de Cita</option>
             <option value="4">Interconsultas</option>
             <option value="3">Estudio Especial</option>
@@ -37,13 +37,13 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Notas:</label>
         <div class="col-xs-9">
-            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.notas" id="notas"  mayusculas></textarea>
+            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.notas" id="notas"  ng-disabled="edicion" mayusculas></textarea>
         </div>
     </div>
         <div class="form-group">
         <label class="control-label col-xs-3">Informacion de Referencia:</label>
         <div class="col-xs-9">
-            <textarea rows="2" class="form-control" placeholder="Informacion de Referencia" ng-model="datos.referencia" id="referencia"  mayusculas></textarea>
+            <textarea rows="2" class="form-control" placeholder="Informacion de Referencia" ng-model="datos.referencia" id="referencia"  ng-disabled="edicion" mayusculas></textarea>
         </div>
     </div>
     <br>
@@ -84,11 +84,7 @@
     <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
         <div class="row text-left">
         <div class="col-md-4">
-            <button type="button" ng-click="agenda()" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar Confirmar</button>
-            <br>
-        </div>
-        <div class="col-md-4">
-            <a type="button" ng-click="confirmar()" class="btn btn-danger btn-lg glyphicon glyphicon-book btn-block" > Guardar sin Confirmar </a>
+            <button type="button" ng-click="actualiza()" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar Confirmar</button>
             <br>
         </div>
         <div class="col-md-4">

@@ -2,7 +2,18 @@
 	<br>
 	<fieldset>
 		<legend>Agendar Cita</legend>
+		<h1>{{ contador }}</h1>
 	</fieldset>
+		<ul class="nav nav-tabs">
+	    <li class="active">
+	        <a data-target="#tab-one" ng-click="buscaautorizaciones()" data-toggle="tab">Agendar Cita</a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-two" ng-click="buscaconfirmaciones()" data-toggle="tab">Confirmar Cita</a>
+	    </li>
+	</ul>
+    <div class="tab-content">
+	    <div id="tab-one" class="tab-pane active">
 	    	<form ng-submit="buscarAutorizacion()">
 		        <div class="padding">
 					<div class="row">
@@ -18,11 +29,11 @@
 						</div>						
 					</div>
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<br>
 							<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<br>
 							<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
 						</div>
@@ -36,7 +47,6 @@
 							    <thead>
 							        <tr>
 							          <th>Autorizacion</th>
-							          <th>Tipo</th>
 							          <th>Paciente</th>
 							          <th>Unidad Medica</th>
 							          <th>Fecha</th>
@@ -45,16 +55,77 @@
 							    </thead>
 
 							    <tbody>
-							        <tr ng-repeat="auto in autorizaciones" >
+							        <tr ng-repeat="auto in autoriza" >
 
 							          <td>{{auto.autorizacion}}</td>
-							          <td>{{auto.tipo}}</td>
 							          <td>{{auto.lesionado}}</td>
 							          <td>{{auto.unidad}}</td>
 							          <td>{{auto.fecha}}</td>
 							          <td>{{auto.cliente}}</td>
 							          <td>
-							              <a ng-href="#/autorizacion/{{auto.autorizacion}}">Detalle</a>
+							              <a ng-href="#/agenda/{{auto.autorizacion}}" class="btn btn-primary">Agendar</a>
+							          </td>
+							        </tr> 
+							    </tbody>
+							    
+							    </table>
+							</div>
+						</div>
+					</div>	
+		    	</div>
+	    	</form>
+	    </div>
+
+<div id="tab-two" class="tab-pane">
+   <form ng-submit="buscarConfirmados()">
+		        <div class="padding">
+		        	<div class="row">
+						<div class="col-md-3">
+							<label for="criterio">Folio</label>
+						    <input type="text" ng-model="confirma.folio" class="form-control input-lg" folio="verificaFolioA">
+						    <br>
+						</div>
+						<div class="col-md-3">
+							<label for="criterio">Autorización</label>
+						    <input type="text" ng-model="confirma.autorizacion" class="form-control input-lg" mayusculas>
+						    <br>
+						</div>						
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							<br>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+						</div>
+						<div class="col-md-2">
+							<br>
+							<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+						</div>
+					</div>
+					<div class="row">
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table">
+									
+							    <thead>
+							        <tr>
+							          <th>Autorizacion</th>
+							          <th>Tipo</th>
+							          <th>Paciente</th>
+							          <th>Proveedor</th>
+							        </tr>
+							    </thead>
+
+							    <tbody>
+							        <tr ng-repeat="con in confirma" >
+
+							          <td>{{con.autorizacion}}</td>
+							          <td>{{con.tipo}}</td>
+							          <td>{{con.paciente}}</td>
+							          <td>{{con.proveedor}}</td>
+							          <td>
+							              <a ng-href="#/confirma/{{con.autorizacion}}" class="btn btn-primary">Confirmar</a>
 							          </td>
 							        </tr> 
 							    </tbody>
@@ -66,62 +137,5 @@
 		    	</div>
 	    	</form>
 </div>
-<br>
-	<fieldset>
-		<legend>Confirmar Cita</legend>
-	</fieldset>
-	<form name="formAut" novalidate>
-	<div class="row">
-		<div class="col-md-2">
-	        <label for="folio">Autorización</label>
-	        <input type="text" id="autorizacion" class="form-control  input-lg" ng-keydown="presionaFolio" ng-maxlength="10" ng-disabled="edicion" ng-model="datos.autorizacion"  mayusculas >
-	    </div>
-
-	<div class="col-md-3">
-          <label for="unidad">Tipo Autorización</label>
-          <select class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.tipo" ng-options="unidad.id as unidad.Nombre for unidad in unidades" required>
-            <option value="">Tipo Autorizaión</option>
-          </select>
-        </div>
-
-
-        <div class="col-md-2">
-	        <label for="folio">Paciente</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad">
-	    </div>
-
-	    <div class="col-md-2">
-	        <label for="folio">Fecha de Registro</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad">
-	    </div>
-
-	    <div class="col-md-2">
-	        <label for="folio">Proveedor</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad">
-	    </div>
-	</div>
-	<br>
-	<div class="row">
-		
-		<div class="col-md-6">
-	        <label for="folio">Lesionado</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.nombrelesionado"  mayusculas required>
-	    </div>
-	<br><br>
-	<div ng-show="mensaje" class="alert  animate-show text-center" ng-class="tipoalerta">{{ mensaje }}</div>
-	<br>
-	<div class="row padding text-center">
-		<div class="col-md-3">
-			<button type="button" ng-hide="edicion" ng-click="guardar()" ng-disabled="formAut.$invalid" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar</button>
-			<br>
-		</div>
-		<div class="col-md-3">
-			<a href="#/cita" ng-click="inicio()" class="btn btn-default btn-lg btn-block glyphicon glyphicon-book"> Limpiar</a>
-			<br>
-		</div>
-	</div>
-	</form>
 </div>
-</div>
-
 </div>

@@ -448,6 +448,7 @@ if ($funcion == 'consultaHospitalarios') {
     
 }
 
+
 if ($funcion == 'detalleAutorizacion') {
 
     $numeroautorizacion = $_REQUEST['numero'];
@@ -531,11 +532,15 @@ if ($funcion == 'detalleAutorizacionMovimiento') {
 
 if ($funcion == 'guardaAutorizacion') {
 
+    include_once('../lib/nomad_mimemail.inc.php');
+
+     
     $postdata = file_get_contents("php://input");
     //aplicacmos json_decode para manejar los datos como arreglos de php
     //En este caso lo que mando es este objeto JSON {user:username,psw:password}
     $datos = json_decode($postdata);
 
+    $folio = $datos->folio;
     $empresa = $datos->cliente;
     $unidad = $datos->unidad;
     $fecha = $datos->fecha;
@@ -544,7 +549,6 @@ if ($funcion == 'guardaAutorizacion') {
     $medico = $datos->medico;
     $diagnostico = $datos->diagnostico;
     $usuario = $datos->usuario;
-    $folio = $datos->folio;
     //$usuariocomercial = $datos->autorizacioncomercial;
     
     $clave = generar_clave(); //generar clave
@@ -617,9 +621,6 @@ if ($funcion == 'guardaAutorizacion') {
         echo json_encode($respuesta);
 
     }
-
-
-
     
 }
 
@@ -744,8 +745,6 @@ if ($funcion == 'guardaHospitalario') {
 }
 
 if ($funcion == 'guardaMovimiento') {
-    
-    include_once('../lib/nomad_mimemail.inc.php');
 
     $postdata = file_get_contents("php://input");
     //aplicacmos json_decode para manejar los datos como arreglos de php
@@ -757,7 +756,7 @@ if ($funcion == 'guardaMovimiento') {
     $fecha = $datos->fecha;
     $texto = $datos->descripcion;
     $usuario = $datos->usuario;
-    $usuariocomercial = $datos->autorizacioncomercial;
+    $usuariocomercial = $datos->usuariocomercial;
 
     $db = conectarMySQL();
 
@@ -793,8 +792,7 @@ if ($funcion == 'guardaMovimiento') {
                    USU_registro,
                    MOA_claveAut,
                    MOA_autorizado,
-                   MOA_fechaReg,
-                   UCO_claveint
+                   MOA_fechaReg
               )   
               VALUES
               (
@@ -806,8 +804,7 @@ if ($funcion == 'guardaMovimiento') {
                     :usuario,
                     NULL,
                     1,
-                    now(),
-                    :usuariocomercial
+                    now()
               )";
 
         $temporal = $db->prepare($sql);
@@ -817,7 +814,6 @@ if ($funcion == 'guardaMovimiento') {
         $temporal->bindParam("fecha", $fecha);
         $temporal->bindParam("texto", $texto , PDO::PARAM_STR);
         $temporal->bindParam("usuario", $usuario , PDO::PARAM_INT);
-        $temporal->bindParam("usuariocomercial", $usuario , PDO::PARAM_INT);
 
         if ($temporal->execute()){
             $respuesta = array('respuesta' => "Los Datos se guardaron Correctamente");
@@ -851,7 +847,7 @@ if ($funcion == 'guardaMovimiento') {
                 }
 
 
-                $contenido = generaTabla($AUMClave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad,$medico,$diagnostico,$nombreComercial,$nombreMovimiento,$texto);
+                $contenido = generaTabla($clave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad,$medico,$diagnostico,$nombreComercial,$nombreMovimiento,$texto);
                 
                 $mimemail = new nomad_mimemail();
                 $mimemail->set_from("reportes@medicavial.com.mx");
@@ -1068,9 +1064,8 @@ if ($funcion == 'agenda') {
                             ,RC_inforeferencia
                             ,RC_fechahora
                             ,RC_hora
-                            ,RC_paciente  
-                            ,RC_fecharegistro                          
-                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'Confirmado',:referencia,:fechacita,:horacita,:paciente, now())";
+                            ,RC_paciente                            
+                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'Confirmado',:referencia,:fechacita,:horacita,:paciente)";
         
         $temporal = $db->prepare($sql);
 
@@ -1112,17 +1107,13 @@ if ($funcion == 'confirmar') {
     //En este caso lo que mando es este objeto JSON {user:username,psw:password}
     $datos = json_decode($postdata);
 
-    $AUMClave = $datos->autorizacion;
+    $AUMClave = $datos->aum_clave;
     $proveedor = $datos->proveedor;
     $costo = $datos->costo;
-    $cita = $datos->cita;
+    $fecharegistro = $datos->fecharegistro;
+    $horacita = $datos ->horacita;
     $notas = $datos->notas;
     $referencia = $datos->referencia;
-    $fechacita = $datos->fechacita;
-    $horacita = $datos ->horacita;
-    $paciente = $datos ->paciente;
-    $proveedor1 = $datos ->proveedor1;
-    
 
     $db = conectarMySQL();
 
@@ -1142,46 +1133,37 @@ if ($funcion == 'confirmar') {
                             AUM_clave
                             ,RC_proveedor
                             ,RC_costo
-                            ,RC_tipocita
-                            ,RC_obs
-                            ,RC_conproveedor
-                            ,RC_status
-                            ,RC_inforeferencia
                             ,RC_fechahora
                             ,RC_hora
-                            ,RC_paciente    
-                            ,RC_fecharegistro                        
-                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'Por confirmar',:referencia,:fechacita,:horacita,:paciente, now())";
+                            ,RC_obs
+                            ,RC_inforeferencia
+                            ,RC_status
+                ) VALUES (:aum_clave,:proveedor,:costo,:fecharegistro,:horacita,:notas,:referencia,'Por confirmar')";
         
         $temporal = $db->prepare($sql);
 
         // $temporal->bindParam("clave", $clave, PDO::PARAM_INT);
         // $temporal->bindParam("nombre", $nombre, PDO::PARAM_STR);
 
-        $temporal->bindParam("autorizacion", $AUMClave);
+        $temporal->bindParam("aum_clave", $AUMClave);
         $temporal->bindParam("proveedor", $proveedor);
         $temporal->bindParam("costo", $costo);
-        $temporal->bindParam("cita", $cita);
-        $temporal->bindParam("notas", $notas);
-        $temporal->bindParam("proveedor1", $proveedor1);
-        $temporal->bindParam("referencia", $referencia);
-        $temporal->bindParam("fechacita", $fechacita);
+        $temporal->bindParam("fecharegistro", $fecharegistro);
         $temporal->bindParam("horacita", $horacita);
-        $temporal->bindParam("paciente", $paciente);
-        
-        
-        
+        $temporal->bindParam("notas", $notas);
+        $temporal->bindParam("referencia", $referencia);
         
         if ($temporal->execute()){
-            $respuesta = array('respuesta' => "Cita por confirmar");
+            $respuesta = array('respuesta' => "Cita Agendada");
         }else{
             $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información");
         }
         
     }
+
+
     
     echo json_encode($respuesta);
-    //echo $sql;
 
     $conexion = null;
 }
@@ -1200,13 +1182,17 @@ if ($funcion == 'buscarAutorizacion') {
 
 
 
-    $sql = "SELECT  a.AUM_clave as autorizacion, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
+    $sql = "SELECT a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
+            INNER JOIN MovimientoAut b on a.AUM_clave=b.AUM_clave
+            INNER JOIN TipoMovimiento c on b.TIM_claveint=c.TIM_claveint
             INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
-            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave WHERE";
+            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave
+            where b.TIM_claveint='3' or b.TIM_claveint='4' order by AUM_fechareg desc limit 20";
 
     if ($folio != '') {
-
-        $criterio1 = " a.AUM_clave = '$folio' ";
+        
+        $criterio1 = " WHERE ";
+        $criterio1 .= "AUM_folioMV = '$folio'";
 
     }else{
         $criterio1 = "";
@@ -1215,37 +1201,28 @@ if ($funcion == 'buscarAutorizacion') {
     if ($autorizacion != '') {
 
         if ($criterio1 == '' ) {
+            $criterio2 = " WHERE ";
         }else{
             $criterio2 = " AND ";
         }
 
-        $criterio2 = " a.AUM_clave = '$autorizacion' ";
+        $criterio2 .= "AUM_clave = '$autorizacion' ";
 
     }else{
 
         $criterio2 = "";
 
-    }    
+    }
 
-         $criterio3 = "and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave)";
-
-
-    $sql .= $criterio1 . $criterio2 . $criterio3;
-    
+    $sql .= $criterio1 . $criterio2;
 
     $result = $db->query($sql);
-    $autoriza = $result->fetchAll(PDO::FETCH_OBJ);
+    $autorizaciones = $result->fetchAll(PDO::FETCH_OBJ);
     $db = null;
 
-    echo json_encode($autoriza);
 
-    $sql2 ="select count(*) from AutorizacionMedica WHERE AUM_fechaReg like '2014-10-08%' Order By AUM_fechaReg DESC";
-    $result = $db->query($sql2);
-    $contador = $result->fetchAll(PDO::FETCH_OBJ);
-    $db = null;
+    echo json_encode($autorizaciones);
 
-    $respuesta = $autoriza = array('respuesta' => $autoriza, 'contador' => $contador);
-    echo json_encode($respuesta);
     //echo $sql;
 
 }
@@ -1259,227 +1236,37 @@ if ($funcion == 'consultaAut') {
 
     }else{
         
-        $sql = "SELECT  a.AUM_clave as autorizacion, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
-                FROM AutorizacionMedica a
+        $sql = "SELECT  a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
+                INNER JOIN MovimientoAut b on a.AUM_clave=b.AUM_clave
+                INNER JOIN TipoMovimiento c on b.TIM_claveint=c.TIM_claveint
                 INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
-                INNER JOIN Compania e on a.EMP_claveint=e.cia_clave
-                where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave)
-                ORDER BY AUM_fechareg DESC LIMIT 30";
+                INNER JOIN Compania e on a.EMP_claveint=e.cia_clave";
 
 
         $result = $db->query($sql);
-        $autoriza = $result->fetchAll(PDO::FETCH_OBJ);
+        $empresas = $result->fetchAll(PDO::FETCH_OBJ);
         $db = null;
 
-        echo json_encode($autoriza);
+        echo json_encode($empresas);
         //echo $sql;
 
     }
     
 }
-if ($funcion == 'buscarConfirmados') {
-   
-    $postdata = file_get_contents("php://input");
-
-    $datos = json_decode($postdata);
-
-
-    $db = conectarMySQL();
-
-    $folio = $datos->folio;
-    $autorizacion = $datos->autorizacion;
-
-
-
-    $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
-            INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint WHERE";
-
-    if ($folio != '') {
-
-        $criterio1 = " AND ";
-        $criterio1 .= "AUM_folioMV = '$folio'";
-
-    }else{
-        $criterio1 = "";
-    }
-
-    if ($autorizacion != '') {
-
-        if ($criterio1 == '' and $criterio0 != '') {
-        }else{
-            $criterio2 = " AND ";
-        }
-
-        $criterio2 .= "AUM_clave = '$autorizacion' ";
-
-    }else{
-
-        $criterio2 = "";
-
-    }
-
-        $criterio0 = " RC_status='Por confirmar'";
-
-    $sql .= $criterio0 . $criterio1 . $criterio2;
-
-    $result = $db->query($sql);
-    $confirmaciones = $result->fetchAll(PDO::FETCH_OBJ);
-    $db = null;
-
-
-    echo json_encode($confirmaciones);
-
-    //echo $sql;
-
-}
 
 if ($funcion == 'detalleAgenda') {
 
-    $numeroautorizacion = $_REQUEST['autorizacion'];
-
-    $db = conectarMySQL();
-
-    if(!$db) {
-
-        die('Something went wrong while connecting to MSSQL');
-
-    }else{
-        
-        $sql = "SELECT * FROM RegistroCitas a
-                INNER JOIN TipoMovimiento b on b.TIM_claveint=a.RC_tipocita
-                where AUM_clave = '$numeroautorizacion'";
-
-        $result = $db->query($sql);
-        $autorizacion = $result->fetchAll(PDO::FETCH_OBJ);
-
-        $db = null;
+    $autorizacion = $_REQUEST['autorizacion'];
 
         echo json_encode($autorizacion);
 
     }
 
-    }
-
-    if ($funcion == 'detallealtacita') {
-
-    $numeroautorizacion = $_REQUEST['autorizacion'];
-
-    $db = conectarMySQL();
-
-    if(!$db) {
-
-        die('Something went wrong while connecting to MSSQL');
-
-    }else{
-        
-        $sql = "SELECT * FROM RegistroCitas a
-                INNER JOIN TipoMovimiento b on b.TIM_claveint=a.RC_tipocita
-                where AUM_clave = '$numeroautorizacion'";
-
-        $result = $db->query($sql);
-        $confirma = $result->fetchAll(PDO::FETCH_OBJ);
-
-        $db = null;
-
-        echo json_encode($confirma);
-        //echo $sql;
-
-    }
-
-    }
-
-
-    if ($funcion == 'actualizacita') {
-
-    //$numeroautorizacion = $_REQUEST['autorizacion'];
-
-    $postdata = file_get_contents("php://input");
-    //aplicacmos json_decode para manejar los datos como arreglos de php
-    //En este caso lo que mando es este objeto JSON {user:username,psw:password}
-    $datos = json_decode($postdata);
-
-    $autorizacion = $datos->autorizacion;
-    $paciente = $datos->paciente;
-    $proveedor = $datos->proveedor1;
-    $fecha = $datos->fechacita;
-    $hora = $datos->horacita;
-    $confirmar = 'Confirmado';
-
-
-    $db = conectarMySQL();
-
-    if(!$db) {
-
-        die('Something went wrong while connecting to MSSQL');
-
-    }else{
-        
-        $sql = "UPDATE RegistroCitas a 
-                SET
-                
-                 RC_fechahora='$fecha'
-                ,RC_hora='$hora'
-                ,RC_paciente='$paciente'
-                ,RC_conproveedor='$proveedor'
-                ,RC_status='$confirmar'
-                where AUM_clave = '$autorizacion'";
-
-        $result = $db->query($sql);
-
-        $temporal = $db->prepare($sql);
-        $temporal->bindParam("AUMClave", $autorizacion, PDO::PARAM_STR);
-        $temporal->bindParam("RC_fechahora", $fecha, PDO::PARAM_STR);
-        $temporal->bindParam("RC_hora", $hora, PDO::PARAM_STR);
-        $temporal->bindParam("RC_paciente", $paciente, PDO::PARAM_STR);
-        $temporal->bindParam("RC_conproveedor", $proveedor, PDO::PARAM_STR);
-
-        
-        if ($temporal->execute()){
-
-           
-            $respuesta = array('respuesta' => "Tu cita fue Confirmada", "clave" => $autorizacion);
-            //$correo($html);
-
-
-        }else{
-            $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información", "clave" => $autorizacion);
-        }
-        
-        echo json_encode($respuesta);
-        //echo $sql;
-}
-    }
 
 if ($funcion == 'pagina') {
 
     $html =  generaTabla(1,'2014-01-01','Qualitas','MV ROMA','JOSE LUIS CHACON CRUZ','99','MEDICO','ESTA PUEDE SER LA ULTIMA PRUEBA DE AUTORIZACIÓN','Jose Abraham Sanchez Hernandez');
     echo $html;
-}
-
-if ($funcion == 'consultaConfirmaciones') {
-
-    $db = conectarMySQL();
-
-    if(!$db) {
-
-        die('Something went wrong while connecting to MSSQL');
-
-    }else{
-        
-        $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
-                INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint
-                WHERE RC_status='Por confirmar' limit 30";
-
-                // INNER JOIN Usuario ON Usuario.USU_claveMV = AutorizacionMedica.USU_registro
-
-        $result = $db->query($sql);
-        $confirma = $result->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-
-        echo json_encode($confirma);
-
-    }
-    
 }
 
 function generaTabla($clave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad,$medico,$diagnostico,$nombreComercial,$nombreMovimiento,$texto){
@@ -2068,22 +1855,6 @@ function generaTabla($clave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad
                         <th scope='col'>Unidad</th>
                         <th scope='col'>Lesionado</th>
                         <th scope='col'>Edad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>".$clave."</td>
-                        <td>".$fecha."</td>
-                        <td>".utf8_decode($nombreEmpresa)."</td>
-                        <td>".utf8_decode($nombreUnidad)."</td>
-                        <td>".utf8_decode($lesionado)."</td>
-                        <td>".utf8_decode($edad)."</td>  
-                    </tr>
-                </tbody>
-            </table>
-            <table id='hor-minimalist-b' summary='Autorizaciones Comerciales MV'>
-                <thead>
-                    <tr>
                         <th scope='col'>Medico Tratante</th>
                         <th scope='col'>Diagnostico</th>
                         <th scope='col'>Autorizacion Comercial</th>
@@ -2093,6 +1864,12 @@ function generaTabla($clave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad
                 </thead>
                 <tbody>
                     <tr>
+                        <td>".$clave."</td>
+                        <td>".$fecha."</td>
+                        <td>".utf8_decode($nombreEmpresa)."</td>
+                        <td>".utf8_decode($nombreUnidad)."</td>
+                        <td>".utf8_decode($lesionado)."</td>
+                        <td>".utf8_decode($edad)."</td>
                         <td>".utf8_decode($medico)."</td>
                         <td>".utf8_decode($diagnostico)."</td>
                         <td>".utf8_decode($nombreComercial)."</td>
@@ -2106,54 +1883,6 @@ function generaTabla($clave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad
 
 }
 
-
-if ($funcion == 'temporal') {
-
-    include_once('../lib/nomad_mimemail.inc.php');
-
-$fname = $_REQUEST['file'];
-if(isset($_FILES['file'])){
- 
-    $errors= array();        
-    $file_name = $_FILES['file']['name'];
-    $file_size =$_FILES['file']['size'];
-    $file_tmp =$_FILES['file']['tmp_name'];
-    $file_type=$_FILES['file']['type'];   
-    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-
-    if($file_size > 2097152){
-    $errors[]='File size cannot exceed 2 MB';
-    }               
-    if(empty($errors)==true){
-        move_uploaded_file($file_tmp,"../archivo/".$file_name);
-
-        echo $ruta = "../archivo/".$file_name;
-        $nombre = $file_name;
-        
-        $mimemail = new nomad_mimemail();
-        $mimemail->set_from("reportes@medicavial.com.mx");
-        $mimemail->set_to("adominguez@medicavial.com.mx");
-
-        $mimemail->set_subject("prueba");
-            
-        $mimemail->set_html("<h1>Prueba</h1>");
-        $mimemail->add_attachment($ruta,$nombre);
-
-
-        if ($mimemail->send()){
-                //    echo "The MIME Mail has been sent";
-        }
-        else {
-                //    echo "An error has occurred, mail was not sent";
-        }
-
-    }else{
-        print_r($errors);
-    }
-}
-    //echo json_encode($file_name);
-
-}
 
 
 

@@ -1,0 +1,28 @@
+<div class="container" ng-init="inicio()">
+
+	<br>
+	<form class="form-horizontal">
+    <fieldset>
+        <legend>Seguimiento</legend>
+    </fieldset>
+	<div class="row">
+		
+		<div class="col-md-12">
+	        <label for="folio">Observaciones:</label>
+	        <textarea  name="motivo" id="motivo" class="form-control " ng-model="datos.observaciones" rows="5" mayusculas></textarea>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="col-md-6">
+	       	<label for="folio">Reagendar:</label>
+            <input type="checkbox" ng-model="value2" ng-true-value="'YES'" ng-false-value="'NO'"> <br/>
+		</div>	
+	</div>
+      <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drag"
+          ng-show="dropSupported" class="drop-box" name="fname">Arrastra tu Archivo</div>
+      <div ng-file-drop-available="dropSupported=true" 
+          ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+      <br><br>
+      <button class="upload-button" ng-click="upload.abort()">Cancel Upload</button>
+</form>
+</div>

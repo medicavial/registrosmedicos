@@ -74,7 +74,7 @@
 
 	</div>
 	<br>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-sm-4 col-md-4 text-center">
 
 			<label for="">¿Requiere autorización comercial?</label>
@@ -94,7 +94,7 @@
 			</select>
 			
 		</div>
-	</div>
+	</div> -->
 	<br>
 	<fieldset>
 		<legend>
@@ -156,6 +156,28 @@
 		        <h4 class="modal-title">Movimiento de Autorización</h4>
 		    </div>
 		  	<div class="modal-body">
+		  		<div class="row">
+					<div class="col-sm-6 col-md-6">
+
+						<label for="">¿Requiere autorización comercial?</label>
+						<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a><br>
+						<label class="radio-inline">
+						  <input type="radio" name="valor" id="1" ng-model="autoriza" value="1" ng-click="aut = true"> SI
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="valor" id="2" ng-model="autoriza" value="0"ng-click="aut = false"> NO
+						</label>
+
+					</div>
+					<div class="col-sm-6 col-md-6" ng-show="aut">
+						<label for="unidad">Autorización Comercial</label>
+						<select class="form-control  input-lg" ng-model="movimiento.autorizacioncomercial" ng-options="usuario.id as usuario.Nombre for usuario in usuariosComer">
+							<option value="">Autorización Comercial</option>
+						</select>
+						
+					</div>
+				</div>
+				<br>
 		    	<div class="row">
 		    		<div class="col-md-8">
 

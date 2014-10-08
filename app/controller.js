@@ -8,6 +8,11 @@ var yyyy = hoy.getFullYear();
 //armamos fecha para los datepicker
 var FechaAct = yyyy + '-' + mm + '-' + dd;
 
+var hora = hoy.getHours();
+var minuto = hoy.getMinutes();
+
+var FechaActHora = hora + ':' + minuto;
+
 
 function entero(e, field) {
   
@@ -21,24 +26,27 @@ function entero(e, field) {
     return !(regexp.test(field.value))
   }
   // other key
+  
   return false
 
 }
+
 
 
 function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 	
 	$scope.inicio = function(){
 		$scope.titulo = 'Autorizaciones Médicas';
-		$scope.autoriza = 0;
+		//$scope.autoriza = 0;
 		$scope.altaunidad();
 		$scope.altacliente();
+		$scope.autorizacionUsuarios();
 		$scope.tipoMov();
 		$scope.movimientos = [];
 		$scope.mensaje = '';
 		$scope.autorizacion = '';
 		$scope.edicion = false;
-		$scope.autorizacionUsuarios();
+		
 
 		$scope.datos = {
 			cliente:0,
@@ -49,7 +57,6 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 			medico:'',
 			diagnostico:'',
 			folio:'',
-			autorizacioncomercial:'',
 			usuario:$rootScope.clave
 		}
 
@@ -64,7 +71,7 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 	$scope.autorizacionUsuarios = function (){
 
 		busqueda.usuariosComerciales().success(function (data){
-			$scope.usuarios = data;
+			$scope.usuariosComer = data;
 		});
 	}	
 
@@ -195,11 +202,16 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 	}
 
 	$scope.nuevomovimiento = function(){
+
+		$scope.autoriza = 0;
+		$scope.aut = false;
+
 		$scope.movimiento = {
 			tipo:'',
 			fecha:FechaAct,
 			descripcion:'',
 			usuario:$rootScope.clave,
+			autorizacioncomercial:'',
 			clave:$scope.autorizacion
 		}
 
@@ -306,11 +318,15 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 		$scope.altacliente();
 		$scope.tipoMov();
 		$scope.detalleAut();
+		$scope.autorizacionUsuarios();
 		$scope.edicion = true;
+		//$scope.autoriza = 0;
 
 		$('#movimiento').on('hide.bs.modal', function (e) {
 		  	$scope.muestramovimientos();
 		});
+
+		$('#tooltip1').tooltip({placement : 'right'});
 
 	}	
 
@@ -371,6 +387,13 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 
 	}
 
+	$scope.autorizacionUsuarios = function (){
+
+		busqueda.usuariosComerciales().success(function (data){
+			$scope.usuariosComer = data;
+		});
+	}	
+
 	// presiona Folio
 	$scope.presionaFolio = function(evento){
 
@@ -409,11 +432,16 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 	}
 
 	$scope.nuevomovimiento = function(){
+
+		$scope.autoriza = 0;
+		$scope.aut = false;
+
 		$scope.movimiento = {
 			tipo:'',
 			fecha:FechaAct,
 			descripcion:'',
 			usuario:$rootScope.clave,
+			autorizacioncomercial:'',
 			clave:$scope.autorizacion
 		}
 

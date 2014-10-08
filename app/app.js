@@ -1,13 +1,17 @@
 //creamos la aplicacion
-app = angular.module('app', ['ngRoute','ngCookies','ui.bootstrap']);
+app = angular.module('app', ['ngRoute','ngCookies','ui.bootstrap','angularFileUpload']);
 
 //configuramos las rutas y asignamos html y controlador segun la ruta
 app.config(function($routeProvider){
 
     //Configuramos la ruta que queremos el html que le toca y que controlador usara
-	  $routeProvider.when('/agenda',{
+	$routeProvider.when('/agenda',{
+             templateUrl: 'vistas/agenda.html',
+     });
+
+    $routeProvider.when('/agenda/:autorizacion',{
             templateUrl: 'vistas/agenda.html',
-            controller : 'agendaCtrl'
+            controller : 'detalleAgendaCtrl'
     });
 
     $routeProvider.when('/autorizaciones',{
@@ -18,6 +22,11 @@ app.config(function($routeProvider){
     $routeProvider.when('/autorizacion/:clave',{
             templateUrl: 'vistas/autorizaciones.html',
             controller : 'detalleAutorizacionesCtrl'
+    });
+
+    $routeProvider.when('/confirma/:autorizacion',{
+            templateUrl: 'vistas/confirma.html',
+            controller : 'detalleConfirmarCtrl'
     });
 
     $routeProvider.when('/impresion/:tipo/:clave',{
@@ -58,6 +67,11 @@ app.config(function($routeProvider){
     $routeProvider.when('/login',{
             templateUrl: 'vistas/login.html',
             controller : 'loginCtrl'
+    });
+
+    $routeProvider.when('/seguimiento',{
+            templateUrl: 'vistas/seguimiento.html',
+            controller : 'seguimientoCtrl'
     });
 
 	$routeProvider.otherwise({redirectTo:'/login'});
@@ -198,8 +212,11 @@ app.factory("busqueda", function($http){
         autorizaciones:function(){
             return $http.get('api/api.php?funcion=consultaAutorizaciones');
         },
-        citas:function(){
+        autoriza:function(){
             return $http.get('api/api.php?funcion=consultaAut');
+        },
+        confirma:function(){
+            return $http.get('api/api.php?funcion=consultaConfirmaciones');
         },
         empresas:function(){
             return $http.get('api/api.php?funcion=empresas');
@@ -209,6 +226,12 @@ app.factory("busqueda", function($http){
         },
         hospitalarios:function(){
             return $http.get('api/api.php?funcion=consultaHospitalarios');
+        },
+        detalleagenda:function(autorizacion){
+            return $http.get('api/api.php?funcion=detalleAgenda&autorizacion='+autorizacion);
+        },
+        detallealtacita:function(autorizacion){
+            return $http.get('api/api.php?funcion=detallealtacita&autorizacion='+autorizacion);
         },
         detalleautorizacion:function(clave){
             return $http.get('api/api.php?funcion=detalleAutorizacion&numero='+clave);
