@@ -1,5 +1,5 @@
 //creamos la aplicacion
-app = angular.module('app', ['ngRoute','ngCookies','ui.bootstrap','angularFileUpload']);
+app = angular.module('app', ['ngRoute' ,'ngCookies','ui.bootstrap','angularFileUpload']);
 
 //configuramos las rutas y asignamos html y controlador segun la ruta
 app.config(function($routeProvider){
