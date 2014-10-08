@@ -2,6 +2,8 @@ app.controller('citaCtrl', function($scope, $http, busqueda) {
 
 	$scope.inicio = function(){
 
+		$scope.contador = '';
+
 		$scope.autorizacion = {
 			folio:'',
 			autorizacion:''
@@ -10,14 +12,18 @@ app.controller('citaCtrl', function($scope, $http, busqueda) {
 		$scope.buscaautorizaciones();
 		$scope.buscaconfirmaciones();
 
+
+
 	}
 
 	$scope.buscaautorizaciones = function(){
 
-
-
 		busqueda.autoriza().success(function (data){
-			$scope.autoriza = data;
+			console.log(data);
+			//$scope.autoriza = data;
+			$scope.contador = data.contador;
+			$scope.autoriza = data.autoriza;
+
 		});
 
 	}
@@ -26,6 +32,9 @@ app.controller('citaCtrl', function($scope, $http, busqueda) {
 
 		busqueda.confirma().success(function (data){
 			$scope.confirma = data;
+
+		    $scope.contador = data.contador;
+			$scope.autoriza = data.autoriza;
 		});
 
 	}
@@ -41,9 +50,11 @@ app.controller('citaCtrl', function($scope, $http, busqueda) {
 			dataType: "json", 
 			data:$scope.autorizacion
 		}).success( function (data){
+
 			console.log(data);
-			$scope.contador = data.respuesta;
+
 			$scope.autoriza = data;
+
 
 		}).error( function (data){
 

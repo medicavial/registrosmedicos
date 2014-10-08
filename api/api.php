@@ -1202,7 +1202,7 @@ if ($funcion == 'buscarAutorizacion') {
 
     $sql = "SELECT  a.AUM_clave as autorizacion, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
             INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
-            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave WHERE";
+            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave WHERE ";
 
     if ($folio != '') {
 
@@ -1239,17 +1239,10 @@ if ($funcion == 'buscarAutorizacion') {
 
     echo json_encode($autoriza);
 
-    $sql2 ="select count(*) from AutorizacionMedica WHERE AUM_fechaReg like '2014-10-08%' Order By AUM_fechaReg DESC";
-    $result = $db->query($sql2);
-    $contador = $result->fetchAll(PDO::FETCH_OBJ);
-    $db = null;
-
-    $respuesta = $autoriza = array('respuesta' => $autoriza, 'contador' => $contador);
-    echo json_encode($respuesta);
-    //echo $sql;
-
 }
 if ($funcion == 'consultaAut') {
+
+    $fecha = date('Y-m-d');
 
     $db = conectarMySQL();
 
@@ -1259,20 +1252,36 @@ if ($funcion == 'consultaAut') {
 
     }else{
         
-        $sql = "SELECT  a.AUM_clave as autorizacion, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
+        $sql = "SELECT  a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
                 FROM AutorizacionMedica a
                 INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
                 INNER JOIN Compania e on a.EMP_claveint=e.cia_clave
-                where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave)
+                INNER JOIN MovimientoAut f on a.AUM_clave=f.AUM_clave
+                INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
+                where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave) and (f.TIM_claveint='3'
+                or f.TIM_claveint='4')
                 ORDER BY AUM_fechareg DESC LIMIT 30";
 
 
         $result = $db->query($sql);
         $autoriza = $result->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
 
-        echo json_encode($autoriza);
+ //       echo json_encode($autoriza);
         //echo $sql;
+
+        $sql = "SELECT count(*) as contador from AutorizacionMedica a
+                INNER JOIN MovimientoAut b on a.AUM_clave=b.AUM_clave
+                WHERE AUM_fechaReg like '$fecha%' Order By AUM_fechaReg DESC";
+        foreach ($db->query($sql) as $row) {
+            $contador = $row['contador'];
+        }
+        $db = null;
+ //       echo json_encode($contador);
+
+        $respuesta  = array('autoriza' => $autoriza, 'contador' => $contador);
+        echo json_encode($respuesta);
+        //$sql;
+
 
     }
     
