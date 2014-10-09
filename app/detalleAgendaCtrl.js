@@ -64,7 +64,7 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 		        $scope.mensaje = data.respuesta;
 		        $scope.alerta = 'alert-success';
 		        $scope.autorizacion = data.autorizacion;
-		        $location.path("/seguimiento");
+		        $location.path("/seguimiento/" + $routeParams.autorizacion);
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){
@@ -106,6 +106,7 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 		         $scope.mensaje = data.respuesta;
 		         $scope.alerta = 'alert-success';
 		         $scope.autorizacion = data.autorizacion;
+		         $location.path("/cita");
 		        
 		         //console.log(data);
 		     }).error( function (xhr,status,data){

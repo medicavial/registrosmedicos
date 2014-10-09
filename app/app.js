@@ -69,7 +69,12 @@ app.config(function($routeProvider){
             controller : 'loginCtrl'
     });
 
-    $routeProvider.when('/seguimiento',{
+    $routeProvider.when('/observacion',{
+            templateUrl: 'vistas/observacion.html',
+            controller : 'observacionCtrl'
+    });
+
+    $routeProvider.when('/seguimiento/:autorizacion',{
             templateUrl: 'vistas/seguimiento.html',
             controller : 'seguimientoCtrl'
     });

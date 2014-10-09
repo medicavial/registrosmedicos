@@ -1,9 +1,9 @@
 <div class="container" ng-init="inicio()">
 
 	<br>
-	<form class="form-horizontal">
+	<form>
     <fieldset>
-        <legend>Resultados</legend>
+        <legend>Observaciones Coordinación Medica</legend>
     </fieldset>
 	<div class="row">
 		
@@ -16,25 +16,12 @@
 		<div class="col-md-6">
 	       	<label for="folio">Preexistencia:</label>
             <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
-		</div>
-	    <div class="col-md-6">
-	       	<label for="folio">Reagendado:</label>
-            <input type="checkbox" ng-model="datos.reagendado" ng-true-value="SI" ng-false-value="NO"> <br/>
 		</div>	
 	</div>
-	<div class="row">
-	  <input type="file" ng-file-select="onFileSelect($files)" >
-	  <div class="button" ng-file-select="onFileSelect($files)" data-multiple="true"></div>
-	  <br>
-      <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drag"
-          ng-show="dropSupported" class="drop-box" name="fname">Arrastra tu Archivo</div>
-      <div ng-file-drop-available="dropSupported=true" 
-          ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
       <br><br> 
       <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
       <div class="col-md-5">
 	<button type="submit" ng-click="guardar()" class="btn btn-primary glyphicon glyphicon-upload">Subir y Guardar</button>
 	  </div>
-	</div>
 </form>
 </div>

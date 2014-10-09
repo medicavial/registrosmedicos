@@ -21,7 +21,7 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 	    	horacita :FechaActHora,
 	    	paciente :'',
 	    	proveedor1 :'',
-	//    	status: 'Por confirmar'
+	    	status: 'Por confirmar'
     	}
 
 
@@ -75,7 +75,7 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 		        $scope.mensaje = data.respuesta;
 		        $scope.alerta = 'alert-success';
 		        $scope.autorizacion = data.autorizacion;
-		        //$location.path("/seguimiento");
+		        $location.path("/cita");
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){

@@ -76,7 +76,7 @@
 	    </div>
 
 <div id="tab-two" class="tab-pane">
-	<h1>Citas por Confirmar: {{ contadorcitas }}</h1>
+	<h1>Citas por Confirmar: {{ contadorcita }}</h1>
    <form ng-submit="buscarConfirmados()">
 		        <div class="padding">
 		        	<div class="row">
@@ -112,6 +112,7 @@
 							        <tr>
 							          <th>Autorizacion</th>
 							          <th>Tipo</th>
+							          <th>Costo Estimado</th>
 							          <th>Paciente</th>
 							          <th>Proveedor</th>
 							        </tr>
@@ -122,6 +123,7 @@
 
 							          <td>{{con.autorizacion}}</td>
 							          <td>{{con.tipo}}</td>
+							          <td>{{con.costo}}</td>
 							          <td>{{con.paciente}}</td>
 							          <td>{{con.proveedor}}</td>
 							          <td>

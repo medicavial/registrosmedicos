@@ -31,10 +31,9 @@ app.controller('citaCtrl', function($scope, $http, busqueda) {
 	$scope.buscaconfirmaciones = function(){
 
 		busqueda.confirma().success(function (data){
-			$scope.confirma = data;
-
-		    $scope.contador = data.contador;
-			$scope.autoriza = data.autoriza;
+            
+		    $scope.contadorcita = data.contadorcita;
+			$scope.confirma = data.confirma;
 		});
 
 	}

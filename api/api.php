@@ -1392,7 +1392,6 @@ if ($funcion == 'detalleAgenda') {
 
         echo json_encode($confirma);
         //echo $sql;
-
     }
 
     }
@@ -1433,14 +1432,9 @@ if ($funcion == 'detalleAgenda') {
                 ,RC_status='$confirmar'
                 where AUM_clave = '$autorizacion'";
 
-        $result = $db->query($sql);
+  //      $result = $db->query($sql);
 
         $temporal = $db->prepare($sql);
-        $temporal->bindParam("AUMClave", $autorizacion, PDO::PARAM_STR);
-        $temporal->bindParam("RC_fechahora", $fecha, PDO::PARAM_STR);
-        $temporal->bindParam("RC_hora", $hora, PDO::PARAM_STR);
-        $temporal->bindParam("RC_paciente", $paciente, PDO::PARAM_STR);
-        $temporal->bindParam("RC_conproveedor", $proveedor, PDO::PARAM_STR);
 
         
         if ($temporal->execute()){
@@ -1475,7 +1469,7 @@ if ($funcion == 'consultaConfirmaciones') {
 
     }else{
         
-        $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+        $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
                 INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint
                 WHERE RC_status='Por confirmar' limit 30";
 
@@ -1483,9 +1477,16 @@ if ($funcion == 'consultaConfirmaciones') {
 
         $result = $db->query($sql);
         $confirma = $result->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
 
-        echo json_encode($confirma);
+         $sql = "SELECT count(*) as contador FROM RegistroCitas  where RC_status like 'Por confirmar%'";
+         foreach ($db->query($sql) as $row) {
+            $contadorcita = $row['contador'];
+        }
+        $db = null;
+ //       echo json_encode($contador);
+
+        $respuesta  = array('confirma' => $confirma, 'contadorcita' => $contadorcita);
+        echo json_encode($respuesta);
 
     }
     
@@ -2134,35 +2135,76 @@ if(isset($_FILES['file'])){
     $errors[]='File size cannot exceed 2 MB';
     }               
     if(empty($errors)==true){
-        move_uploaded_file($file_tmp,"../archivo/".$file_name);
+        $archivo = move_uploaded_file($file_tmp,"../archivo/".$file_name);
 
-        echo $ruta = "../archivo/".$file_name;
-        $nombre = $file_name;
-        
-        $mimemail = new nomad_mimemail();
-        $mimemail->set_from("reportes@medicavial.com.mx");
-        $mimemail->set_to("adominguez@medicavial.com.mx");
+        $respuesta = array('archivo' => 'El archivo subio satisfactoriamente', 'nombre' => $file_name);
 
-        $mimemail->set_subject("prueba");
-            
-        $mimemail->set_html("<h1>Prueba</h1>");
-        $mimemail->add_attachment($ruta,$nombre);
-
-
-        if ($mimemail->send()){
-                //    echo "The MIME Mail has been sent";
-        }
-        else {
-                //    echo "An error has occurred, mail was not sent";
-        }
 
     }else{
         print_r($errors);
     }
 }
-    //echo json_encode($file_name);
+    echo json_encode($respuesta);
 
 }
+
+if ($funcion == 'guardaresultado') {
+
+    $postdata = file_get_contents("php://input");
+
+    $datos = json_decode($postdata);
+    $nombre = $_REQUEST['nombre'];
+
+    $autorizacion = $datos->autorizacion;
+    $observaciones = $datos->observaciones;
+    $preexistencia = $datos->preexistencia;
+    $reagendado = $datos->datos;
+    $reagendado = $datos->reagendado;
+
+     $db = conectarMySQL();
+
+    if(!$db) {
+
+        die('Something went wrong while connecting to MSSQL');
+
+    }else{
+        
+        $sql = "UPDATE RegistroCitas a 
+                SET
+
+                 RC_resobservacion='$observaciones'
+                ,RC_preexistencia='".$preexistencia."'
+                ,RC_reagendado='".$reagendado."'
+                where AUM_clave = '$autorizacion' ";
+
+    //    $result = $db->query($sql);
+
+        $temporal = $db->prepare($sql);
+
+        
+        if ($temporal->execute()){
+
+           
+            $respuesta = array('respuesta' => "Datos guardados");
+            //$correo($html);
+
+
+        }else{
+            $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información");
+        }
+        
+        echo json_encode($respuesta);
+        
+}
+
+
+
+
+
+
+
+
+    }
 
 
 
