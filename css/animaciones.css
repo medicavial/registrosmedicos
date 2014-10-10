@@ -7,11 +7,13 @@
 .paginas.ng-enter {
 
     animation: fadeInDown 1s;
+    z-index: 8888;
  
 }
 .paginas.ng-leave {
 
     animation: fadeOutRight 1s;
+    z-index: 9999;
 
 }
 
