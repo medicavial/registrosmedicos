@@ -1070,7 +1070,7 @@ if ($funcion == 'agenda') {
                             ,RC_hora
                             ,RC_paciente  
                             ,RC_fecharegistro                          
-                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'Confirmado',:referencia,:fechacita,:horacita,:paciente, now())";
+                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'1',:referencia,:fechacita,:horacita,:paciente, now())";
         
         $temporal = $db->prepare($sql);
 
@@ -1151,7 +1151,7 @@ if ($funcion == 'confirmar') {
                             ,RC_hora
                             ,RC_paciente    
                             ,RC_fecharegistro                        
-                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'Por confirmar',:referencia,:fechacita,:horacita,:paciente, now())";
+                ) VALUES (:autorizacion,:proveedor,:costo,:cita,:notas,:proveedor1,'2',:referencia,:fechacita,:horacita,:paciente, now())";
         
         $temporal = $db->prepare($sql);
 
@@ -1252,7 +1252,7 @@ if ($funcion == 'consultaAut') {
 
     }else{
         
-        $sql = "SELECT  a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
+        $sql = "SELECT  a.AUM_clave as autorizacion, f.TIM_claveint as clave_tipo,TIM_nombre as tipo,AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
                 FROM AutorizacionMedica a
                 INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
                 INNER JOIN Compania e on a.EMP_claveint=e.cia_clave
@@ -1260,8 +1260,7 @@ if ($funcion == 'consultaAut') {
                 INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
                 where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave) and (f.TIM_claveint='3'
                 or f.TIM_claveint='4')
-                ORDER BY AUM_fechareg DESC LIMIT 30";
-
+                ORDER BY fecha  DESC limit 30";
 
         $result = $db->query($sql);
         $autoriza = $result->fetchAll(PDO::FETCH_OBJ);

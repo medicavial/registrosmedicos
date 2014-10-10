@@ -16,8 +16,8 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
     $scope.onFileSelect = function($files) {
     var file = $files[0];
 
-    if (file.size > 2097152){
-         $scope.error ='Tu archivo excedio los 2 MB';
+    if (file.size > 5097152){
+         $scope.error ='Tu archivo excedio los 5 MB';
     }
     $scope.upload = $upload.upload({
         url: 'api/api.php?funcion=temporal',
@@ -41,11 +41,13 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
 
                 $scope.mensaje = data.respuesta;
                 $scope.alerta = 'alert-success';
-                $location.path("/observacion/"+$routeParams.autorizacion);
+        //        $location.path("/observacion/"+$routeParams.autorizacion);
 
         
       });  
       });     
     }
+
+
 
 });

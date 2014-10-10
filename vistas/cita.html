@@ -2,15 +2,20 @@
 	<br>
 		<ul class="nav nav-tabs">
 	    <li class="active">
-	        <a data-target="#tab-one" ng-click="buscaautorizaciones()" data-toggle="tab">Agendar Cita</a>
+	        <a data-target="#tab-one" ng-click="buscaautorizaciones()" data-toggle="tab">Agendar Cita <strong> ({{ contador }}) </strong></a>
 	    </li>
 	    <li >
-	        <a data-target="#tab-two" ng-click="buscaconfirmaciones()" data-toggle="tab">Confirmar Cita</a>
+	        <a data-target="#tab-two" ng-click="buscaconfirmaciones()" data-toggle="tab">Confirmar Cita <strong> ({{ contadorcita }}) </strong></a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-tres" ng-click="" data-toggle="tab">Resultados</a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-cuatro" ng-click="" data-toggle="tab">Observaciones</a>
 	    </li>
 	</ul>
     <div class="tab-content">
 	    <div id="tab-one" class="tab-pane active">
-	    	<h1>Autorizaciones Pendientes: {{ contador }}</h1>
 	    	<form ng-submit="buscarAutorizacion()">
 		        <div class="padding">
 					<div class="row">
@@ -49,6 +54,7 @@
 							          <th>Unidad Medica</th>
 							          <th>Fecha</th>
 							          <th>Compañia</th>
+							          <th>Semaforo</th>
 							        </tr>
 							    </thead>
 
@@ -61,8 +67,9 @@
 							          <td>{{auto.unidad}}</td>
 							          <td>{{auto.fecha}}</td>
 							          <td>{{auto.cliente}}</td>
+							          <td></td>
 							          <td>
-							              <a ng-href="#/agenda/{{auto.autorizacion}}" class="btn btn-primary">Agendar</a>
+							              <a ng-href="#/agenda/{{auto.autorizacion}}/{{auto.clave_tipo}}" class="btn btn-primary">Agendar</a>
 							          </td>
 							        </tr> 
 							    </tbody>
@@ -76,7 +83,6 @@
 	    </div>
 
 <div id="tab-two" class="tab-pane">
-	<h1>Citas por Confirmar: {{ contadorcita }}</h1>
    <form ng-submit="buscarConfirmados()">
 		        <div class="padding">
 		        	<div class="row">

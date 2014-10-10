@@ -9,7 +9,7 @@ app.config(function($routeProvider){
              templateUrl: 'vistas/agenda.html',
      });
 
-    $routeProvider.when('/agenda/:autorizacion',{
+    $routeProvider.when('/agenda/:autorizacion/:clave_tipo',{
             templateUrl: 'vistas/agenda.html',
             controller : 'detalleAgendaCtrl'
     });

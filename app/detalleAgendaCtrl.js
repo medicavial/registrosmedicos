@@ -4,6 +4,7 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 
 		$scope.titulo = 'Agendar';
 		console.log($routeParams.autorizacion);
+		console.log($routeParams.tipo);
 		//$scope.detalleAut();
 		//$scope.mensaje ='';
 		$scope.edicion = true;
@@ -14,7 +15,7 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
             autorizacion : $routeParams.autorizacion,
 	    	proveedor :'',
 	    	costo : '',
-	    	cita:'',
+	    	tipo: $routeParams.clave_tipo,
 	    	notas : '',
 	    	referencia : '',
 	    	fechacita :FechaAct,
@@ -30,11 +31,12 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 
 	$scope.detalleAut = function(){
 
-
+        console.log(data);
 		busqueda.detalleagenda($routeParams.autorizacion).success(function (data){
 
 			$scope.datos = {
-				autorizacion:$routeParams.autorizacion
+				autorizacion:$routeParams.autorizacion,
+				tipo:$routeParams.clave_tipo
 			}
 
 		});
