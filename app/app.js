@@ -1,5 +1,5 @@
 //creamos la aplicacion
-app = angular.module('app', ['ngRoute' ,'ngCookies','ui.bootstrap','angularFileUpload','ngAnimate']);
+app = angular.module('app', ['ngRoute' ,'ngCookies','ui.bootstrap','angularFileUpload','ngAnimate','ui.grid','ui.grid.edit']);
 
 //configuramos las rutas y asignamos html y controlador segun la ruta
 app.config(function($routeProvider){
@@ -72,6 +72,11 @@ app.config(function($routeProvider){
     $routeProvider.when('/observacion',{
             templateUrl: 'vistas/observacion.html',
             controller : 'observacionCtrl'
+    });
+
+    $routeProvider.when('/pruebas',{
+            templateUrl: 'vistas/pruebas.html',
+            controller : 'pruebasCtrl'
     });
 
     $routeProvider.when('/seguimiento/:autorizacion',{

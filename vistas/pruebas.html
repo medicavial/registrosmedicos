@@ -1,0 +1,321 @@
+<div ng-init="inicio()">
+	<h1>Busquedas</h1>
+	<ul class="nav nav-tabs">
+	    <li class="active">
+	        <a data-target="#tab-one" ng-click="buscaautorizaciones()" data-toggle="tab">Autorizaciones</a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-two" ng-click="buscahospitalarios()" data-toggle="tab" ng-show="hospitalario" >Hosptalarios</a>
+	    </li>
+	</ul>
+
+	<div class="tab-content">
+	    <div id="tab-one" class="tab-pane active">
+	    	<form ng-submit="buscarAut()">
+		        <div class="padding">
+					<div class="row">
+						<div class="col-md-3">
+							<label for="criterio">Folio</label>
+						    <input type="text" ng-model="autorizacion.folio" class="form-control input-lg" folio="verificaFolioA">
+						    <br>
+						</div>
+						<div class="col-md-3">
+							<label for="criterio">Autorización</label>
+						    <input type="text" ng-model="autorizacion.autorizacion" class="form-control input-lg" mayusculas>
+						    <br>
+						</div>
+						<div class="col-md-6">
+							<label class="checkbox-inline">
+							  <input type="checkbox" ng-click="fechaaut = !fechaaut" id="inlineCheckbox1" value="option1"> Fecha Autorización
+							</label>
+							<!-- <label for="criterio">Fecha Autorización</label> -->
+							<div class="row" ng-show="fechaaut">
+		
+								<div class="col-md-6">
+									<input type="text" class="form-control  input-lg" ng-model="autorizacion.fechaini" data-date-format="YYYY-MM-DD" id="fechaIn" placeholder="Inicio">
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control input-lg" ng-model="autorizacion.fechafin" data-date-format="YYYY-MM-DD" id="fechaFin" placeholder="Fin">
+								</div>
+							</div>
+							<br>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="criterio">Lesionado</label>
+						    <input type="text" ng-model="autorizacion.lesionado" class="form-control input-lg" mayusculas>
+						    <br>
+						</div>
+						<div class="col-md-3">
+							<label for="cliente">Cliente</label>
+							<select class="form-control  input-lg" ng-model="autorizacion.cliente" ng-options="cliente.id as cliente.Nombre for cliente in clientes">
+								<option value="">Cliente</option>
+							</select>
+							<br>
+						</div>
+						<div class="col-md-3">
+							<label for="unidad">Unidad Médica</label>
+							<select class="form-control  input-lg" ng-model="autorizacion.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades">
+								<option value="">Unidad</option>
+							</select>
+							<br>
+				        </div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<br>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+						</div>
+						<div class="col-md-3">
+							<br>
+							<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+						</div>
+						<div class="col-md-3">
+							<br>
+							<excel info="autorizaciones"></excel>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<!-- <p><strong>Pagina:</strong> {{tableParams.page()}}</p>
+						        <p><strong>Cuenta por pagina:</strong> {{tableParams.count()}}</p>
+						        
+						        <table ng-table="tableParams" class="table">
+						        <tr ng-repeat="auto in $data">
+						            <td sortable="'clave'" data-title="'Autorizacion'">
+										<a ng-href="#/autorizacion/{{auto.clave}}">{{auto.clave}}
+										</a>
+									</td>
+									<td sortable="'fecha'" data-title="'Fecha'" >{{auto.fecha}}</td>
+									<td sortable="'cliente'" data-title="'Cliente'" >{{auto.cliente}}</td>
+									<td sortable="'unidad'" data-title="'Unidad'" >{{auto.unidad}}</td>
+									<td sortable="'lesionado'" data-title="'Lesionado'" >{{auto.lesionado}}</td>
+									<td sortable="'folio'" data-title="'Folio'" >{{auto.folio}}</td>
+									<td sortable="'fecharegistro'" data-title="'Fecha Registro'" >{{auto.fecharegistro}}</td>
+									<td sortable="'usuario'" data-title="'Usuario'" >{{auto.usuario}}</td>
+						        </tr>
+						        </table> -->
+
+								<!-- <table st-table="autorizaciones" class="table">
+									
+								    <thead>
+								        <tr>
+								          <th st-sort="clave">Autorizacion</th>
+								          <th st-sort="fecha">Fecha</th>
+								          <th st-sort="cliente">Cliente</th>
+								          <th st-sort="unidad">Unidad</th>
+								          <th st-sort="lesionado">Lesionado</th>
+								          <th st-sort="folio">Folio</th>
+								          <th st-sort="fecharegistro">Fecha Registro</th>
+								          <th st-sort="usuario">Usuario</th>
+								        </tr>
+								    </thead>
+
+								    <tbody>
+								        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="auto in autorizaciones" >
+
+								          <td>
+								          	<a ng-href="#/autorizacion/{{auto.clave}}">{{auto.clave}}
+								          	</a>
+								          </td>
+								          <td>{{auto.fecha}}</td>
+								          <td>{{auto.cliente}}</td>
+								          <td>{{auto.unidad}}</td>
+								          <td>{{auto.lesionado}}</td>
+								          <td>{{auto.folio}}</td>
+								          <td>{{auto.fecharegistro}}</td>
+								          <td>{{auto.usuario}}</td>
+								        </tr> 
+								    </tbody>
+								    <tfoot>
+										<tr>
+											<td colspan="5" class="text-center">
+												<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+											</td>
+										</tr>
+									</tfoot>
+								    
+							    </table> -->
+
+							     <div id="grid1" ui-grid="gridOptions" class="gridStyle" ui-grid-selection></div>
+
+							     <!-- <div class="gridStyle" ng-grid="gridOptions"></div> -->
+							</div>
+						</div>
+					</div>	
+		    	</div>
+	    	</form>
+	    </div>
+	    <div id="tab-two" class="tab-pane">
+	    <!--	<div ng-show="hospitalario == 1"> !-->
+		    	<form ng-submit="buscarHos()">
+			        <div class="padding">
+				    	<div class="row">
+							<div class="col-md-3">
+								<label for="criterio">Folio</label>
+							    <input type="text" ng-model="hospitalario.folio" class="form-control input-lg" folio="verificaFolioH">
+							    <br>
+							</div>
+							<div class="col-md-3">
+								<label for="criterio">Hospitalario</label>
+							    <input type="text" ng-model="hospitalario.hospitalario" class="form-control input-lg" mayusculas>
+							    <br>
+							</div>
+							<div class="col-md-6">
+								<label class="checkbox-inline">
+								  <input type="checkbox" ng-click="fechahos = !fechahos" id="inlineCheckbox1" value="option1"> Fecha Hospitalario
+								</label>
+
+								<div class="row" ng-show="fechahos">
+									<div class="col-md-6">
+										<input type="text" class="form-control  input-lg" ng-model="hospitalario.fechaini" data-date-format="YYYY-MM-DD" id="fechaIn2" placeholder="Inicio">
+									</div>
+									<div class="col-md-6">
+										<input type="text" class="form-control input-lg" ng-model="hospitalario.fechafin" data-date-format="YYYY-MM-DD" id="fechaFin2" placeholder="Fin">
+									</div>
+								</div>
+								<br>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="criterio">Lesionado</label>
+							    <input type="text" ng-model="hospitalario.lesionado" class="form-control input-lg" mayusculas>
+							    <br>
+							</div>
+							<div class="col-md-3">
+								<label for="cliente">Cliente</label>
+								<select class="form-control  input-lg" ng-model="hospitalario.cliente" ng-options="cliente.id as cliente.Nombre for cliente in clientes">
+									<option value="">Cliente</option>
+								</select>
+								<br>
+							</div>
+							<div class="col-md-3">
+								<label for="unidad">Unidad Médica</label>
+								<select class="form-control  input-lg" ng-model="hospitalario.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades">
+									<option value="">Unidad</option>
+								</select>
+								<br>
+					        </div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<br>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+							</div>
+							<div class="col-md-3">
+								<br>
+								<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+							</div>
+							<div class="col-md-3">
+								<br>
+								<excel info="hospitalarios"></excel>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="table-responsive">
+									<table class="table">
+								    <thead>
+								        <tr>
+								          <th>Clave</th>
+								          <th>Unidad</th>
+								          <th>Cliente</th>
+								          <th>Folio</th>
+								          <th>Lesionado</th>
+								          <th>Poliza</th>
+								          <th>Siniestro</th>
+								          <th>Riesgo</th>
+								          <th>Siniestro</th>
+								          <th>Fecha Captura</th>
+								          <th>Fecha Hospitalarios</th>
+								          <th>Reporta</th>
+								          <th>Autoriza</th>
+								          <th>Motivo</th>
+								        </tr>
+								    </thead>
+
+								    <tbody>
+								        <tr ng-repeat="hos in hospitalarios" >
+
+								          <td>
+								          	<a ng-href="#/hospitalario/{{hos.clave}}">{{hos.clave}}</a>
+								          </td>
+								          <td>{{hos.unidad}}</td>
+								          <td>{{hos.cliente}}</td>
+								          <td>{{hos.folio}}</td>
+								          <td>{{hos.lesionado}}</td>
+								          <td>{{hos.poliza}}</td>
+								          <td>{{hos.siniestro}}</td>
+								          <td>{{hos.riesgo}}</td>
+								          <td>{{hos.reporte}}</td>
+								          <td>{{hos.fechacaptura}}</td>
+								          <td>{{hos.fechahospitalario}}</td>
+								          <td>{{hos.reporta}}</td>
+								          <td>{{hos.autoriza}}</td>
+								          <td>{{hos.motivo}}</td>
+								        </tr> 
+								    </tbody>
+								    
+								    </table>
+								</div>			
+							</div>
+						</div>		
+			    	</div>
+			    </form>
+	<!--    	</div> 
+   	    	<div ng-hide="hospitalario == 0">
+	    		Tu usuario no tiene permisos para acceder aqui
+	    	</div> !-->
+	    </div>
+	</div>
+
+</div>
+
+<script>
+
+		$('#fechaIn').datetimepicker({
+			pickDate: true,                 //en/disables the date picker
+		    pickTime: false,                 //en/disables the time picker     
+		    showToday: true,                 //shows the today indicator
+		    language:'es'                  //sets language locale
+		});
+	    $('#fechaFin').datetimepicker({
+	    	pickDate: true,                 //en/disables the date picker
+		    pickTime: false,                 //en/disables the time picker     
+		    showToday: true,                 //shows the today indicator
+		    language:'es'                  //sets language locale
+	    });
+	    $("#fechaIn").on("dp.change",function (e) {
+	       $('#fechaFin').data("DateTimePicker").setMinDate(e.date);
+	    });
+	    $("#fechaFin").on("dp.change",function (e) {
+	       $('#fechaIn').data("DateTimePicker").setMaxDate(e.date);
+	    });
+
+
+	    $('#fechaIn2').datetimepicker({
+			pickDate: true,                 //en/disables the date picker
+		    pickTime: false,                 //en/disables the time picker     
+		    showToday: true,                 //shows the today indicator
+		    language:'es'                  //sets language locale
+		});
+	    $('#fechaFin2').datetimepicker({
+	    	pickDate: true,                 //en/disables the date picker
+		    pickTime: false,                 //en/disables the time picker     
+		    showToday: true,                 //shows the today indicator
+		    language:'es'                  //sets language locale
+	    });
+	    $("#fechaIn2").on("dp.change",function (e) {
+	       $('#fechaFin2').data("DateTimePicker").setMinDate(e.date);
+	    });
+	    $("#fechaFin2").on("dp.change",function (e) {
+	       $('#fechaIn2').data("DateTimePicker").setMaxDate(e.date);
+	    });
+
+</script>

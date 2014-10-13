@@ -5,12 +5,16 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
 	<title>Registros Medicos  - Portal -</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/animaciones.css">
-	<link rel="stylesheet" href="css/estilos.css">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans'/>
+	<link rel="stylesheet" href="css/ng-table.min.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+	<link rel="stylesheet" href="css/animaciones.css"/>
+	<link rel="stylesheet" href="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"/>
+    <link rel="stylesheet" href="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"/>
+	<link rel="stylesheet" href="modulos/ui-grid-unstable.css">
+	<link rel="stylesheet" href="css/estilos.css"/>
 	<script src="js/prefixfree.min.js"></script>
 	<!--[if lt IE 9]>
 	    <script>
@@ -29,13 +33,13 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">{{username}}</a>
+	      <a class="navbar-brand" href="#/home">{{username}}</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="#/">Inicio</a></li>
+	        <li><a href="#/home">Inicio</a></li>
 	        <li><a href="#/busquedas">Busquedas</a></li>
 	      </ul>
 	      <p class="navbar-text navbar-right"><a href="#" ng-click="logout()" class="navbar-link">Cerrar Sesión</a></p>
@@ -66,7 +70,8 @@
 	<script src="modulos/angular-route.min.js"></script>
 	<script src="modulos/angular-animate.min.js"></script>
 	<script src="modulos/ui-bootstrap-tpls-0.11.0.min.js"></script>
-	<script src="modulos/angular-file-upload.min.js" ></script>
+	<script src="modulos/angular-file-upload.min.js"></script>
+	<script src="modulos/ui-grid-unstable.js"></script>
 	<script src="app/app.js"></script>
 	<script src="app/agendaCtrl.js"></script>
 	<script src="app/citaCtrl.js"></script>
@@ -74,5 +79,6 @@
 	<script src="app/detalleAgendaCtrl.js"></script>
 	<script src="app/detalleConfirmarCtrl.js"></script>
 	<script src="app/seguimientoCtrl.js"></script>
+	<script src="app/pruebasCtrl.js"></script>
 </body>
 </html>

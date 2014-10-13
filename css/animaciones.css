@@ -6,7 +6,7 @@
 
 .paginas.ng-enter {
 
-    animation: fadeInDown 1s;
+    animation: fadeInLeft 1s;
     z-index: 8888;
  
 }
