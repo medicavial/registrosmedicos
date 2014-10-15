@@ -85,19 +85,19 @@
 									
 							    <thead>
 							        <tr>
-							          <th>Autorizacion</th>
-							          <th>Fecha</th>
-							          <th>Cliente</th>
-							          <th>Unidad</th>
-							          <th>Lesionado</th>
-							          <th>Folio</th>
-							          <th>Fecha Registro</th>
-							          <th>Usuario</th>
+							          <th><a href="" ng-click="predicate = 'clave'; reverse=!reverse">Autorizacion</a></th>
+							          <th><a href="" ng-click="predicate = 'fecha'; reverse=!reverse">Fecha</a></th>
+							          <th><a href="" ng-click="predicate = 'cliente'; reverse=!reverse">Cliente</a></th>
+							          <th><a href="" ng-click="predicate = 'unidad'; reverse=!reverse">Unidad</a></th>
+							          <th><a href="" ng-click="predicate = 'lesionado'; reverse=!reverse">Lesionado</a></th>
+							          <th><a href="" ng-click="predicate = 'folio'; reverse=!reverse">Folio</a></th>
+							          <th><a href="" ng-click="predicate = 'fecharegistro'; reverse=!reverse">Fecha Registro</a></th>
+							          <th><a href="" ng-click="predicate = 'usuario'; reverse=!reverse">Usuario</a></th>
 							        </tr>
 							    </thead>
 
 							    <tbody>
-							        <tr ng-repeat="auto in autorizaciones" >
+							        <tr ng-repeat="auto in autorizaciones | orderBy:predicate:reverse" >
 
 							          <td>
 							          	<a ng-href="#/autorizacion/{{auto.clave}}">{{auto.clave}}
@@ -193,25 +193,25 @@
 									<table class="table">
 								    <thead>
 								        <tr>
-								          <th>Clave</th>
-								          <th>Unidad</th>
-								          <th>Cliente</th>
-								          <th>Folio</th>
-								          <th>Lesionado</th>
-								          <th>Poliza</th>
-								          <th>Siniestro</th>
-								          <th>Riesgo</th>
-								          <th>Siniestro</th>
-								          <th>Fecha Captura</th>
-								          <th>Fecha Hospitalarios</th>
-								          <th>Reporta</th>
-								          <th>Autoriza</th>
-								          <th>Motivo</th>
+								          <th><a href="" ng-click="predicate2 = 'clave'; reverse2=!reverse2">Clave</a></th>
+								          <th><a href="" ng-click="predicate2 = 'unidad'; reverse2=!reverse2">Unidad</a></th>
+								          <th><a href="" ng-click="predicate2 = 'cliente'; reverse2=!reverse2">Cliente</a></th>
+								          <th><a href="" ng-click="predicate2 = 'folio'; reverse2=!reverse2">Folio</a></th>
+								          <th><a href="" ng-click="predicate2 = 'lesionado'; reverse2=!reverse2">Lesionado</a></th>
+								          <th><a href="" ng-click="predicate2 = 'poliza'; reverse2=!reverse2">Poliza</a></th>
+								          <th><a href="" ng-click="predicate2 = 'siniestro'; reverse2=!reverse2">Siniestro</a></th>
+								          <th><a href="" ng-click="predicate2 = 'riesgo'; reverse2=!reverse2">Riesgo</a></th>
+								          <th><a href="" ng-click="predicate2 = 'reporte'; reverse2=!reverse2">Reporte</a></th>
+								          <th><a href="" ng-click="predicate2 = 'fechacaptura'; reverse2=!reverse2">Fecha Captura</a></th>
+								          <th><a href="" ng-click="predicate2 = 'fechahospitalario'; reverse2=!reverse2">Fecha Hospitalarios</a></th>
+								          <th><a href="" ng-click="predicate2 = 'reporta'; reverse2=!reverse2">Reporta</a></th>
+								          <th><a href="" ng-click="predicate2 = 'autoriza'; reverse2=!reverse2">Autoriza</a></th>
+								          <th><a href="" ng-click="predicate2 = 'motivo'; reverse2=!reverse2">Motivo</a></th>
 								        </tr>
 								    </thead>
 
 								    <tbody>
-								        <tr ng-repeat="hos in hospitalarios" >
+								        <tr ng-repeat="hos in hospitalarios | orderBy:predicate2:reverse2" >
 
 								          <td>
 								          	<a ng-href="#/hospitalario/{{hos.clave}}">{{hos.clave}}</a>
