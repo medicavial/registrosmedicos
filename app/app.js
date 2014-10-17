@@ -9,22 +9,24 @@ app.config(function($routeProvider){
              templateUrl: 'vistas/agenda.html',
      });
 
-    $routeProvider.when('/agenda/:autorizacion/:clave_tipo',{
+    $routeProvider.when('/agenda/:autorizacion/:clave_tipo/:lesionado',{
             templateUrl: 'vistas/agenda.html',
             controller : 'detalleAgendaCtrl'
     });
-
     $routeProvider.when('/autorizaciones',{
             templateUrl: 'vistas/autorizaciones.html',
             controller : 'autorizacionesCtrl'
     });
-
     $routeProvider.when('/autorizacion/:clave',{
             templateUrl: 'vistas/autorizaciones.html',
             controller : 'detalleAutorizacionesCtrl'
     });
 
-    $routeProvider.when('/confirma/:autorizacion',{
+    $routeProvider.when('/concluidos/:autorizacion',{
+            templateUrl: 'vistas/concluidos.html',
+            controller : 'concluidosCtrl'
+    });
+    $routeProvider.when('/confirma/:autorizacion/:paciente',{
             templateUrl: 'vistas/confirma.html',
             controller : 'detalleConfirmarCtrl'
     });
@@ -69,7 +71,7 @@ app.config(function($routeProvider){
             controller : 'loginCtrl'
     });
 
-    $routeProvider.when('/observacion',{
+    $routeProvider.when('/observacion/:autorizacion',{
             templateUrl: 'vistas/observacion.html',
             controller : 'observacionCtrl'
     });
@@ -225,6 +227,9 @@ app.factory("busqueda", function($http){
         autoriza:function(){
             return $http.get('api/api.php?funcion=consultaAut');
         },
+        concluido:function(){
+            return $http.get('api/api.php?funcion=consultaConcluidos');
+        },
         confirma:function(){
             return $http.get('api/api.php?funcion=consultaConfirmaciones');
         },
@@ -240,6 +245,9 @@ app.factory("busqueda", function($http){
         detalleagenda:function(autorizacion){
             return $http.get('api/api.php?funcion=detalleAgenda&autorizacion='+autorizacion);
         },
+        detalleconcluido:function(autorizacion){
+            return $http.get('api/api.php?funcion=detalleConcluido&autorizacion='+autorizacion);
+        },
         detallealtacita:function(autorizacion){
             return $http.get('api/api.php?funcion=detallealtacita&autorizacion='+autorizacion);
         },
@@ -249,11 +257,20 @@ app.factory("busqueda", function($http){
         detallehospitalario:function(clave){
             return $http.get('api/api.php?funcion=detalleHospitalario&numero='+clave);
         },
+        detalleobservacion:function(autorizacion){
+            return $http.get('api/api.php?funcion=detalleobservacion&autorizacion='+autorizacion);
+        },
         movimientos:function(clave){
             return $http.get('api/api.php?funcion=detalleAutorizacionMovimiento&numero='+clave);
         },
+        observacion:function(){
+            return $http.get('api/api.php?funcion=consultaObservacion');
+        },
         posicion:function(){
             return $http.get('api/api.php?funcion=posicion');
+        },
+        result:function(){
+            return $http.get('api/api.php?funcion=consultaResultados');
         },
         riesgo:function(){
             return $http.get('api/api.php?funcion=riesgo');

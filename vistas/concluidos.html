@@ -50,12 +50,12 @@
         <div class="form-group">
             <label class="control-label col-xs-3" for="folio">Fecha Cita</label>
             <div class="col-xs-3">
-            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt" ng-disabled="edicion">
+            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt">
         </div>
             <label class="control-label col-xs-3" for="folio">Hora Cita</label>
             <div class="col-xs-3">
                 <div class='input-group date' id='hora'>
-                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" ng-disabled="edicion"/>
+                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
                     </span>
                 </div>
@@ -64,33 +64,30 @@
         
 
         <div class="form-group">
-        <label class="control-label col-xs-3">Paciente:</label>
+        <label class="control-label col-xs-3">Confirmado con Paciente:</label>
         <div class="col-xs-6">
-            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente" ng-disabled="edicion" placeholder="Proveedor" mayusculas>
+            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente" placeholder="Proveedor" mayusculas>
         </div>
 
     </div>
 
         <div class="form-group">
-        <label class="control-label col-xs-3">Proveedor:</label>
+        <label class="control-label col-xs-3">Confirmado con Proveedor:</label>
         <div class="col-xs-6">
-            <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor" placeholder="Proveedor" ng-disabled="edicion" mayusculas>
+            <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor" placeholder="Proveedor" mayusculas>
             
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-3">Observacion de Resultados:</label>
         <div class="col-xs-9">
-            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.observacionres" id="notas"  ng-disabled="edicion" mayusculas></textarea>
+            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.observacion" id="notas"  ng-disabled="edicion" mayusculas></textarea>
         </div>
     </div>
   
         <br>
     </div>
-
-    </form>
     <br>
-<form class="form-horizontal">
     <fieldset>
         <legend>Observaciones de Coordinación Medica</legend>
     </fieldset>
@@ -98,69 +95,15 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Observaciones:</label>
         <div class="col-xs-9">
-            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="coor.observacion" id="notas" mayusculas></textarea>
+            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.observacioncor" id="notas"  ng-disabled="edicion" mayusculas></textarea>
         </div>
     </div>
     <div class="row">
 		<div class="col-md-6">
 	       	<label for="folio">Preexistencia:</label>
-            <input type="checkbox" ng-model="coor.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
+            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
 		</div>	
 	</div>
-    <br>
-	<div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
-    <div class="row text-left">
-        <div class="col-md-4">
-            <button type="button" ng-click="actualiza()" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk">  Enviar</button>
-            <br>
-        </div>
-    </div>
-</form>
-	<fieldset>
-	    <legend>Correo</legend>
-	</fieldset>
-<form class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label col-xs-3">Para:</label>
-        <div class="col-xs-9">
-            <input class="form-control" placeholder="Correo" ng-model="correo.para" id="notas"></input>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-3">CC:</label>
-        <div class="col-xs-3">
-            <input type="text" class="form-control" id="proveedor" ng-model="correo.copia">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-3">Comentarios:</label>
-        <div class="col-xs-9">
-            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="correo.comentarios" id="notas"  mayusculas></textarea>
-        </div>
-    </div>
-    <div ng-show="mensaje1" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
-    <div class="row text-left">
-        <div class="col-md-4">
-            <button type="button" ng-click="envia()" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk">  Enviar Correo</button>
-            <br>
-        </div>
-    </div>
 </form>
 
 </div>
-<script type="text/javascript">
-     
-        $(function () {
-              $('#fechaAt').datetimepicker({
-
-                pickDate: true,                 //en/disables the date picker
-                pickTime: false,                 //en/disables the time picker     
-                showToday: true,                 //shows the today indicator
-                language:'es'                  //sets language locale
-
-    });
-                $('#hora').datetimepicker({
-                    pickDate: false
-                });
-            });
-</script>

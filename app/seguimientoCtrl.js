@@ -1,6 +1,8 @@
-app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $routeParams) {
+app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $routeParams,  $timeout) {
     
     $scope.inicio = function(){
+
+        $scope.edicion = true;
 
         $scope.datos = {
 
@@ -8,46 +10,71 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
             observaciones:'',
             reagendado:'No',
             preexistencia:'No',
-            ruta: ''
+            nombre_archivo : $routeParams.autorizacion       
+
+             }
+
+    }
+
+            
+$.fn.upload = function(remote, data, successFn, progressFn) {
+    // if we dont have post data, move it along
+    if (typeof data != "object") {
+        progressFn = successFn;
+        successFn = data;
+    }
+    return this.each(function() {
+        if ($(this)[0].files[0]) {
+            var formData = new FormData();
+            formData.append($(this).attr("name"), $(this)[0].files[0]);
+
+            // if we have post data too
+            if (typeof data == "object") {
+                for (var i in data) {
+                    formData.append(i, data[i]);
+                }
+            }
+
+            // do the ajax request
+            $.ajax({
+                url: remote,
+                type: 'POST',
+                xhr: function() {
+                    myXhr = $.ajaxSettings.xhr();
+                    if (myXhr.upload && progressFn) {
+                        myXhr.upload.addEventListener('progress', function(prog) {
+                            var value = ~~((prog.loaded / prog.total) * 100);
+
+                            // if we passed a progress function
+                            if (progressFn && typeof progressFn == "function") {
+                                progressFn(prog, value);
+
+                                // if we passed a progress element
+                            } else if (progressFn) {
+                                $(progressFn).val(value);
+                            }
+                        }, false);
+                    }
+                    return myXhr;
+                },
+                data: formData,
+                dataType: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                complete: function(res) {
+                    var json;
+                    try {
+                        json = JSON.parse(res.responseText);
+                    } catch (e) {
+                        json = res.responseText;
+                    }
+                    if (successFn)
+                        successFn(json);
+                }
+            });
         }
-
-    }
-
-    $scope.onFileSelect = function($files) {
-    var file = $files[0];
-
-    if (file.size > 5097152){
-         $scope.error ='Tu archivo excedio los 5 MB';
-    }
-    $scope.upload = $upload.upload({
-        url: 'api/api.php?funcion=temporal',
-        data: {fname: $scope.fname},
-        file: file,
-      }).success(function(data, status, headers, config) {
-
-        $scope.mensaje = data.archivo;
-        $scope.alerta = 'alert-success';
-        $scope.datos.ruta = data.nombre;
-
-        console.log(data);
-
-            $http({
-                url:'api/api.php?funcion=guardaresultado&nombre='+$scope.datos.ruta,
-                method:'POST', 
-                contentType: "application/json; charset=utf-8", 
-                dataType: "json", 
-                data:$scope.datos
-            }).success(function(data) {
-
-                $scope.mensaje = data.respuesta;
-                $scope.alerta = 'alert-success';
-        //        $location.path("/observacion/"+$routeParams.autorizacion);
-
-        
-      });  
-      });     
-    }
-
-
+    });
+};
 
 });

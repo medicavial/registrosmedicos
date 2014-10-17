@@ -19,7 +19,7 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 	    	referencia : '',
 	    	fechacita :FechaAct,
 	    	horacita :FechaActHora,
-	    	paciente :'',
+	    	paciente : $routeParams.paciente,
 	    	proveedor1 :'',
 	    	status: 'Por confirmar'
     	}
@@ -42,7 +42,8 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 				costo:data[0].RC_costo,
 				cita:data[0].RC_tipocita,
 				notas:data[0].RC_obs,
-				referencia:data[0].RC_inforeferencia
+				referencia:data[0].RC_inforeferencia,
+				paciente:$routeParams.paciente
 
 			}
 

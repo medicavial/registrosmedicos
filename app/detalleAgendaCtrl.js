@@ -20,14 +20,13 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 	    	referencia : '',
 	    	fechacita :FechaAct,
 	    	horacita :FechaActHora,
-	    	paciente :'',
+	    	paciente : $routeParams.lesionado,
 	    	proveedor1 :'',
 	    	status: 'Por confirmar'
     	}
 
 
 	}	
-
 
 	$scope.detalleAut = function(){
 
@@ -36,7 +35,8 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 
 			$scope.datos = {
 				autorizacion:$routeParams.autorizacion,
-				tipo:$routeParams.clave_tipo
+				tipo:$routeParams.clave_tipo,
+				paciente:$routeParams.lesionado
 			}
 
 		});
@@ -66,7 +66,7 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 		        $scope.mensaje = data.respuesta;
 		        $scope.alerta = 'alert-success';
 		        $scope.autorizacion = data.autorizacion;
-		        $location.path("/seguimiento/" + $routeParams.autorizacion);
+		        $location.path("/cita");
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){
