@@ -39,7 +39,9 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="#/home">Inicio</a></li>
+	        <li><a href="#/autorizaciones">Autorizacion</a></li>
+	        <li><a href="#/hospitalarios">Hospitalario</a></li>
+	        <li ng-show="hospitalario"><a href="#/cita">Citas</a></li>
 	        <li><a href="#/busquedas">Busquedas</a></li>
 	      </ul>
 	      <p class="navbar-text navbar-right"><a href="#" ng-click="logout()" class="navbar-link">Cerrar Sesión</a></p>
