@@ -961,3 +961,8 @@ Stack trace:
 #0 /home/medica/public_html/registrosmedicos/api/api.php(606): PDOStatement->execute()
 #1 {main}
   thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 606
+[05-Nov-2014 11:34:35] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ET49O' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:606
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(606): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 606
