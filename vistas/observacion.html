@@ -87,24 +87,22 @@
   
         <br>
     </div>
-
-    </form>
     <br>
-<form class="form-horizontal">
+
     <fieldset>
         <legend>Observaciones de Coordinación Medica</legend>
     </fieldset>
-
+    <a ng-href="#/{{myPathVariable}}" target="_blank" class="btn btn-primary">Imagen Adjunta</a>
     <div class="form-group">
         <label class="control-label col-xs-3">Observaciones:</label>
         <div class="col-xs-9">
-            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="coor.observacion" id="notas" mayusculas></textarea>
+            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.observacion" id="notas" mayusculas></textarea>
         </div>
     </div>
     <div class="row">
 		<div class="col-md-6">
 	       	<label for="folio">Preexistencia:</label>
-            <input type="checkbox" ng-model="coor.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
+            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
 		</div>	
 	</div>
     <br>
@@ -116,10 +114,13 @@
         </div>
     </div>
 </form>
-	<fieldset>
-	    <legend>Correo</legend>
-	</fieldset>
+
+<div ng-show="correo1">
+    <fieldset>
+        <legend>Correo</legend>
+    </fieldset>
 <form class="form-horizontal">
+
     <div class="form-group">
         <label class="control-label col-xs-3">Para:</label>
         <div class="col-xs-9">
@@ -140,13 +141,11 @@
     </div>
     <div ng-show="mensaje1" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
     <div class="row text-left">
-        <div class="col-md-4">
-            <button type="button" ng-click="envia()" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk">  Enviar Correo</button>
-            <br>
-        </div>
+        <button type="button" id="loading-example-btn" data-loading-text="Enviando..." class="btn btn-primary" ng-click="envia()" >Enviar</button>
+
     </div>
 </form>
-
+</div>
 </div>
 <script type="text/javascript">
      
@@ -163,4 +162,6 @@
                     pickDate: false
                 });
             });
+
+
 </script>

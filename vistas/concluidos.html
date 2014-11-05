@@ -50,12 +50,12 @@
         <div class="form-group">
             <label class="control-label col-xs-3" for="folio">Fecha Cita</label>
             <div class="col-xs-3">
-            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt">
+            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt" ng-disabled="edicion">
         </div>
             <label class="control-label col-xs-3" for="folio">Hora Cita</label>
             <div class="col-xs-3">
                 <div class='input-group date' id='hora'>
-                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" />
+                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" ng-disabled="edicion" />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
                     </span>
                 </div>
@@ -66,7 +66,7 @@
         <div class="form-group">
         <label class="control-label col-xs-3">Confirmado con Paciente:</label>
         <div class="col-xs-6">
-            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente" placeholder="Proveedor" mayusculas>
+            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente" placeholder="Proveedor" mayusculas ng-disabled="edicion">
         </div>
 
     </div>
@@ -74,7 +74,7 @@
         <div class="form-group">
         <label class="control-label col-xs-3">Confirmado con Proveedor:</label>
         <div class="col-xs-6">
-            <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor" placeholder="Proveedor" mayusculas>
+            <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor" placeholder="Proveedor" mayusculas ng-disabled="edicion">
             
         </div>
     </div>
@@ -95,13 +95,13 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Observaciones:</label>
         <div class="col-xs-9">
-            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.observacioncor" id="notas"  ng-disabled="edicion" mayusculas></textarea>
+            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.observacioncor" id="notas"  ng-disabled="edicion" mayusculas ng-disabled="edicion"></textarea>
         </div>
     </div>
     <div class="row">
 		<div class="col-md-6">
 	       	<label for="folio">Preexistencia:</label>
-            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
+            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-disabled="edicion" ng-false-value="NO"> <br/>
 		</div>	
 	</div>
 </form>

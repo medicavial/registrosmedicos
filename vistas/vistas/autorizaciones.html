@@ -1,18 +1,11 @@
 <div ng-init="inicio()">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<h1>{{ titulo }}</h1>
 		</div>
-		<div class="col-md-8">
-			<div class="valor row" ng-show="autorizacion">
-
-				<div class="clave">
-					Autorizacion No.:<span class="digito">{{ autorizacion }}</span>
-				</div>
-				<div class="imprime" >
-					<a href="#/impresion/autorizacion/{{ autorizacion }}"><i class="glyphicon glyphicon-print"></i></a>
-				</div>
-
+		<div class="col-md-6">
+			<div class="clave">
+				Autorizacion No.:<span class="digito">{{ autorizacion }}</span>
 			</div>
 		</div>
 	</div>	
@@ -21,15 +14,22 @@
 	</fieldset>
 	<form name="formAut" novalidate>
 	<div class="row">
+		
 		<div class="col-md-2">
 	        <label for="folio">Folio MV</label>
 	        <input type="text" id="folio" class="form-control  input-lg" ng-keydown="presionaFolio" ng-maxlength="10" ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
 	    </div>
 
-	    <div class="col-md-2">
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
 	        <label for="folio">Fecha</label>
 	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.fecha" data-date-format="YYYY-MM-DD" id="fechaAt">
 	    </div>
+	</div>
+	<br>
+	<div class="row">
 
 		<div class="col-md-3">
 			<label for="cliente">Cliente</label>
@@ -37,28 +37,33 @@
 				<option value="">Cliente</option>
 			</select>
 		</div>
-
+		
 		<div class="col-md-3">
           <label for="unidad">Unidad Médica</label>
           <select class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades" required>
             <option value="">Unidad</option>
           </select>
         </div>
-
-        <div class="col-md-2">
-	        <label for="folio">Edad</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad" numeros required>
-	    </div>
+	
 	</div>
 	<br>
 	<div class="row">
 		
-		<div class="col-md-6">
+		<div class="col-md-8">
 	        <label for="folio">Lesionado</label>
 	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.nombrelesionado"  mayusculas required>
 	    </div>
 
-	    <div class="col-md-6">
+	    <div class="col-md-2">
+	        <label for="folio">Edad</label>
+	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad" numeros required>
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-8">
 	        <label for="folio">Medico Tratante</label>
 	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.medico"  mayusculas >
 	    </div>
@@ -73,29 +78,9 @@
 	    </div>
 
 	</div>
+	
 	<br>
-	<!-- <div class="row">
-		<div class="col-sm-4 col-md-4 text-center">
-
-			<label for="">¿Requiere autorización comercial?</label>
-			<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a><br>
-			<label class="radio-inline">
-			  <input type="radio" name="valor" id="1" ng-model="autoriza" value="1" ng-click="aut = true"> SI
-			</label>
-			<label class="radio-inline">
-			  <input type="radio" name="valor" id="2" ng-model="autoriza" value="0"ng-click="aut = false"> NO
-			</label>
-
-		</div>
-		<div class="col-sm-4 col-md-4" ng-show="aut">
-			<label for="unidad">Autorización Comercial</label>
-			<select class="form-control  input-lg" ng-model="datos.autorizacioncomercial" ng-options="usuario.id as usuario.Nombre for usuario in usuarios">
-				<option value="">Autorización Comercial</option>
-			</select>
-			
-		</div>
-	</div> -->
-	<br>
+	<hr>
 	<fieldset>
 		<legend>
 			Movimientos
@@ -130,18 +115,9 @@
 	<div ng-show="mensaje" class="alert  animate-show text-center" ng-class="tipoalerta">{{ mensaje }}</div>
 	<br>
 	<div class="row padding text-center">
-		<div class="col-md-3">
-			<button type="button" ng-hide="edicion" ng-click="guardar()" ng-disabled="formAut.$invalid" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar</button>
-			<br>
-		</div>
-		<div class="col-md-3">
-			<a href="#/autorizaciones" ng-click="inicio()" class="btn btn-default btn-lg btn-block glyphicon glyphicon-book"> Limpiar</a>
-			<br>
-		</div>
-		<div class="col-md-3">
-			<a href="#/" class="btn btn-danger btn-lg btn-block glyphicon glyphicon-circle-arrow-left"> Regresar</a>
-			<br>
-		</div>
+		<button type="button" ng-hide="edicion" ng-click="inicio()" class="btn btn-default btn-lg glyphicon glyphicon-book"> Limpiar</button>
+		<button type="button" ng-hide="edicion" ng-click="guardar()" ng-disabled="formAut.$invalid" class="btn btn-primary btn-lg glyphicon glyphicon-floppy-disk"> Guardar</button>
+		<a href="#/" class="btn btn-danger btn-lg glyphicon glyphicon-circle-arrow-left"> Regresar</a>
 	</div>
 	</form>
 </div>
@@ -149,40 +125,17 @@
 
 <div  id="movimiento" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
-		<form name="Aut" novalidate>
 		<div class="modal-content">
 			<div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
 		        <h4 class="modal-title">Movimiento de Autorización</h4>
 		    </div>
 		  	<div class="modal-body">
-		  		<div class="row">
-					<div class="col-sm-6 col-md-6">
-
-						<label for="">¿es autorización comercial?</label>
-						<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a><br>
-						<label class="radio-inline">
-						  <input type="radio" name="valor" id="1" ng-model="autoriza" value="1" ng-click="aut = true"> SI
-						</label>
-						<label class="radio-inline">
-						  <input type="radio" name="valor" id="2" ng-model="autoriza" value="0"ng-click="aut = false"> NO
-						</label>
-
-					</div>
-					<div class="col-sm-6 col-md-6" ng-show="aut">
-						<label for="unidad">Autorización Comercial</label>
-						<select class="form-control  input-lg" ng-model="movimiento.autorizacioncomercial" ng-options="usuario.id as usuario.Nombre for usuario in usuariosComer">
-							<option value="">Autorización Comercial</option>
-						</select>
-						
-					</div>
-				</div>
-				<br>
 		    	<div class="row">
 		    		<div class="col-md-8">
 
 		    			<label for="unidad">Tipo</label>
-						<select class="form-control  input-lg" ng-model="movimiento.tipo" ng-options="tipo.id as tipo.Nombre for tipo in tipos" required>
+						<select class="form-control  input-lg" ng-model="movimiento.tipo" ng-options="tipo.id as tipo.Nombre for tipo in tipos">
 							<option value="">Tipo</option>
 						</select>
 		    			
@@ -197,7 +150,7 @@
 		    		<div class="col-md-12">
 					
 		    			<label for="descripcion">Descripción</label>
-		    			<textarea name="descripcion" id="descripcion" class="form-control " ng-model="movimiento.descripcion" rows="5" mayusculas required></textarea>
+		    			<textarea name="descripcion" id="descripcion" class="form-control " ng-model="movimiento.descripcion" rows="5" mayusculas></textarea>
 		    			
 		    		</div>
 		    	</div>
@@ -207,10 +160,9 @@
 		  	<div class="modal-footer">
 		  		<button type="button" class="btn btn-default" ng-click="nuevomovimiento()" data-dismiss="modal">Limpiar</button>
 		        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-		        <button type="button" class="btn btn-primary" ng-disabled="Aut.$invalid" ng-click="guardaMovimiento()">Guardar</button>
+		        <button type="button" class="btn btn-primary" ng-click="guardaMovimiento()">Guardar</button>
 		    </div>
 		</div>
-		</form>
 	</div>
 </div>
 

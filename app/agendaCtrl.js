@@ -25,6 +25,7 @@ app.controller('agendaCtrl', function($scope, $http, $location) {
     try{
 
 			$scope.mensaje ='';
+			console.log(datos);
 
 			$http({
 

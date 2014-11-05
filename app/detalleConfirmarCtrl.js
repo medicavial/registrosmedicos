@@ -1,3 +1,18 @@
+var hoy = new Date(); 
+var dd = hoy.getDate(); 
+var mm = hoy.getMonth()+1;//enero es 0! 
+if (mm < 10) { mm = '0' + mm; }
+if (dd < 10) { dd = '0' + dd; }
+
+var yyyy = hoy.getFullYear();
+//armamos fecha para los datepicker
+var FechaAct = yyyy + '-' + mm + '-' + dd;
+
+var hora = hoy.getHours();
+var minuto = hoy.getMinutes();
+
+var FechaActHora = hora + ':' + minuto;
+
 app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootScope, $routeParams, $filter, $location) {
 
 	$scope.inicio = function(){
@@ -19,9 +34,12 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 	    	referencia : '',
 	    	fechacita :FechaAct,
 	    	horacita :FechaActHora,
-	    	paciente : $routeParams.paciente,
+	    	paciente : '',
 	    	proveedor1 :'',
-	    	status: 'Por confirmar'
+	    	status: 'Por confirmar',
+	    	folio: $routeParams.folio,
+	    	fecha: FechaAct,
+	    	hora: FechaActHora
     	}
 
 
@@ -43,7 +61,11 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 				cita:data[0].RC_tipocita,
 				notas:data[0].RC_obs,
 				referencia:data[0].RC_inforeferencia,
-				paciente:$routeParams.paciente
+				paciente:$routeParams.paciente,
+				folio:$routeParams.folio,
+				fechacita:data[0].RC_fechahora,
+				horacita:data[0].RC_hora,
+				proveedor1:data[0].RC_conproveedor
 
 			}
 

@@ -11,10 +11,13 @@
 	        <a data-target="#tab-tres" ng-click="buscaresultados()" data-toggle="tab">Resultados <strong> ({{ contadorres }}) </strong></a>
 	    </li>
 	    <li >
-	        <a data-target="#tab-cuatro" ng-click="buscaobservaciones()" data-toggle="tab">Observaciones <strong> ({{ contadorob }}) </strong></a>
+	        <a data-target="#tab-cuatro" ng-click="buscaobservaciones()" data-toggle="tab">Observaciones del Medico <strong> ({{ contadorob }}) </strong></a>
 	    </li>
 	    <li >
-	        <a data-target="#tab-five" ng-click="buscarconcluidos()" data-toggle="tab">Concluidos <strong> ({{ contadorconcluido }}) </strong></a>
+	        <a data-target="#tab-five" ng-click="buscarconcluidos()" data-toggle="tab">Concluidos</a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-six" ng-click="buscarconcluidos2()" data-toggle="tab">Administrador</a>
 	    </li>
 	</ul>
     <div class="tab-content">
@@ -34,9 +37,9 @@
 						</div>						
 					</div>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<br>
-							<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Busca Autorización</button>
 						</div>
 						<div class="col-md-2">
 							<br>
@@ -72,7 +75,7 @@
 							          <td>{{auto.cliente}}</td>
 							          <td></td>
 							          <td>
-							              <a ng-href="#/agenda/{{auto.autorizacion}}/{{auto.clave_tipo}}/{{auto.lesionado}}" class="btn btn-primary">Agendar</a>
+							              <a ng-href="#/agenda/{{auto.autorizacion}}/{{auto.clave_tipo}}" class="btn btn-primary">Agendar</a>
 							          </td>
 							        </tr> 
 							    </tbody>
@@ -101,9 +104,9 @@
 								</div>						
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-3">
 									<br>
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Confirmados</button>
 								</div>
 								<div class="col-md-2">
 									<br>
@@ -136,7 +139,7 @@
 									          <td>{{con.paciente}}</td>
 									          <td>{{con.proveedor}}</td>
 									          <td>
-									              <a ng-href="#/confirma/{{con.autorizacion}}/{{con.paciente}}" class="btn btn-primary">Confirmar</a>
+									              <a ng-href="#/confirma/{{con.autorizacion}}/{{con.paciente}}/{{con.folio}}" class="btn btn-primary">Confirmar</a>
 									          </td>
 									        </tr> 
 									    </tbody>
@@ -168,7 +171,7 @@
 							<div class="row">
 								<div class="col-md-2">
 									<br>
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Resultados</button>
 								</div>
 								<div class="col-md-2">
 									<br>
@@ -231,7 +234,7 @@
 							<div class="row">
 								<div class="col-md-2">
 									<br>
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Observaciones</button>
 								</div>
 								<div class="col-md-2">
 									<br>
@@ -294,7 +297,7 @@
 							<div class="row">
 								<div class="col-md-2">
 									<br>
-									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar</button>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Concluidos</button>
 								</div>
 								<div class="col-md-2">
 									<br>
@@ -337,7 +340,66 @@
 				    	</div>
 			    	</form>
 		</div>
+	</div>
+
+		    <div id="tab-six" class="tab-pane">
+	    	<form ng-submit="buscarConcluidos2()">
+		        <div class="padding">
+					<div class="row">
+						<div class="col-md-3">
+							<label for="criterio">Autorización</label>
+						    <input type="text" ng-model="admin.autorizacion" class="form-control input-lg" mayusculas>
+						    <br>
+						</div>						
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<br>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Busca Autorización</button>
+						</div>
+						<div class="col-md-2">
+							<br>
+							<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table">
+									
+							    <thead>
+							        <tr>
+							          <th><a href="" ng-click="predicate = 'clave'; reverse=!reverse">Autorizacion</a></th>
+							          <th><a href="" ng-click="predicate = 'tipo'; reverse=!reverse">Tipo</a></th>
+							          <th><a href="" ng-click="predicate = 'lesionado'; reverse=!reverse">Paciente</a></th>
+							          <th><a href="" ng-click="predicate = 'unidad'; reverse=!reverse">Proveedor</a></th>
 
 
+							        </tr>
+							    </thead>
+
+							    <tbody>
+							        <tr ng-repeat="conclu in concluidos  | orderBy:predicate:reverse" >
+
+							          <td>{{conclu.autorizacion}}</td>
+							          <td>{{conclu.tipo}}</td>
+							          <td>{{conclu.paciente}}</td>
+							          <td>{{conclu.proveedor}}</td>
+							          <td>
+							             <button type="button" class="btn btn-primary" ng-click="cambiastatus()">Estatus</button>
+							          </td>
+
+							        </tr> 
+							    </tbody>
+							    
+							    </table>
+							    <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
+							</div>
+						</div>
+					</div>	
+		    	</div>
+	    	</form>
+	    </div>
 </div>
 </div>

@@ -5,6 +5,16 @@
     <fieldset>
         <legend>Datos</legend>
     </fieldset>
+    <div class="row">
+        <div class="col-xs-3">
+        <label for="folio">Folio:</label>
+            <input type="text" id="folio" class="form-control"  ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
+        </div>
+        <div class="col-xs-6">
+            <label for="folio">Paciente:</label>
+            <input type="text" id="paciente" class="form-control"  ng-disabled="edicion" ng-model="datos.paciente"  mayusculas >
+        </div>
+    </div>
     <br>
     <div class="form-group">
         <label class="control-label col-xs-3">Clave Auntorización:</label>
@@ -21,7 +31,7 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Costo Estimado:</label>
         <div class="col-xs-2">
-            <input type="text" class="form-control" id="costo" ng-model="datos.costo" placeholder="Costo"  ng-disabled="edicion" mayusculas>
+            <input type="text" class="form-control" id="costo" ng-model="datos.costo" placeholder="Costo"  ng-disabled="edicion" numero required>
         </div>
     </div>
     <div class="form-group">
@@ -46,18 +56,13 @@
             <textarea rows="2" class="form-control" placeholder="Informacion de Referencia" ng-model="datos.referencia" id="referencia"  ng-disabled="edicion" mayusculas></textarea>
         </div>
     </div>
-    <br>
-    <fieldset>
-        <legend>Confirmación</legend>
-    </fieldset>
-    <div class="row">
-        <div class="form-group">
+    <div class="form-group">
             <label class="control-label col-xs-3" for="folio">Fecha Cita</label>
-            <div class="col-xs-3">
+        <div class="col-xs-3">
             <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt">
         </div>
             <label class="control-label col-xs-3" for="folio">Hora Cita</label>
-            <div class="col-xs-3">
+        <div class="col-xs-3">
                 <div class='input-group date' id='hora'>
                     <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
@@ -65,8 +70,26 @@
                 </div>
             </div>
         </div>
-        
-
+    <br>
+    <fieldset>
+        <legend>Confirmación</legend>
+    </fieldset>
+    <div class="form-group">
+            <label class="control-label col-xs-3" for="folio">Confirma Fecha de Cita</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt">
+        </div>
+            <label class="control-label col-xs-3" for="folio">  Confirma fecha de Cita</label>
+        <div class="col-xs-3">
+                <div class='input-group date' id='hora'>
+                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+    </div>
+    <div class="row">
+    
         <div class="form-group">
         <label class="control-label col-xs-3">Confirmado con Paciente:</label>
         <div class="col-xs-6">

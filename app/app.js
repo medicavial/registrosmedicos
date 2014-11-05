@@ -9,7 +9,7 @@ app.config(function($routeProvider){
              templateUrl: 'vistas/agenda.html',
      });
 
-    $routeProvider.when('/agenda/:autorizacion/:clave_tipo/:lesionado',{
+    $routeProvider.when('/agenda/:autorizacion/:clave_tipo',{
             templateUrl: 'vistas/agenda.html',
             controller : 'detalleAgendaCtrl'
     });
@@ -26,7 +26,7 @@ app.config(function($routeProvider){
             templateUrl: 'vistas/concluidos.html',
             controller : 'concluidosCtrl'
     });
-    $routeProvider.when('/confirma/:autorizacion/:paciente',{
+    $routeProvider.when('/confirma/:autorizacion/:paciente/:folio',{
             templateUrl: 'vistas/confirma.html',
             controller : 'detalleConfirmarCtrl'
     });
@@ -221,6 +221,12 @@ app.factory("auth", function($cookies,$cookieStore,$location, $rootScope, $http)
 
 app.factory("busqueda", function($http){
     return{
+        administrador:function(){
+            return $http.get('api/api.php?funcion=consultaConcluidos2');
+        },
+        archivo:function(){
+            return $http.get('api/api.php?funcion=mostrararchivo');
+        },
         autorizaciones:function(){
             return $http.get('api/api.php?funcion=consultaAutorizaciones');
         },
@@ -259,6 +265,9 @@ app.factory("busqueda", function($http){
         },
         detalleobservacion:function(autorizacion){
             return $http.get('api/api.php?funcion=detalleobservacion&autorizacion='+autorizacion);
+        },
+        detalleresultado:function(autorizacion){
+            return $http.get('api/api.php?funcion=detalleres&autorizacion='+autorizacion);
         },
         movimientos:function(clave){
             return $http.get('api/api.php?funcion=detalleAutorizacionMovimiento&numero='+clave);
@@ -331,6 +340,55 @@ app.factory("busqueda", function($http){
         }
     }
 });
+
+app.factory('uploadManager', function ($rootScope) {
+    var _files = [];
+    return {
+        add: function (file) {
+            _files.push(file);
+            $rootScope.$broadcast('fileAdded', file.files[0].name);
+        },
+        clear: function () {
+            _files = [];
+        },
+        files: function () {
+            var fileNames = [];
+            $.each(_files, function (index, file) {
+                fileNames.push(file.files[0].name);
+            });
+            return fileNames;
+        },
+        upload: function () {
+            $.each(_files, function (index, file) {
+                file.submit();
+            });
+        },
+        setProgress: function (percentage) {
+            $rootScope.$broadcast('uploadProgress', percentage);
+        }
+    };
+});
+
+app.directive('upload', ['uploadManager', function factory(uploadManager) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            $(element).fileupload({
+                dataType: 'text',
+                add: function (e, data) {
+                    uploadManager.add(data);
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    uploadManager.setProgress(progress);
+                },
+                done: function (e, data) {
+                    uploadManager.setProgress(0);
+                }
+            });
+        }
+    };
+}]);
 
 app.directive('ngKeydown', function() {
     return {

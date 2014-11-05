@@ -1,21 +1,25 @@
-app.controller('citaCtrl', function($scope, $http, busqueda) {
+app.controller('citaCtrl', function($scope, $http, busqueda, $location) {
 
 	$scope.inicio = function(){
 
 		$scope.contador = '';
-
-		$scope.autorizacion = {
-			folio:'',
-			autorizacion:''
-
-		}
 		$scope.buscaautorizaciones();
 		$scope.buscaconfirmaciones();
 		$scope.buscaresultados();
 		$scope.buscaobservaciones();
 		$scope.buscaconcluidos();
 
+		$scope.autorizacion = {
+			folio:'',
+			autorizacion:''
 
+		}
+
+		$scope.admin = {
+
+			autorizacion:''
+
+		}
 
 	}
 
@@ -179,7 +183,51 @@ app.controller('citaCtrl', function($scope, $http, busqueda) {
 		});
 	}
 
+	$scope.buscarConcluidos2 = function(){
 
+		console.log($scope.admin);
+		//console.log($scope.folio);
+		$http({
+			url:'api/api.php?funcion=buscarConcluidos2',
+			method:'POST', 
+			contentType: 'application/json', 
+			dataType: "json", 
+			data:$scope.admin
+		}).success( function (data){
+			console.log(data);
+			$scope.concluidos = data;
+
+		}).error( function (data){
+
+			alert('Ocurrio un error de conexion intente nuevamente si persiste el problema comunicate al area de sistemas');
+
+		});
+	}
+
+	$scope.cambiastatus = function(){
+
+		console.log($scope.admin);
+		//console.log($scope.folio);
+		$http({
+			url:'api/api.php?funcion=cambiastatus',
+			method:'POST', 
+			contentType: 'application/json', 
+			dataType: "json", 
+			data:$scope.admin
+		}).success( function (data){
+			console.log(data);
+
+        $scope.mensaje = data.respuesta;
+        $scope.alerta = 'alert-success';
+        location.reload()
+
+
+		}).error( function (data){
+
+			alert('Ocurrio un error de conexion intente nuevamente si persiste el problema comunicate al area de sistemas');
+
+		});
+	}
 
 
 });

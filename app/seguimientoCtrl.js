@@ -1,8 +1,11 @@
-app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $routeParams,  $timeout) {
+app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $routeParams, $location, $timeout, uploadManager, busqueda) {
     
     $scope.inicio = function(){
 
+        $scope.detalleAut();
         $scope.edicion = true;
+        $scope.archivos = [];
+        
 
         $scope.datos = {
 
@@ -10,71 +13,161 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
             observaciones:'',
             reagendado:'No',
             preexistencia:'No',
-            nombre_archivo : $routeParams.autorizacion       
+            archivo: $scope.archivos,
+            folio: '',
+            paciente: '',
+            proveedor:'',
+            pconfirmo:'',
+            fecha:'',
+            hora:''
+      
 
              }
 
     }
 
+    $scope.detalleAut = function(){
+
+        busqueda.detalleresultado($routeParams.autorizacion).success(function (data){
+
+                $scope.datos.paciente = data[0].AUM_lesionado;
+                $scope.datos.folio = data[0].AUM_folioMV;
+                $scope.datos.proveedor = data[0].RC_proveedor;
+                $scope.datos.pconfirmo = data[0].RC_conproveedor;
+                $scope.datos.fecha = data[0].RC_fechacita;
+                $scope.datos.hora = data[0].RC_hora;
             
-$.fn.upload = function(remote, data, successFn, progressFn) {
-    // if we dont have post data, move it along
-    if (typeof data != "object") {
-        progressFn = successFn;
-        successFn = data;
+
+            $scope.autorizacion = data[0].AUM_clave;
+
+        });
+
     }
-    return this.each(function() {
-        if ($(this)[0].files[0]) {
-            var formData = new FormData();
-            formData.append($(this).attr("name"), $(this)[0].files[0]);
 
-            // if we have post data too
-            if (typeof data == "object") {
-                for (var i in data) {
-                    formData.append(i, data[i]);
-                }
-            }
+   $scope.onFileSelect = function($files) {
+     
+    //$files: an array of files selected, each file has name, size, and type.
+    for (var i = 0; i < $files.length; i++) {
+      var file = $files[i];
 
-            // do the ajax request
-            $.ajax({
-                url: remote,
-                type: 'POST',
-                xhr: function() {
-                    myXhr = $.ajaxSettings.xhr();
-                    if (myXhr.upload && progressFn) {
-                        myXhr.upload.addEventListener('progress', function(prog) {
-                            var value = ~~((prog.loaded / prog.total) * 100);
+      console.log($scope.datos);
+      $scope.upload = $upload.upload({
+        url: 'api/api.php?funcion=temporal', //upload.php script, node.js route, or servlet url
+        method: 'POST',
+        //headers: {'header-key': 'header-value'},
+        //withCredentials: true,
+        data: $scope.datos,
+        file: file, // or list of files ($files) for html5 only
+//        fileName: $scope.autorizacion, // to modify the name of the file(s)
+        // customize file formData name ('Content-Disposition'), server side file variable name. 
+        //fileFormDataName: myFile, //or a list of names for multiple files (html5). Default is 'file' 
+        // customize how data is added to formData. See #40#issuecomment-28612000 for sample code
+        //formDataAppender: function(formData, key, val){}
+      }).progress(function(evt) {
+        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+      })
+      .success(function (data, status, headers, config){
 
-                            // if we passed a progress function
-                            if (progressFn && typeof progressFn == "function") {
-                                progressFn(prog, value);
+                // console.log(data);
+                $scope.mensaje = data.respuesta;
+                $scope.tipoalerta = 'alert-success';
+                $scope.archivos.push(data.ruta);
+                
+                //console.log(data);
+            }).error( function (xhr,status,data){
 
-                                // if we passed a progress element
-                            } else if (progressFn) {
-                                $(progressFn).val(value);
-                            }
-                        }, false);
-                    }
-                    return myXhr;
-                },
-                data: formData,
-                dataType: "json",
-                cache: false,
-                contentType: false,
-                processData: false,
-                complete: function(res) {
-                    var json;
-                    try {
-                        json = JSON.parse(res.responseText);
-                    } catch (e) {
-                        json = res.responseText;
-                    }
-                    if (successFn)
-                        successFn(json);
-                }
+                $scope.mensaje ='Existe Un Problema de Conexion Intente Cargar Nuevamente la Pagina';
+                $scope.tipoalerta = 'alert-danger';
+
             });
-        }
-    });
-};
 
+    }
+    /* alternative way of uploading, send the file binary with the file's content-type.
+       Could be used to upload files to CouchDB, imgur, etc... html5 FileReader is needed. 
+       It could also be used to monitor the progress of a normal http post/put request with large data*/
+    // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
+  };
+
+  $scope.guardar = function(){
+
+        try{
+
+            console.log($scope.datos);
+            $scope.mensaje2 ='';
+
+            $http({
+
+                url:'api/api.php?funcion=guardaresultado',
+                method:'POST', 
+                contentType: "application/json; charset=utf-8", 
+                dataType: "json", 
+                data:$scope.datos
+
+            }).success(function (data){
+
+                // console.log(data);
+                $scope.mensaje2 = data.respuesta;
+                $scope.tipoalerta = 'alert-success';
+                $location.path("/cita");
+                
+
+
+
+                
+                //console.log(data);
+            }).error( function (xhr,status,data){
+
+                $scope.mensaje2 ='Existe Un Problema de Conexion Intente Cargar Nuevamente la Pagina';
+                $scope.tipoalerta = 'alert-danger';
+
+            });
+
+        }catch(err){
+
+            alert(err);
+        }
+        
+    }   
+
+    $scope.elimina = function(index){
+
+        try{
+            
+            console.log($scope.archivos[index].ruta);
+            $scope.mensaje2 ='';
+
+
+            $http({
+
+                url:'api/api.php?funcion=eliminaarchivo',
+                method:'POST', 
+                contentType: "application/json; charset=utf-8", 
+                dataType: "json", 
+                data: $scope.datos
+            }).success(function (data){
+
+                 
+
+                $scope.mensaje2 = data.respuesta;
+                $scope.tipoalerta = 'alert-success';
+                $scope.archivos.splice(index,1);
+
+   //             $location.path("/cita");
+                                
+                //console.log(data);
+            }).error( function (xhr,status,data){
+
+                $scope.mensaje2 ='Existe Un Problema de Conexion Intente Cargar Nuevamente la Pagina';
+                $scope.tipoalerta = 'alert-danger';
+
+            });
+
+        }catch(err){
+
+            alert(err);
+        }
+        
+    }   
+
+        
 });

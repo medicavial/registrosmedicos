@@ -41,7 +41,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="#/autorizaciones">Autorizacion</a></li>
 	        <li><a href="#/hospitalarios">Hospitalario</a></li>
-	        <li ng-show="hospitalario"><a href="#/cita">Citas</a></li>
+	        <li><a href="#/cita">Seguimiento Citas</a></li>
 	        <li><a href="#/busquedas">Busquedas</a></li>
 	      </ul>
 	      <p class="navbar-text navbar-right"><a href="#" ng-click="logout()" class="navbar-link">Cerrar Sesión</a></p>
@@ -57,10 +57,6 @@
 	<section class="contenedor">
 		<div ng-view class="paginas"></div>
 	</section>
-
-	<div class="alerta">
-		
-	</div>
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="modulos/angular-file-upload-shim.min.js" ></script> 
@@ -68,6 +64,9 @@
 	<script src="js/angular.min.js"></script>
 	<script src="js/moment-with-langs.min.js"></script>
 	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/jquery.ui.widget.js"></script>
+	<script src="js/jquery.fileupload.js"></script>
+	<script src="js/jquery.fileupload-angular.js"></script>
 	<script src="modulos/angular-cookies.min.js"></script>
 	<script src="modulos/angular-route.min.js"></script>
 	<script src="modulos/angular-animate.min.js"></script>

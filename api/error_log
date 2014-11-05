@@ -947,3 +947,17 @@ Stack trace:
 #0 /home/medica/public_html/registrosmedicos/api/api.php(733): PDOStatement->execute()
 #1 {main}
   thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 733
+[16-Oct-2014 15:16:31] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AT65X' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:606
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(606): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 606
+[20-Oct-2014 10:38:58] PHP Warning:  opendir(../archivo/AX01Q/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2582
+[20-Oct-2014 10:38:58] PHP Warning:  readdir(): supplied argument is not a valid Directory resource in /home/medica/public_html/registrosmedicos/api/api.php on line 2583
+[20-Oct-2014 18:04:29] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 2194
+[20-Oct-2014 18:09:24] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 2194
+[29-Oct-2014 12:54:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AY45I' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:606
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(606): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 606

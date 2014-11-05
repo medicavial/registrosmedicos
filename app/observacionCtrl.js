@@ -2,10 +2,13 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 
 	$scope.inicio = function(){
 
+
+        
 		$scope.titulo = 'Agendar';
 		//console.log($routeParams.autorizacion);
 		$scope.detalleAut();
 		$scope.mensaje ='';
+		$scope.correo1= '';
 		$scope.edicion = true;
 		//$scope.autorizacion=$routeParams.autorizacion;
 
@@ -21,7 +24,10 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 	    	horacita : '',
 	    	paciente : '',
 	    	proveedor :'',
-	    	observacionres : ''
+	    	observacionres : '',
+	    	preexistencia:'',
+	    	observacion:''
+
     	}
 
 
@@ -47,7 +53,9 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 				horacita:data[0].RC_hora,
 				paciente:data[0].RC_paciente,
 				proveedor:data[0].RC_conproveedor,
-				observacionres:data[0].RC_resobservacion
+				observacionres:data[0].RC_resobservacion,
+				observacion:data[0].RC_observacioncoor,
+				preexistencia:data[0].RC_preexistencia
 
 			}
 
@@ -60,8 +68,8 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 	 $scope.actualiza = function(){
 
         
-        $scope.coor.clave=$routeParams.autorizacion;
-        console.log($scope.coor);
+   //     $scope.coor.clave=$routeParams.autorizacion;
+        console.log($scope.correo);
 
     try{
 
@@ -73,7 +81,7 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 		        method:'POST', 
 		        contentType: "application/json; charset=utf-8", 
 		        dataType: "json", 
-		        data:$scope.coor
+		        data:$scope.datos
 		       
 
 		    }).success(function (data){
@@ -82,7 +90,9 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 		        $scope.mensaje = data.respuesta;
 		        $scope.alerta = 'alert-success';
 		        $scope.coor = data.coordinacion;
-		        $location.path("/cita");
+		        $scope.correo1 = data.correo;
+
+		        $scope.edicion = false;
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){
@@ -121,13 +131,17 @@ $scope.envia = function(){
 		        console.log(data);
 		        $scope.mensaje1 = data.respuesta;
 		        $scope.alerta = 'alert-success';
-		        $scope.correo = data.respuesta;
-		//        $location.path("/cita");
+		        $scope.correo = data.correo;
+		        if(confirm("Tu Correo fue enviado")) {
+
+		        $location.path("/cita");
+
+		    }
 		        
 		        //console.log(data);
 		    }).error( function (xhr,status,data){
 
-		        $scope.mensaje ='Error';
+		        $scope.mensaje1 ='Error';
 		        $scope.alerta = 'alert-danger';
 
 		    });

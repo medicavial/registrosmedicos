@@ -1,16 +1,25 @@
 
 <div class="container" ng-init="inicio()">
-    <form class="form-horizontal">
+    <form class="form-horizontal" name="formulario">
     <br>
     <fieldset>
         <legend>Datos</legend>
     </fieldset>
+    <div class="row">
+        <div class="col-xs-3">
+        <label for="folio">Folio:</label>
+            <input type="text" id="folio" class="form-control"  ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
+        </div>
+        <div class="col-xs-6">
+            <label for="folio">Paciente:</label>
+            <input type="text" id="paciente" class="form-control"  ng-disabled="edicion" ng-model="datos.paciente"  mayusculas >
+        </div>
+    </div>
     <br>
     <div class="form-group">
-        <label class="control-label col-xs-3">Clave Auntorización:</label>
+        <label class="control-label col-xs-3">Clave Autorización:</label>
         <div class="col-xs-3">
             <input type="text" id="autorizacion" class="form-control  input-lg" ng-keydown="presionaautorizacion" ng-maxlength="10" ng-disabled="edicion" ng-model="datos.autorizacion"  mayusculas >
-        </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-3">Proveedor:</label>
@@ -21,7 +30,7 @@
     <div class="form-group">
         <label class="control-label col-xs-3">Costo Estimado:</label>
         <div class="col-xs-2">
-            <input type="text" class="form-control" id="costo" ng-model="datos.costo" placeholder="Costo" numeros required>
+            <input type="text" class="form-control" id="costo" ng-model="datos.costo" placeholder="Costo" numero required>
         </div>
     </div>
     <div class="form-group">
@@ -35,6 +44,12 @@
       </div>
         </div>
     <div class="form-group">
+        <label class="control-label col-xs-3">Descripción</label>
+        <div class="col-xs-9">
+            <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.descripcion" id="descripcion"  ng-disabled="edicion" mayusculas></textarea>
+        </div>
+    </div>
+    <div class="form-group">
         <label class="control-label col-xs-3">Notas:</label>
         <div class="col-xs-9">
             <textarea rows="3" class="form-control" placeholder="Notas" ng-model="datos.notas" id="notas"  mayusculas></textarea>
@@ -46,10 +61,6 @@
             <textarea rows="2" class="form-control" placeholder="Informacion de Referencia" ng-model="datos.referencia" id="referencia"  mayusculas></textarea>
         </div>
     </div>
-    <br>
-    <fieldset>
-        <legend>Confirmación</legend>
-    </fieldset>
     <div class="row">
         <div class="form-group">
             <label class="control-label col-xs-3" for="folio">Fecha Cita</label>
@@ -65,22 +76,33 @@
                 </div>
             </div>
         </div>
-        
-
-        <div class="form-group">
-        <label class="control-label col-xs-3">Confirmado con Paciente:</label>
-        <div class="col-xs-6">
-            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente" placeholder="Proveedor" mayusculas>
-        </div>
-            <a title="Favor de ingresar el paciente que confirme" lang="es" class="glyphicon glyphicon-question-sign"></a>
     </div>
-
-        <div class="form-group">
-        <label class="control-label col-xs-3">Confirmado con Proveedor:</label>
+    <div class="form-group">
+        <label class="control-label col-xs-3">Confirmado por:</label>
         <div class="col-xs-6">
             <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor1" placeholder="Proveedor" mayusculas>
-        </div>
+    </div>
     </div>  
+    <br>
+    <fieldset>
+        <legend>Confirmación de la Cita</legend>
+    </fieldset>  
+     <div class="row">      
+    <div class="form-group">
+        <label class="control-label col-xs-3">Confirmado por:</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="paciente" name="paciente"  ng-model="datos.paciente1" placeholder="Paciente" mayusculas>
+        </div>
+    
+        <div class="col-md-2">
+            <button type="button"  class="btn btn-info btn-lg" ng-click="datos.paciente1 = 'Mismo Paciente'"> Mismo P</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button"  class="btn btn-info btn-lg" ng-click="datos.paciente1 = 'Familiar:'"> Familiar</button>
+            <br>
+        </div>
+    </div>
+    </div>
         <br>
     <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
         <div class="row text-left">
@@ -113,11 +135,30 @@
                 pickDate: true,                 //en/disables the date picker
                 pickTime: false,                 //en/disables the time picker     
                 showToday: true,                 //shows the today indicator
-                language:'es'                  //sets language locale
+                language:'es',  
+                minDate: Date()
 
-    });
-                $('#hora').datetimepicker({
+                 //sets language locale
+
+           });
+            $('#fechaAt2').datetimepicker({
+
+                pickDate: true,                 //en/disables the date picker
+                pickTime: false,                 //en/disables the time picker     
+                showToday: true,                 //shows the today indicator
+                language:'es',
+                minDate: Date()
+
+                   //sets language locale
+
+           });
+            $('#hora').datetimepicker({
+                    pickDate: false
+                });
+             $('#hora2').datetimepicker({
                     pickDate: false
                 });
             });
+
 </script>
+

@@ -817,7 +817,7 @@ if ($funcion == 'guardaMovimiento') {
         $temporal->bindParam("fecha", $fecha);
         $temporal->bindParam("texto", $texto , PDO::PARAM_STR);
         $temporal->bindParam("usuario", $usuario , PDO::PARAM_INT);
-        $temporal->bindParam("usuariocomercial", $usuario , PDO::PARAM_INT);
+        $temporal->bindParam("usuariocomercial", $usuariocomercial , PDO::PARAM_INT);
 
         if ($temporal->execute()){
             $respuesta = array('respuesta' => "Los Datos se guardaron Correctamente");
@@ -1041,7 +1041,12 @@ if ($funcion == 'agenda') {
     $horacita = $datos ->horacita;
     $paciente = $datos ->paciente;
     $proveedor1 = $datos ->proveedor1;
+    $fecha = $datos->fecha;
+    $hora = $datos->hora;
+    $usuario = $datos->usuario;
     $status = 1;
+    $fecha_hoy = date("Y-m-d");
+    $hora_hoy = date("H:i:s");
     
 
     $db = conectarMySQL();
@@ -1070,8 +1075,11 @@ if ($funcion == 'agenda') {
                             ,RC_fechahora
                             ,RC_hora
                             ,RC_paciente  
-                            ,RC_fecharegistro                          
-                ) VALUES (:autorizacion,:proveedor,:costo,:tipo,:notas,:proveedor1,'$status',:referencia,:fechacita,:horacita,:paciente, now())";
+                            ,RC_fecharegistro
+                            ,RC_fechaconfirmada
+                            ,RC_horaconfirmada
+                            ,Usu_registro                          
+                ) VALUES (:autorizacion,:proveedor,:costo,:tipo,:notas,:proveedor1,'$status',:referencia,:fechacita,:horacita,:paciente, now(), '$fecha_hoy', '$hora_hoy', :usuario)";
         
         $temporal = $db->prepare($sql);
 
@@ -1086,6 +1094,9 @@ if ($funcion == 'agenda') {
         $temporal->bindParam("fechacita", $fechacita);
         $temporal->bindParam("horacita", $horacita);
         $temporal->bindParam("paciente", $paciente);
+        $temporal->bindParam("usuario", $usuario);
+        // $temporal->bindParam("fecha", $fecha);
+        // $temporal->bindParam("hora", $hora);
         
         
         
@@ -1118,10 +1129,15 @@ if ($funcion == 'confirmar') {
     $notas = $datos->notas;
     $referencia = $datos->referencia;
     $fechacita = $datos->fechacita;
-    $horacita = $datos ->horacita;
-    $paciente = $datos ->paciente;
-    $proveedor1 = $datos ->proveedor1;
+    $horacita = $datos->horacita;
+    $paciente = $datos->paciente;
+    $proveedor1 = $datos->proveedor1;
+    $fecha = $datos->fecha;
+    $hora = $datos->hora;
+    $usuario = $datos->usuario;
     $status = 2;
+    $fecha_hoy = date("Y-m-d");
+    $hora_hoy = date("H:i:s");
     
 
     $db = conectarMySQL();
@@ -1139,7 +1155,8 @@ if ($funcion == 'confirmar') {
     }else{
 
         $sql = "INSERT INTO RegistroCitas  (
-                            AUM_clave
+                            clave
+                            ,AUM_clave
                             ,RC_proveedor
                             ,RC_costo
                             ,RC_tipocita
@@ -1150,8 +1167,9 @@ if ($funcion == 'confirmar') {
                             ,RC_fechahora
                             ,RC_hora
                             ,RC_paciente    
-                            ,RC_fecharegistro                        
-                ) VALUES (:autorizacion,:proveedor,:costo,:tipo,:notas,:proveedor1,'$status',:referencia,:fechacita,:horacita,:paciente, now())";
+                            ,RC_fecharegistro
+                            ,Usu_registro                       
+                ) VALUES ('',:autorizacion,:proveedor,:costo,:tipo,:notas,:proveedor1,'$status',:referencia,:fechacita,:horacita,:paciente, now(),:usuario)";
         
         $temporal = $db->prepare($sql);
 
@@ -1165,6 +1183,9 @@ if ($funcion == 'confirmar') {
         $temporal->bindParam("fechacita", $fechacita);
         $temporal->bindParam("horacita", $horacita);
         $temporal->bindParam("paciente", $paciente);
+        $temporal->bindParam("usuario", $usuario);
+        // $temporal->bindParam("fecha", $fecha);
+        // $temporal->bindParam("hora", $hora);
         
         
         
@@ -1249,15 +1270,16 @@ if ($funcion == 'consultaAut') {
 
     }else{
         
-        $sql = "SELECT  a.AUM_clave as autorizacion, f.TIM_claveint as clave_tipo,TIM_nombre as tipo,AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
+        $sql = "SELECT  a.AUM_clave as autorizacion, AUM_folioMV as folio, f.TIM_claveint as clave_tipo, MOA_texto as descripcion,TIM_nombre as tipo,AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente
                 FROM AutorizacionMedica a
                 INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
                 INNER JOIN Compania e on a.EMP_claveint=e.cia_clave
                 INNER JOIN MovimientoAut f on a.AUM_clave=f.AUM_clave
                 INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
                 where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave) and (f.TIM_claveint='3'
-                or f.TIM_claveint='4')
-                ORDER BY fecha  DESC limit 30";
+                or f.TIM_claveint='4') 
+               -- and   AUM_fechareg>= '2014-10-27' --
+                ORDER BY fecha  DESC limit 50";
 
         $result = $db->query($sql);
         $autoriza = $result->fetchAll(PDO::FETCH_OBJ);
@@ -1267,7 +1289,9 @@ if ($funcion == 'consultaAut') {
 
         $sql = "SELECT count(*) as contador from AutorizacionMedica a
                 INNER JOIN MovimientoAut b on a.AUM_clave=b.AUM_clave
-                WHERE AUM_fechaReg like '$fecha%' Order By AUM_fechaReg DESC";
+                WHERE AUM_fechaReg like '$fecha%' and (b.TIM_claveint='3'
+                or b.TIM_claveint='4') Order By AUM_fechaReg DESC";
+
         foreach ($db->query($sql) as $row) {
             $contador = $row['contador'];
         }
@@ -1350,9 +1374,14 @@ if ($funcion == 'detalleAgenda') {
 
     }else{
         
-        $sql = "SELECT * FROM RegistroCitas a
-                INNER JOIN TipoMovimiento b on b.TIM_claveint=a.RC_tipocita
-                where AUM_clave = '$numeroautorizacion'";
+        $sql = "SELECT  *
+                FROM AutorizacionMedica a
+                INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
+                INNER JOIN Compania e on a.EMP_claveint=e.cia_clave
+                INNER JOIN MovimientoAut f on a.AUM_clave=f.AUM_clave
+                INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
+                where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave) and (f.TIM_claveint='3'
+                or f.TIM_claveint='4') and a.AUM_clave='$numeroautorizacion'";
 
         $result = $db->query($sql);
         $autorizacion = $result->fetchAll(PDO::FETCH_OBJ);
@@ -1360,6 +1389,7 @@ if ($funcion == 'detalleAgenda') {
         $db = null;
 
         echo json_encode($autorizacion);
+        //echo $sql;
 
     }
 
@@ -1433,9 +1463,11 @@ if ($funcion == 'detalleAgenda') {
     $autorizacion = $datos->autorizacion;
     $paciente = $datos->paciente;
     $proveedor = $datos->proveedor1;
-    $fecha = $datos->fechacita;
-    $hora = $datos->horacita;
+    $fecha = $datos->fecha;
+    $hora = $datos->hora;
     $confirmar = 1;
+    $fecha_hoy = date("Y-m-d");
+    $hora_hoy = date("H:i:s");
 
 
     $db = conectarMySQL();
@@ -1449,8 +1481,8 @@ if ($funcion == 'detalleAgenda') {
         $sql = "UPDATE RegistroCitas a 
                 SET
                 
-                 RC_fechahora='$fecha'
-                ,RC_hora='$hora'
+                 RC_fechaconfirmada='$fecha_hoy'
+                ,RC_horaconfirmada='$hora_hoy'
                 ,RC_paciente='$paciente'
                 ,RC_conproveedor='$proveedor'
                 ,RC_status='$confirmar'
@@ -1493,8 +1525,9 @@ if ($funcion == 'consultaConfirmaciones') {
 
     }else{
         
-        $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+        $sql = "SELECT a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_folioMV as folio, RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
                 INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint
+                INNER JOIN AutorizacionMedica c on a.AUM_clave=c.AUM_clave
                 WHERE RC_status='2' limit 30";
 
                 // INNER JOIN Usuario ON Usuario.USU_claveMV = AutorizacionMedica.USU_registro
@@ -2143,69 +2176,50 @@ function generaTabla($clave,$fecha,$nombreEmpresa,$nombreUnidad,$lesionado,$edad
 
 if ($funcion == 'temporal') {
 
-    if (isset($_FILES['archivo'])) {
+    $postdata = file_get_contents("php://input");
 
-        $archivo = $_FILES['archivo'];
-        $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
-        $time = time();
-        $carpeta ="{$_POST['nombre_archivo']}";
-        $nombre = "{$_POST['nombre_archivo']}_$time.$extension";
-        $directorio = "../archivo/$carpeta";
-        if(file_exists($directorio)){
-           //rmdir($directorio);
-            move_uploaded_file($archivo['tmp_name'], "../archivo/$carpeta/$nombre");
+    $datos = json_decode($postdata);
 
-        }else{
+    $autorizacion = $datos->autorizacion;
 
-            mkdir("../archivo/$carpeta");
-            move_uploaded_file($archivo['tmp_name'], "../archivo/$carpeta/$nombre");
+ 
+        if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+      
+        copy($_FILES['file']['tmp_name'], '../archivo/'. $_FILES['file']['name']);
+        $file_name = $_FILES['file']['name'];
+        $subido = true;
         }
-        
-    }
+        if($subido) {
+           $respuesta = array('respuesta' => "El Archivo subio con exito", 'ruta' => $file_name);
+        } else {
+        $respuesta = array('respuesta' => "Error al subir el archivo");
+        }
+        echo json_encode($respuesta);
 
 }
-if ($funcion == 'mostrararchivo') {
-    
-    $carpeta ="{$_POST['nombre_archivo']}";
-   
-    $directorio_escaneado = scandir("../archivo/$carpeta");
-    $archivos = array();
-    foreach ($directorio_escaneado as $item) {
-        if ($item != '.' and $item != '..') {
-            $archivos[] = $item;
-        }
-    }
-    echo json_encode($archivos);
-
-}
-
-    if ($funcion == 'eliminararchivo') {
-
-
-        if (isset($_POST['archivo'])) {
-            $archivo = $_POST['archivo'];
-            if (file_exists("../archivo/$archivo")) {
-                unlink("../archivo/$archivo");
-                echo 1;
-            } else {
-                echo 0;
-            }
-        }
-
-    }
 
 if ($funcion == 'guardaresultado') {
 
     $postdata = file_get_contents("php://input");
 
     $datos = json_decode($postdata);
-    $nombre = $_REQUEST['nombre'];
+   // $nombre = $_REQUEST['nombre'];
 
     $autorizacion = $datos->autorizacion;
     $observaciones = $datos->observaciones;
     $preexistencia = $datos->preexistencia;
-    $reagendado = $datos->datos;
     $reagendado = $datos->reagendado;
+    $archivos = $datos->archivo;
+
+    mkdir("../archivo/".$autorizacion."/", 0700);
+
+    foreach ($archivos as  $archi) {
+
+        copy("../archivo/$archi", "../archivo/$autorizacion/$archi");
+        unlink("../archivo/$archi");
+    }
+       
+    $status = 4;
 
      $db = conectarMySQL();
 
@@ -2221,6 +2235,7 @@ if ($funcion == 'guardaresultado') {
                  RC_resobservacion='$observaciones'
                 ,RC_preexistencia='".$preexistencia."'
                 ,RC_reagendado='".$reagendado."'
+                ,RC_status ='$status'
                 where AUM_clave = '$autorizacion' ";
 
     //    $result = $db->query($sql);
@@ -2255,8 +2270,9 @@ if ($funcion == 'consultaResultados') {
 
     }else{
         
-        $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+        $sql = "SELECT a.AUM_clave as autorizacion, TIM_nombre as tipo, AUM_folioMV as folio ,RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
                 INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint
+                INNER JOIN AutorizacionMedica c on a.AUM_clave=c.AUM_clave
                 WHERE RC_status='1' limit 30";
 
                 // INNER JOIN Usuario ON Usuario.USU_claveMV = AutorizacionMedica.USU_registro
@@ -2519,7 +2535,7 @@ if ($funcion == 'actualizacoordinacion') {
     //En este caso lo que mando es este objeto JSON {user:username,psw:password}
     $datos = json_decode($postdata);
 
-    $autorizacion = $datos->clave;
+    $autorizacion = $datos->autorizacion;
     $observacion = $datos->observacion;
     $preexistencia = $datos->preexistencia;
 
@@ -2547,7 +2563,7 @@ if ($funcion == 'actualizacoordinacion') {
         if ($temporal->execute()){
 
            
-            $respuesta = array('respuesta' => "Tus observaciones fueron guardadas", "clave" => $autorizacion);
+            $respuesta = array('respuesta' => "Tus observaciones fueron guardadas", "clave" => $autorizacion, "correo" => true);
             //$correo($html);
 
 
@@ -2592,20 +2608,102 @@ if ($funcion == 'enviacorreo') {
         $archi.= $archivo;
     }    
     $nombre = $archi;
-    $string_sin_modificar = $nombre; 
-    $nombre1 = substr($string_sin_modificar, 2); 
-    $nombre1 = substr($nombre1,0,-1);
+     $string_sin_modificar = $nombre; 
+     $nombre1 = substr($string_sin_modificar, 3); 
 
+     $db = conectarMySQL();
+
+    // $nombre1 = substr($nombre1,0,-1);
+
+     $sql="select a.AUM_clave as autorizacion, AUM_lesionado as lesionado, AUM_folioMV as folio, TIM_nombre as tipo ,Uni_nombre as unidad,
+            Cia_nombrecorto as cliente, RC_resobservacion as transcripcion, RC_preexistencia as preexistencia, RC_observacioncoor as observaciones
+            from AutorizacionMedica a
+            INNER JOIN RegistroCitas b on a.AUM_clave=b.AUM_clave
+            INNER JOIN Unidad c on a.UNI_claveint=c.Uni_clave
+            INNER JOIN Compania d on a.EMP_claveint=d.Cia_clave
+            INNER JOIN TipoMovimiento e on b.RC_tipocita=e.TIM_claveint
+            where a.AUM_clave='$autorizacion'";
+
+    foreach ($db->query($sql) as $row) {
+            $autoriza = $row['autorizacion'];
+            $lesionado = $row['lesionado'];
+            $folio = $row['folio'];
+            $unidad = $row['unidad'];
+            $cliente = $row['cliente'];
+            $tipo = $row['tipo'];
+            $transcripcion = $row['transcripcion'];
+            $preexistencia = $row['preexistencia'];
+            $observaciones = $row['observaciones'];
+
+
+    $html="<style type='text/css'>
+            .small font {
+                color: #224B99;
+            }
+            .small font strong {
+                font-size: 9px;
+            }
+            .clase1 {
+                color: #224B99;
+                font-size: 9px;
+            }
+            .clase1 font {
+                font-family: Verdana, Geneva, sans-serif;
+            }
+            .clase1 font {
+                font-size: 9px;
+            }
+            .clase1 font {
+                font-size: small;
+            }
+            .clase1 font {
+                font-weight: bold;
+            }
+            .clase2 {
+                color: #224B99;
+            }
+            .clase3 {
+                color: #224B99;
+                font-size: 9px;
+            }
+            }
+            </style>";
+
+
+    $html.="<h3 class='clase2'><img src='file:../img/logomv.png' width='195' height='93' />Por medio del presente le hacemos llegar el resultado sobre la Autorizacion:<span class=''> $autorizacion</span></h3>
+            <hr />
+            <p><br />
+      
+          <span class='clase2'>Folio MedicaVial:<strong>$folio</strong><br />
+          Nombre del Paciente:<strong>$lesionado</strong><br />
+          Tipo de Autorizacion:<strong>$tipo</strong><br />
+          Unidad de Atencion:<strong>$unidad</strong><br />
+          Cliente:<strong>$cliente</strong><br />
+          Transcripcion de Resultado:<strong>$transcripcion</strong><br />
+          Preexistencia Detectada:<strong>$preexistencia</strong><br />
+          Observacion de Coordinacion Medica:<strong>$observaciones</strong><br />
+          Comentarios:<strong>$comentarios</strong></span>
+        <p>
+          
+          <hr />          
+          
+          <FONT SIZE=2 class='clase3'>Abjunto encontrara archivo con el resultado</font><br />
+          <FONT SIZE=2>Para cualquier asunto relacionado a esta informacion favor de comunicarse en los medios <a href='mailto:coordmed@medicavial.com.mx'>coordmed@medicavial.com.mx</a> o al 01 803 MEDICA</font><BR><HR>'; 
+
+        </p>";
+
+        }
+
+        $db = null;
 
     $mimemail = new nomad_mimemail();
-    $mimemail->set_from("reportes@medicavial.com.mx");
+    $mimemail->set_from("resultadoscoordinacion@medicavial.com");
     $mimemail->set_to($para);
     $mimemail->add_cc($copia);
     $mimemail->add_bcc("adominguez@medicavial.com.mx");
 
-    $mimemail->set_subject("Resultados de Autorizacion");
-        
-    $mimemail->set_html("<h1>Prueba</h1>");
+    $mimemail->set_subject("Informacion de Paciente Coordinacion Medica Medica Vial");        
+    $mimemail->set_html($html);
     $mimemail->add_attachment($ruta.$nombre1,$nombre1);
 
 
@@ -2678,4 +2776,135 @@ if ($funcion == 'enviacorreo') {
     }
 
     }
+
+    if ($funcion == 'detalleres') {
+
+    $numeroautorizacion = $_REQUEST['autorizacion'];
+
+    $db = conectarMySQL();
+
+    if(!$db) {
+
+        die('Something went wrong while connecting to MSSQL');
+
+    }else{
+        
+        $sql = "SELECT  *
+                FROM AutorizacionMedica a
+                INNER JOIN RegistroCitas h on a.AUM_clave=h.AUM_clave
+                where a.AUM_clave='$numeroautorizacion'";
+
+        $result = $db->query($sql);
+        $autorizacion = $result->fetchAll(PDO::FETCH_OBJ);
+
+        $db = null;
+
+        echo json_encode($autorizacion);
+        //echo $sql;
+
+    }
+
+    }
+
+
+    if ($funcion == 'buscarConcluidos2') {
+   
+    $postdata = file_get_contents("php://input");
+
+    $datos = json_decode($postdata);
+
+
+    $db = conectarMySQL();
+
+    $autorizacion = $datos->autorizacion;
+
+
+   $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+            INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint ";
+
+
+    if ($autorizacion != '') {
+
+        $criterio2=" where ";
+        $criterio2.= " RC_status = '5' and ";
+        $criterio2.= " AUM_clave = '$autorizacion' ";
+
+    }else{
+
+        $criterio2=" where ";
+        $criterio2.= " RC_status = '5' ";
+
+    }
+
+    $sql .= $criterio2;
+
+    $result = $db->query($sql);
+    $resultados = $result->fetchAll(PDO::FETCH_OBJ);
+    $db = null;
+
+
+    echo json_encode($resultados);
+
+    //echo $sql;
+
+}
+
+if ($funcion == 'cambiastatus') {
+   
+    $postdata = file_get_contents("php://input");
+
+    $datos = json_decode($postdata);
+
+
+    $db = conectarMySQL();
+
+    $autorizacion = $datos->autorizacion;
+
+
+   $sql = "UPDATE RegistroCitas SET RC_status='1'  WHERE AUM_clave='$autorizacion'";
+
+
+    $temporal = $db->prepare($sql);
+
+        
+        if ($temporal->execute()){
+
+           
+            $respuesta = array('respuesta' => "Estatus Cambiado", "clave" => $autorizacion);
+            //$correo($html);
+
+
+        }else{
+            $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información", "clave" => $autorizacion);
+        }
+
+
+    echo json_encode($respuesta);
+
+}
+
+if ($funcion == 'eliminaarchivo'){
+
+    $postdata = file_get_contents("php://input");
+
+    $datos = json_decode($postdata);
+
+    $archivos = $datos->archivo;
+    $autorizacion  = $datos->autorizacion;
+
+
+   if (file_exists("../archivo/$archivos")) {
+    
+       unlink("../archivo/$archivos");
+         
+         $respuesta  = array('respuesta' => 'Se elimino el archivo' );
+   } else {
+         $respuesta  = array('respuesta' => 'No elimino el archivo' );
+
+   }
+   //echo json_encode($respuesta);
+
+}
+
+
 ?>

@@ -1,28 +1,46 @@
+var hoy = new Date(); 
+var dd = hoy.getDate(); 
+var mm = hoy.getMonth()+1;//enero es 0! 
+if (mm < 10) { mm = '0' + mm; }
+if (dd < 10) { dd = '0' + dd; }
+
+var yyyy = hoy.getFullYear();
+//armamos fecha para los datepicker
+var FechaAct = yyyy + '-' + mm + '-' + dd;
+
+var hora = hoy.getHours();
+var minuto = hoy.getMinutes();
+
+var FechaActHora = hora + ':' + minuto;
+
 app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope, $routeParams, $filter, $location) {
 
 	$scope.inicio = function(){
 
 		$scope.titulo = 'Agendar';
-		console.log($routeParams.autorizacion);
-		console.log($routeParams.tipo);
-		//$scope.detalleAut();
+		$scope.detalleAut();
 		//$scope.mensaje ='';
 		$scope.edicion = true;
 		//$scope.autorizacion=$routeParams.autorizacion;
-
 		$scope.datos= {
 
+            
             autorizacion : $routeParams.autorizacion,
+            paciente : '',
 	    	proveedor :'',
 	    	costo : '',
 	    	tipo: $routeParams.clave_tipo,
 	    	notas : '',
+	    	descripcion : '',
 	    	referencia : '',
-	    	fechacita :FechaAct,
-	    	horacita :FechaActHora,
-	    	paciente : $routeParams.lesionado,
+	    	fechacita : FechaAct,
+	    	horacita : FechaActHora,	    	
 	    	proveedor1 :'',
-	    	status: 'Por confirmar'
+	    	status: 'Por confirmar',
+	    	folio: '',
+	    	fecha: FechaAct,
+	    	hora:FechaActHora
+	    	
     	}
 
 
@@ -30,22 +48,26 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 
 	$scope.detalleAut = function(){
 
-        console.log(data);
 		busqueda.detalleagenda($routeParams.autorizacion).success(function (data){
 
 			$scope.datos = {
 				autorizacion:$routeParams.autorizacion,
 				tipo:$routeParams.clave_tipo,
-				paciente:$routeParams.lesionado
+				paciente:data[0].AUM_lesionado,
+				folio:data[0].AUM_folioMV,
+				descripcion:data[0].MOA_texto,
+				usuario:$rootScope.clave
 			}
+
+			$scope.autorizacion = data[0].AUM_clave;
 
 		});
 
 	}
 
      $scope.agenda = function(){
+     	 console.log($scope.datos);
 
-        console.log($scope.datos);
 
     try{
 
@@ -123,6 +145,6 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 		 	alert(err);
 		 }
 }
-	
+
 
 });

@@ -5,6 +5,16 @@
     <fieldset>
         <legend>Datos</legend>
     </fieldset>
+        <div class="row">
+        <div class="col-xs-3">
+        <label for="folio">Folio:</label>
+            <input type="text" id="folio" class="form-control"  ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
+        </div>
+        <div class="col-xs-6">
+            <label for="folio">Paciente:</label>
+            <input type="text" id="paciente" class="form-control"  ng-disabled="edicion" ng-model="datos.paciente"  mayusculas >
+        </div>
+    </div>
     <br>
     <div class="form-group">
         <label class="control-label col-xs-3">Clave Auntorización:</label>
@@ -46,43 +56,49 @@
             <textarea rows="2" class="form-control" placeholder="Informacion de Referencia" ng-model="datos.referencia" id="referencia"  ng-disabled="edicion" mayusculas></textarea>
         </div>
     </div>
-    <br>
-    <fieldset>
-        <legend>Confirmación</legend>
-    </fieldset>
     <div class="row">
         <div class="form-group">
             <label class="control-label col-xs-3" for="folio">Fecha Cita</label>
             <div class="col-xs-3">
-            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt">
+            <input type="text" class="form-control  input-lg" ng-model="datos.fechacita" data-date-format="YYYY-MM-DD" id="fechaAt" ng-disabled="edicion">
         </div>
             <label class="control-label col-xs-3" for="folio">Hora Cita</label>
             <div class="col-xs-3">
                 <div class='input-group date' id='hora'>
-                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" />
+                    <input type='text'  ng-model="datos.horacita"  data-date-format="hh:mm"  class="form-control" ng-disabled="edicion"/>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
                     </span>
                 </div>
             </div>
         </div>
-        
-
-        <div class="form-group">
-        <label class="control-label col-xs-3">Confirmado con Paciente:</label>
+    <div class="form-group">
+        <label class="control-label col-xs-3">Confirmado por:</label>
         <div class="col-xs-6">
-            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente" placeholder="Proveedor" mayusculas>
+            <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor1" placeholder="Proveedor" ng-disabled="edicion" mayusculas>
+            
+    </div>
+</div>
+    <br>
+    <fieldset>
+        <legend>Confirmación de la Cita</legend>
+    </fieldset>
+    <div class="row">
+    <div class="form-group">
+        <label class="control-label col-xs-3">Confirmado por:</label>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" id="paciente" ng-model="datos.paciente1" placeholder="Proveedor" mayusculas>
         </div>
-        <a title="Favor de ingresar el paciente que confirme" lang="es" class="glyphicon glyphicon-question-sign"></a>
+
+        <div class="col-md-2">
+            <button type="button"  class="btn btn-info btn-lg" ng-click="datos.paciente1 = 'Mismo Paciente'"> Mismo P</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button"  class="btn btn-info btn-lg" ng-click="datos.paciente1 = 'Familiar:'"> Familiar</button>
+            <br>
+        </div>
 
     </div>
-
-        <div class="form-group">
-        <label class="control-label col-xs-3">Confirmado con Proveedor:</label>
-        <div class="col-xs-6">
-            <input type="text" class="form-control" id="proveedor1" ng-model="datos.proveedor1" placeholder="Proveedor" mayusculas>
-            
-        </div>
-    </div>  
+    </div>
         <br>
     <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{mensaje}}</div>
         <div class="row text-left">
@@ -104,17 +120,34 @@
 
 
 <script type="text/javascript">
-     
-        $(function () {
-              $('#fechaAt').datetimepicker({
+
+     $(function () {
+
+         $('#fechaAt').datetimepicker({
 
                 pickDate: true,                 //en/disables the date picker
                 pickTime: false,                 //en/disables the time picker     
                 showToday: true,                 //shows the today indicator
-                language:'es'                  //sets language locale
+                language:'es',
+                minDate: Date()
+//sets language locale
 
-    });
-                $('#hora').datetimepicker({
+        });
+        $('#fechaAt2').datetimepicker({
+
+                pickDate: true,                 //en/disables the date picker
+                pickTime: false,                 //en/disables the time picker     
+                showToday: true,                 //shows the today indicator
+                language:'es',
+                minDate: Date()
+                //sets language locale
+
+        });
+        
+        $('#hora').datetimepicker({
+                    pickDate: false
+                });
+        $('#hora2').datetimepicker({
                     pickDate: false
                 });
             });
