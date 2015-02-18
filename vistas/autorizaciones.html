@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<h1>{{ titulo }}</h1>
+			<p class="text-danger" ng-hide="autorizacion" ><strong>* Campos requeridos</strong></p>
 		</div>
 		<div class="col-md-8">
 			<div class="valor row" ng-show="autorizacion">
@@ -12,7 +13,6 @@
 				<div class="imprime" >
 					<a href="#/impresion/autorizacion/{{ autorizacion }}"><i class="glyphicon glyphicon-print"></i></a>
 				</div>
-
 			</div>
 		</div>
 	</div>	
@@ -23,7 +23,7 @@
 	<div class="row">
 		<div class="col-md-2">
 	        <label for="folio">Folio MV</label>
-	        <input type="text" id="folio" class="form-control  input-lg" ng-keydown="presionaFolio" ng-maxlength="10" ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
+	        <input type="text" id="folio" class="form-control  input-lg" ng-keydown="presionaFolio" ng-blur="verificaFolio()" ng-maxlength="10" ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
 	    </div>
 
 	    <div class="col-md-2">
@@ -32,30 +32,39 @@
 	    </div>
 
 		<div class="col-md-3">
-			<label for="cliente">Cliente</label>
-			<select class="form-control  input-lg"  ng-disabled="edicion" ng-model="datos.cliente" ng-options="cliente.id as cliente.Nombre for cliente in clientes" required>
-				<option value="">Cliente</option>
-			</select>
+			<div class="form-group" ng-class="{'has-error':!autorizacion}">
+				<label for="cliente">Cliente</label>
+				<select class="form-control  input-lg" name="cliente"  ng-disabled="edicion" ng-model="datos.cliente" ng-options="cliente.id as cliente.Nombre for cliente in clientes" required>
+					<option value="">Cliente</option>
+				</select>
+			</div>
+
 		</div>
 
 		<div class="col-md-3">
-          <label for="unidad">Unidad Médica</label>
-          <select class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades" required>
-            <option value="">Unidad</option>
-          </select>
+			<div class="form-group" ng-class="{'has-error':!autorizacion}">
+				<label for="unidad">Unidad Médica</label>
+				<select class="form-control  input-lg" name="unidad" ng-disabled="edicion" ng-model="datos.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades" required>
+				<option value="">Unidad</option>
+				</select>
+			</div>
         </div>
 
         <div class="col-md-2">
-	        <label for="folio">Edad</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad" numeros required>
+        	<div class="form-group" ng-class="{'has-error':!autorizacion}">
+		        <label for="folio">Edad</label>
+		        <input type="text" class="form-control  input-lg" name="edad" ng-disabled="edicion" ng-model="datos.edad" numeros required>
+		    </div>
 	    </div>
 	</div>
 	<br>
 	<div class="row">
 		
 		<div class="col-md-6">
-	        <label for="folio">Lesionado</label>
-	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.nombrelesionado"  mayusculas required>
+			<div class="form-group" ng-class="{'has-error':!autorizacion}">
+		        <label for="folio">Lesionado</label>
+		        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.nombrelesionado"  mayusculas required>
+		    </div>
 	    </div>
 
 	    <div class="col-md-6">
@@ -68,33 +77,14 @@
 	<div class="row">
 		
 		<div class="col-md-12">
-	        <label for="folio">Diagnostico</label>
-	        <textarea name="motivo" id="motivo" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.diagnostico" rows="5" mayusculas required></textarea>
+			<div class="form-group" ng-class="{'has-error':!autorizacion}">
+		        <label for="folio">Diagnostico</label>
+		        <textarea name="motivo" id="motivo" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.diagnostico" rows="5" mayusculas required></textarea>
+	       	</div>
 	    </div>
 
 	</div>
 	<br>
-	<!-- <div class="row">
-		<div class="col-sm-4 col-md-4 text-center">
-
-			<label for="">¿Requiere autorización comercial?</label>
-			<a href="" class="glyphicon glyphicon-question-sign" id="tooltip1" rel="tooltip"  title="Este campo estipula que se tiene un rechazo médico pero cuenta con autorización comercial"></a><br>
-			<label class="radio-inline">
-			  <input type="radio" name="valor" id="1" ng-model="autoriza" value="1" ng-click="aut = true"> SI
-			</label>
-			<label class="radio-inline">
-			  <input type="radio" name="valor" id="2" ng-model="autoriza" value="0"ng-click="aut = false"> NO
-			</label>
-
-		</div>
-		<div class="col-sm-4 col-md-4" ng-show="aut">
-			<label for="unidad">Autorización Comercial</label>
-			<select class="form-control  input-lg" ng-model="datos.autorizacioncomercial" ng-options="usuario.id as usuario.Nombre for usuario in usuarios">
-				<option value="">Autorización Comercial</option>
-			</select>
-			
-		</div>
-	</div> -->
 	<br>
 	<fieldset>
 		<legend>
@@ -182,7 +172,7 @@
 		    		<div class="col-md-8">
 
 		    			<label for="unidad">Tipo</label>
-						<select class="form-control  input-lg" ng-model="movimiento.tipo" ng-options="tipo.id as tipo.Nombre for tipo in tipos" required>
+						<select class="form-control  input-lg" ng-model="movimiento.tipo" ng-options="tipo.id as tipo.Nombre for tipo in tipos" ng-change="verificaMovimiento()" required>
 							<option value="">Tipo</option>
 						</select>
 		    			

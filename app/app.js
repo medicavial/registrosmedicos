@@ -9,7 +9,7 @@ app.config(function($routeProvider){
              templateUrl: 'vistas/agenda.html',
      });
 
-    $routeProvider.when('/agenda/:autorizacion/:clave_tipo',{
+    $routeProvider.when('/agenda/:autorizacion/:clave_tipo/:movimiento',{
             templateUrl: 'vistas/agenda.html',
             controller : 'detalleAgendaCtrl'
     });
@@ -51,6 +51,10 @@ app.config(function($routeProvider){
             controller : 'citaCtrl'
     });
 
+    $routeProvider.when('/factura/:autorizacion/:movimiento',{
+            templateUrl: 'vistas/factura.html',
+            controller : 'facturaCtrl'
+    });
 
     $routeProvider.when('/home',{
   			templateUrl: 'vistas/home.html'
@@ -71,9 +75,19 @@ app.config(function($routeProvider){
             controller : 'loginCtrl'
     });
 
+    $routeProvider.when('/monitor',{
+            templateUrl: 'vistas/monitor.html'
+
+    });
+
     $routeProvider.when('/observacion/:autorizacion',{
             templateUrl: 'vistas/observacion.html',
             controller : 'observacionCtrl'
+    });
+
+    $routeProvider.when('/pendienteValidar/:autorizacion/:movimiento',{
+            templateUrl: 'vistas/pendienteValidar.html',
+            controller : 'pendienteValidarCtrl'
     });
 
     $routeProvider.when('/pruebas',{
@@ -84,6 +98,11 @@ app.config(function($routeProvider){
     $routeProvider.when('/seguimiento/:autorizacion',{
             templateUrl: 'vistas/seguimiento.html',
             controller : 'seguimientoCtrl'
+    });
+
+    $routeProvider.when('/seguimientoCitas',{
+            templateUrl: 'vistas/seguimientoCitas.html',
+            controller : 'seguimientoCitasCtrl'
     });
 
 	$routeProvider.otherwise({redirectTo:'/login'});
@@ -218,8 +237,23 @@ app.factory("auth", function($cookies,$cookieStore,$location, $rootScope, $http)
     }
 });
 
+app.factory('todoFactory',function($http){
+          var factory = [];
+          
+          factory.getxmltemporal = function(variable){
+            return $http.get('Facturas/'+ variable);
+          },
 
-app.factory("busqueda", function($http){
+          factory.getTodos = function(autorizacion, movimiento, variable){
+            return $http.get('Facturas/'+ autorizacion + '-'+ movimiento + '/' + variable);
+          }
+         
+            return factory;
+    });
+
+
+
+app.factory('busqueda', function($http){
     return{
         administrador:function(){
             return $http.get('api/api.php?funcion=consultaConcluidos2');
@@ -269,16 +303,25 @@ app.factory("busqueda", function($http){
         detalleresultado:function(autorizacion){
             return $http.get('api/api.php?funcion=detalleres&autorizacion='+autorizacion);
         },
+        infolesionado:function(autorizacion){
+            return $http.get('api/api.php?funcion=infolesionado&autorizacion='+autorizacion);
+        },
         movimientos:function(clave){
             return $http.get('api/api.php?funcion=detalleAutorizacionMovimiento&numero='+clave);
         },
         observacion:function(){
             return $http.get('api/api.php?funcion=consultaObservacion');
         },
+        pendiente:function(){
+            return $http.get('api/api.php?funcion=consultaPendientes');
+        },
+        pendienteTranferir:function(){
+            return $http.get('api/api.php?funcion=pendienteTransferir');
+        },
         posicion:function(){
             return $http.get('api/api.php?funcion=posicion');
         },
-        result:function(){
+        resultado:function(){
             return $http.get('api/api.php?funcion=consultaResultados');
         },
         riesgo:function(){
@@ -368,6 +411,45 @@ app.factory('uploadManager', function ($rootScope) {
         }
     };
 });
+
+
+app.factory('alertService', ['$timeout', '$rootScope',
+    function($timeout, $rootScope) {
+        alertService = {};
+        $rootScope.alerts = [];
+
+        alertService.add = function(type, title, msg, timeout) {
+            $rootScope.alerts.push({
+                type: type,
+                title: title,
+                msg: msg,
+                close: function() {
+                    return alertService.closeAlert(this);
+                }
+            });
+
+            if(typeof timeout == 'undefined') {
+                timeout = 3000;
+            }
+
+            if (timeout) {
+                $timeout(function(){
+                    alertService.closeAlert(this);
+                }, timeout);
+            }
+        }
+
+        alertService.closeAlert = function(alert) {
+            return this.closeAlertIdx($rootScope.alerts.indexOf(alert));
+        }
+
+        alertService.closeAlertIdx = function(index) {
+            return $rootScope.alerts.splice(index, 1);
+        }
+
+        return alertService;
+    }
+]);
 
 app.directive('upload', ['uploadManager', function factory(uploadManager) {
     return {

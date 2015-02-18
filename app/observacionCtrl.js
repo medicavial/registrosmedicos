@@ -5,7 +5,6 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 
         
 		$scope.titulo = 'Agendar';
-		//console.log($routeParams.autorizacion);
 		$scope.detalleAut();
 		$scope.mensaje ='';
 		$scope.correo1= '';
@@ -26,10 +25,11 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 	    	proveedor :'',
 	    	observacionres : '',
 	    	preexistencia:'',
-	    	observacion:''
+	    	observacion:'',
+	    	archivo: ''
+
 
     	}
-
 
 	}	
 
@@ -43,27 +43,59 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 
 			$scope.datos = {
 
-				autorizacion:data[0].AUM_clave,
-				proveedor:data[0].RC_proveedor,
-				costo:data[0].RC_costo,
-				cita:data[0].RC_tipocita,
-				notas:data[0].RC_obs,
-				referencia:data[0].RC_inforeferencia,
-				fechacita:data[0].RC_fechahora,
-				horacita:data[0].RC_hora,
-				paciente:data[0].RC_paciente,
-				proveedor:data[0].RC_conproveedor,
-				observacionres:data[0].RC_resobservacion,
-				observacion:data[0].RC_observacioncoor,
-				preexistencia:data[0].RC_preexistencia
+				autorizacion:data.clave,
+				proveedor:data.proveedor,
+				costo:data.costo,
+				cita:data.tipo,
+				notas:data.observacion,
+				referencia:data.inforeferencia,
+				fechacita:data.fecha,
+				horacita:data.hora,
+				paciente:data.paciente,
+				proveedor:data.conproveedor,
+				observacionres:data.resobservacion,
+				observacion:data.observacioncoor,
+				preexistencia:data.preexistencia
 
 			}
 
-			$scope.autorizacion = data[0].AUM_clave;
+			$scope.autorizacion = data.clave;
+			$scope.archivo = data.archivo;
 
 		});
 
 	}
+
+	// $scope.detalleAut = function(){
+
+
+	// 	busqueda.detalleobservacion($routeParams.autorizacion).success(function (data){
+
+	// 		console.log(data);
+
+	// 		$scope.datos = {
+
+	// 			autorizacion:data[0].AUM_clave,
+	// 			proveedor:data[0].RC_proveedor,
+	// 			costo:data[0].RC_costo,
+	// 			cita:data[0].RC_tipocita,
+	// 			notas:data[0].RC_obs,
+	// 			referencia:data[0].RC_inforeferencia,
+	// 			fechacita:data[0].RC_fechahora,
+	// 			horacita:data[0].RC_hora,
+	// 			paciente:data[0].RC_paciente,
+	// 			proveedor:data[0].RC_conproveedor,
+	// 			observacionres:data[0].RC_resobservacion,
+	// 			observacion:data[0].RC_observacioncoor,
+	// 			preexistencia:data[0].RC_preexistencia
+
+	// 		}
+
+	// 		$scope.autorizacion = data[0].AUM_clave;
+
+	// 	});
+
+	// }
 
 	 $scope.actualiza = function(){
 

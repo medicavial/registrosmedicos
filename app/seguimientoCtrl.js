@@ -13,7 +13,7 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
             observaciones:'',
             reagendado:'No',
             preexistencia:'No',
-            archivo: $scope.archivos,
+            archivo: '',
             folio: '',
             paciente: '',
             proveedor:'',
@@ -34,7 +34,7 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
                 $scope.datos.folio = data[0].AUM_folioMV;
                 $scope.datos.proveedor = data[0].RC_proveedor;
                 $scope.datos.pconfirmo = data[0].RC_conproveedor;
-                $scope.datos.fecha = data[0].RC_fechacita;
+                $scope.datos.fecha = data[0].RC_fechahora;
                 $scope.datos.hora = data[0].RC_hora;
             
 
@@ -63,9 +63,10 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
         //fileFormDataName: myFile, //or a list of names for multiple files (html5). Default is 'file' 
         // customize how data is added to formData. See #40#issuecomment-28612000 for sample code
         //formDataAppender: function(formData, key, val){}
-      }).progress(function(evt) {
+      progress:function(evt) {
         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-      })
+      }
+  })
       .success(function (data, status, headers, config){
 
                 // console.log(data);

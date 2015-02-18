@@ -11,15 +11,28 @@
 	        <a data-target="#tab-tres" ng-click="buscaresultados()" data-toggle="tab">Resultados <strong> ({{ contadorres }}) </strong></a>
 	    </li>
 	    <li >
-	        <a data-target="#tab-cuatro" ng-click="buscaobservaciones()" data-toggle="tab">Observaciones del Medico <strong> ({{ contadorob }}) </strong></a>
+	        <a data-target="#tab-cuatro" ng-click="buscaobservaciones()" data-toggle="tab">Observaciones Medicas CIA <strong> ({{ contadorob }}) </strong></a>
 	    </li>
 	    <li >
+	        <a data-target="#tab-ten" ng-click="buscaobservaciones()" data-toggle="tab"> Observaciones Medicas Tratante (Contruccion)<strong> ({{ contadorob }}) </strong></a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-seven"  data-toggle="tab">Factura <strong>({{ contadorconcluido }}) </strong> </a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-eight"  data-toggle="tab"> X Validar XML (Construción)</a>
+	    </li>
+	    <li >
+	        <a data-target="#tab-nine"  data-toggle="tab">Pagos(Construción)</a>
+	    </li>
+<!--    <li >
 	        <a data-target="#tab-five" ng-click="buscarconcluidos()" data-toggle="tab">Concluidos</a>
-	    </li>
-	    <li >
+	    </li> -->
+<!-- 	<li >
 	        <a data-target="#tab-six" ng-click="buscarconcluidos2()" data-toggle="tab">Administrador</a>
-	    </li>
+	    </li> -->
 	</ul>
+
     <div class="tab-content">
 	    <div id="tab-one" class="tab-pane active">
 	    	<form ng-submit="buscarAutorizacion()">
@@ -67,7 +80,7 @@
 							    <tbody>
 							        <tr ng-repeat="auto in autoriza  | orderBy:predicate:reverse" >
 
-							          <td>{{auto.autorizacion}}</td>
+							          <td>{{auto.autorizacion1}}</td>
 							          <td>{{auto.tipo}}</td>
 							          <td>{{auto.lesionado}}</td>
 							          <td>{{auto.unidad}}</td>
@@ -75,7 +88,7 @@
 							          <td>{{auto.cliente}}</td>
 							          <td></td>
 							          <td>
-							              <a ng-href="#/agenda/{{auto.autorizacion}}/{{auto.clave_tipo}}" class="btn btn-primary">Agendar</a>
+							              <a ng-href="#/agenda/{{auto.autorizacion}}/{{auto.clave_tipo}}/{{auto.movimiento}}" class="btn btn-primary">Agendar</a>
 							          </td>
 							        </tr> 
 							    </tbody>
@@ -94,12 +107,12 @@
 				        	<div class="row">
 								<div class="col-md-3">
 									<label for="criterio">Folio</label>
-								    <input type="text" ng-model="confirma.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <input type="text" ng-model="confirmar.folio" class="form-control input-lg" folio="verificaFolioA">
 								    <br>
 								</div>
 								<div class="col-md-3">
 									<label for="criterio">Autorización</label>
-								    <input type="text" ng-model="confirma.autorizacion" class="form-control input-lg" mayusculas>
+								    <input type="text" ng-model="confirmar.autorizacion" class="form-control input-lg" mayusculas>
 								    <br>
 								</div>						
 							</div>
@@ -133,7 +146,7 @@
 									    <tbody>
 									        <tr ng-repeat="con in confirma | orderBy:predicate:reverse" >
 
-									          <td>{{con.autorizacion}}</td>
+									          <td>{{con.autorizacion1}}</td>
 									          <td>{{con.tipo}}</td>
 									          <td>{{con.costo}}</td>
 									          <td>{{con.paciente}}</td>
@@ -159,12 +172,12 @@
 				        	<div class="row">
 								<div class="col-md-3">
 									<label for="criterio">Folio</label>
-								    <input type="text" ng-model="resultado.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <input type="text" ng-model="resultados.folio" class="form-control input-lg" folio="verificaFolioA">
 								    <br>
 								</div>
 								<div class="col-md-3">
 									<label for="criterio">Autorización</label>
-								    <input type="text" ng-model="resultado.autorizacion" class="form-control input-lg" mayusculas>
+								    <input type="text" ng-model="resultados.autorizacion" class="form-control input-lg" mayusculas>
 								    <br>
 								</div>						
 							</div>
@@ -187,6 +200,7 @@
 											
 									    <thead>
 									        <tr>
+									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Autorizacion-Mov</a></th>
 									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Autorizacion</a></th>
 									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Tipo</a></th>
 									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Costo Estimado</a></th>
@@ -197,6 +211,7 @@
 									    <tbody>
 									        <tr ng-repeat="res in resultado | orderBy:predicate:reverse" >
 
+									          <td>{{res.autorizacion1}}</td>
 									          <td>{{res.autorizacion}}</td>
 									          <td>{{res.tipo}}</td>
 									          <td>{{res.costo}}</td>
@@ -222,12 +237,12 @@
 				        	<div class="row">
 								<div class="col-md-3">
 									<label for="criterio">Folio</label>
-								    <input type="text" ng-model="resultado.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <input type="text" ng-model="observaciones.folio" class="form-control input-lg" folio="verificaFolioA">
 								    <br>
 								</div>
 								<div class="col-md-3">
 									<label for="criterio">Autorización</label>
-								    <input type="text" ng-model="resultado.autorizacion" class="form-control input-lg" mayusculas>
+								    <input type="text" ng-model="observaciones.autorizacion" class="form-control input-lg" mayusculas>
 								    <br>
 								</div>						
 							</div>
@@ -250,6 +265,7 @@
 											
 									    <thead>
 									        <tr>
+									          <th><a href="" ng-click="predicate = 'autorizacion1'; reverse=!reverse">Autorizacion-Mov</a></th>
 									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Autorizacion</a></th>
 									          <th><a href="" ng-click="predicate = 'tipo'; reverse=!reverse">Tipo</a></th>
 									          <th><a href="" ng-click="predicate = 'costo'; reverse=!reverse">Costo Estimado</a></th>
@@ -260,6 +276,7 @@
 									    <tbody>
 									        <tr ng-repeat="obs in observacion | orderBy:predicate:reverse" >
 
+									          <td>{{obs.autorizacion1}}</td>
 									          <td>{{obs.autorizacion}}</td>
 									          <td>{{obs.tipo}}</td>
 									          <td>{{obs.costo}}</td>
@@ -279,18 +296,19 @@
 		</div>
 	</div>
 
-		<div id="tab-five" class="tab-pane">
-		   <form ng-submit="buscarConcluidos()">
+	<div id="tab-seven" class="tab-pane">
+
+		 <form ng-submit="buscarConcluidos()">
 				        <div class="padding">
 				        	<div class="row">
 								<div class="col-md-3">
 									<label for="criterio">Folio</label>
-								    <input type="text" ng-model="concluido.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <input type="text" ng-model="concluidos.folio" class="form-control input-lg" folio="verificaFolioA">
 								    <br>
 								</div>
 								<div class="col-md-3">
 									<label for="criterio">Autorización</label>
-								    <input type="text" ng-model="concluido.autorizacion" class="form-control input-lg" mayusculas>
+								    <input type="text" ng-model="concluidos.autorizacion" class="form-control input-lg" mayusculas>
 								    <br>
 								</div>						
 							</div>
@@ -313,22 +331,264 @@
 											
 									    <thead>
 									        <tr>
+									          <th><a href="" ng-click="predicate = 'autorizacion1'; reverse=!reverse">Autorizacion-Mov</a></th>
 									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Autorizacion</a></th>
-									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Tipo</a></th>
-									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Costo Estimado</a></th>
-									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Paciente</a></th>
+									          <th><a href="" ng-click="predicate = 'tipo'; reverse=!reverse">Tipo</a></th>
+									          <th><a href="" ng-click="predicate = 'costo'; reverse=!reverse">Costo Estimado</a></th>
+									          <th><a href="" ng-click="predicate = 'paciente'; reverse=!reverse">Paciente</a></th>
 									        </tr>
 									    </thead>
 
 									    <tbody>
 									        <tr ng-repeat="conclu in concluido | orderBy:predicate:reverse">
 
+									          <td>{{conclu.autorizacion1}}</td>
 									          <td>{{conclu.autorizacion}}</td>
 									          <td>{{conclu.tipo}}</td>
 									          <td>{{conclu.costo}}</td>
 									          <td>{{conclu.paciente}}</td>
 									          <td>
-									              <a ng-href="#/concluidos/{{conclu.autorizacion}}" class="btn btn-primary">Detalle</a>
+									              <a ng-href="#/factura/{{conclu.autorizacion}}/{{conclu.movimiento}}" class="btn btn-primary">Detalle</a>
+									          </td>
+									        </tr> 
+									    </tbody>
+									    
+									    </table>
+									</div>
+								</div>
+							</div>	
+				    	</div>
+			    	</form>
+			    </div>
+		            
+
+	</div>
+
+		<div id="tab-eight" class="tab-pane">
+		   <form >
+				        <div class="padding">
+				        	<div class="row">
+								<div class="col-md-3">
+									<label for="criterio">Folio</label>
+								    <input type="text" ng-model="concluidos.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <br>
+								</div>
+								<div class="col-md-3">
+									<label for="criterio">Autorización</label>
+								    <input type="text" ng-model="concluidos.autorizacion" class="form-control input-lg" mayusculas>
+								    <br>
+								</div>						
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<br>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Pendientes</button>
+								</div>
+								<div class="col-md-2">
+									<br>
+									<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+								</div>
+
+
+							</div>
+							<div class="row">
+								<div class="col-md-4"></div>
+								<div class="col-md-4"></div>
+								<div class="col-md-4"><h3><strong> Total: {{ resultado | currency }} </strong></h3> </div>
+							<br>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<table class="table">
+											
+									    <thead>
+									        <tr>
+									          <th></th>
+									          <th><a href="" ng-click="predicate = 'rfc'; reverse=!reverse">RFC</a></th>
+									          <th><a href="" ng-click="predicate = 'emisor'; reverse=!reverse">Emisor</a></th>
+									          <th><a href="" ng-click="predicate = 'emision'; reverse=!reverse">Emisión de la Factura</a></th>
+									          <th><a href="" ng-click="predicate = 'total'; reverse=!reverse">Total</a></th>
+
+									        </tr>
+									    </thead>
+
+									    <tbody>
+									        <tr ng-repeat="todo in todos | orderBy:predicate:reverse">
+
+
+                                              <td><input type="checkbox"  toggle-checkbox toggle-checkbox-list="todo" toggle-checkbox-property="todo" name="selectedTodo[]" value="{{ todo }}" ng-checked="selection.indexOf(todo) > -1" ng-click="toggleSelection(todo)"> 
+											  </td>
+											  {{ todo }}
+									          <td>{{todo.rfc}}</td>
+									          <td>{{todo.emisor}}</td>
+									          <td>{{todo.emision}}</td>
+									          <td>{{todo.total}}</td>
+<!-- 									      <td>
+									              <a ng-href="#/pendienteValidar/{{pendiente.autorizacion}}" class="btn btn-primary">Detalle</a>
+									          </td> -->
+									        </tr> 
+									    </tbody>
+									    
+									    </table>
+									</div>
+								</div>
+							</div>
+							<div class="text-center">
+								<button type="button" ng-click="agregarelacion()" class="btn btn-primary glyphicon glyphicon-paperclip" data-toggle="modal" data-target="#relacion">
+								  Agregar Relación
+								</button>
+							</div>
+<!-- 							<div id="todo-list" class="row">
+							        <div class="col-sm-4 col-sm-offset-4">
+							            <div class="checkbox" ng-repeat="todo in todos">
+							                <label>
+							                    <input type="checkbox" ng-click="deleteTodo($index)">
+							                    {{ todo.rfc }}
+							                </label>
+							            </div>
+							        </div>
+							    </div> -->	
+				    	</div>
+				    </div>
+			    	</form>
+		</div>
+
+<div id="tab-nine" class="tab-pane">
+		   <form >
+				        <div class="padding">
+				        	<div class="row">
+								<div class="col-md-3">
+									<label for="criterio">Folio</label>
+								    <input type="text" ng-model="concluidos.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <br>
+								</div>
+								<div class="col-md-3">
+									<label for="criterio">Autorización</label>
+								    <input type="text" ng-model="concluidos.autorizacion" class="form-control input-lg" mayusculas>
+								    <br>
+								</div>						
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<br>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Pendientes</button>
+								</div>
+								<div class="col-md-2">
+									<br>
+									<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4"></div>
+								<div class="col-md-4"></div>
+								<div class="col-md-4"><h3><strong> Total: {{ resultado_transferir | currency }} </strong></h3> </div>
+							<div class="row">
+								<div class="col-md-8">
+									<div class="table-responsive">
+										<table class="table">
+											
+									    <thead>
+									        <tr>
+									          <th></th>
+									          <th><a href="" ng-click="predicate = 'codigo'; reverse=!reverse">Código de Relación</a></th>
+									          <th><a href="" ng-click="predicate = 'fecha'; reverse=!reverse">Fecha</a></th>
+									          <th><a href="" ng-click="predicate = 'total'; reverse=!reverse">Total</a></th>
+
+									        </tr>
+									    </thead>
+
+									    <tbody>
+									        <tr ng-repeat="ptransfe in ptransfers | orderBy:predicate:reverse">
+
+
+                                              <td><input type="checkbox"  toggle-checkbox toggle-checkbox-list="ptransfe" toggle-checkbox-property="ptransfe" name="selectedptransfe[]" value="{{ ptransfe }}" ng-checked="selectiones.indexOf(ptransfe) > -1" ng-click="toggleSelectiones(ptransfe)"> 
+											  </td>
+											  {{ ptransfe.codigo }}
+									          <td>{{ptransfe.codigo}}</td>
+									          <td>{{ptransfe.total | currency }}</td>
+									          <td>{{ptransfe.fecha}}</td>
+<!-- 									      <td>
+									              <a ng-href="#/pendienteValidar/{{pendiente.autorizacion}}" class="btn btn-primary">Detalle</a>
+									          </td> -->
+									        </tr> 
+									    </tbody>
+									    
+									    </table>
+									</div>
+								</div>
+							</div>
+							<div class="text-center">
+								<button type="button" ng-click="agregatransaccion()" class="btn btn-primary glyphicon glyphicon-paperclip" data-toggle="modal" data-target="#transaccion">
+								  Agregar Transacción
+								</button>
+							</div>
+<!-- 							<div id="todo-list" class="row">
+							        <div class="col-sm-4 col-sm-offset-4">
+							            <div class="checkbox" ng-repeat="todo in todos">
+							                <label>
+							                    <input type="checkbox" ng-click="deleteTodo($index)">
+							                    {{ todo.rfc }}
+							                </label>
+							            </div>
+							        </div>
+							    </div> -->	
+				    	</div>
+				    </div>
+			    	</form>
+		</div>
+
+		<div id="tab-ten" class="tab-pane">
+		   <form ng-submit="buscarObservacion()">
+				        <div class="padding">
+				        	<div class="row">
+								<div class="col-md-3">
+									<label for="criterio">Folio</label>
+								    <input type="text" ng-model="observaciones.folio" class="form-control input-lg" folio="verificaFolioA">
+								    <br>
+								</div>
+								<div class="col-md-3">
+									<label for="criterio">Autorización</label>
+								    <input type="text" ng-model="observaciones.autorizacion" class="form-control input-lg" mayusculas>
+								    <br>
+								</div>						
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<br>
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Buscar Observaciones</button>
+								</div>
+								<div class="col-md-2">
+									<br>
+									<button type="reset" class="btn btn-success btn-lg btn-block">Limpiar</button>
+								</div>
+							</div>
+							<div class="row">
+							<br>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<table class="table">
+											
+									    <thead>
+									        <tr>
+									          <th><a href="" ng-click="predicate = 'autorizacion1'; reverse=!reverse">Autorizacion-Mov</a></th>
+									          <th><a href="" ng-click="predicate = 'autorizacion'; reverse=!reverse">Autorizacion</a></th>
+									          <th><a href="" ng-click="predicate = 'tipo'; reverse=!reverse">Tipo</a></th>
+									          <th><a href="" ng-click="predicate = 'costo'; reverse=!reverse">Costo Estimado</a></th>
+									          <th><a href="" ng-click="predicate = 'paciente'; reverse=!reverse">Paciente</a></th>
+									        </tr>
+									    </thead>
+
+									    <tbody>
+									        <tr ng-repeat="obs in observacion | orderBy:predicate:reverse" >
+
+									          <td>{{obs.autorizacion1}}</td>
+									          <td>{{obs.autorizacion}}</td>
+									          <td>{{obs.tipo}}</td>
+									          <td>{{obs.costo}}</td>
+									          <td>{{obs.paciente}}</td>
+									          <td>
+									              <a ng-href="#/observacion/{{obs.autorizacion}}" class="btn btn-primary">Observaciones</a>
 									          </td>
 									        </tr> 
 									    </tbody>
@@ -342,7 +602,155 @@
 		</div>
 	</div>
 
-		    <div id="tab-six" class="tab-pane">
+
+	<div  id="relacion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<form name="Aut" novalidate>
+		<div class="modal-content">
+			<div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+
+			            <h4 class="modal-title">Relación de Facturas</h4>
+
+		    </div>
+		  	<div class="modal-body">
+
+		  				<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<table class="table">
+											
+									    <thead>
+									        <tr>
+									          <th><a href="" ng-click="predicate = 'rfc'; reverse=!reverse">RFC</a></th>
+									          <th><a href="" ng-click="predicate = 'emisor'; reverse=!reverse">Emisor</a></th>
+									          <th><a href="" ng-click="predicate = 'emision'; reverse=!reverse">Emisión de la Factura</a></th>
+
+									        </tr>
+									    </thead>
+
+									    <tbody>
+									        <tr ng-repeat="t in ts | orderBy:predicate:reverse">
+
+									          <td>{{t.rfc}}</td>
+									          <td>{{t.emisor}}</td>
+									          <td>{{t.emision}}</td>
+<!-- 									      <td>
+									              <a ng-href="#/pendienteValidar/{{pendiente.autorizacion}}" class="btn btn-primary">Detalle</a>
+									          </td> -->
+									        </tr> 
+									    </tbody>
+									    
+									    </table>
+									</div>
+								</div>
+						</div>
+		  	</div>
+		  	<br>
+			<div ng-show="mensaje" class="alert  animate-show text-center" ng-class="alerta">{{ mensaje }}</div>
+		  	<div class="modal-footer">
+		  		<strong> Total : {{ subtotal | currency }} </strong>
+		  		<input type="text" ng-model="datos.codigorelacion" ng-disabled="bit">
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+		        <button type="button" class="btn btn-primary" ng-click="guardarelacion()" ng-disabled="bit">Guardar</button>
+		    </div>
+		</div>
+		</form>
+	</div>
+</div>
+
+<div  id="transaccion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<form name="Aut" novalidate>
+		<div class="modal-content">
+			<div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+
+			            <h4 class="modal-title">Transacción de Pago</h4>
+
+		    </div>
+		  	<div class="modal-body">
+
+		  				<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<table class="table">
+											
+									    <thead>
+									        <tr>
+									          <th><a href="" ng-click="predicate = 'rfc'; reverse=!reverse">Codigo Transferencia</a></th>
+									          <th><a href="" ng-click="predicate = 'emisor'; reverse=!reverse">Fecha de Alta</a></th>
+									          <th><a href="" ng-click="predicate = 'emision'; reverse=!reverse">Total</a></th>
+
+									        </tr>
+									    </thead>
+
+									    <tbody>
+									        <tr ng-repeat="transaccion in transacciones | orderBy:predicate:reverse">
+
+									          <td>{{transaccion.codigo}}</td>
+									          <td>{{transaccion.fecha}}</td>
+									          <td>{{transaccion.total | currency }} </td>
+<!-- 									      <td>
+									              <a ng-href="#/pendienteValidar/{{pendiente.autorizacion}}" class="btn btn-primary">Detalle</a>
+									          </td> -->
+									        </tr> 
+									    </tbody>
+									    
+									    </table>
+									</div>
+								</div>
+						</div>
+		  	</div>
+		  	<br>
+			<div ng-show="mensaje_transaccion" class="alert  animate-show text-center" ng-class="alerta">{{ mensaje_transaccion }}</div>
+			<div class="row"> 
+				<div class="col-md-3">
+
+				    <strong>Codigo :</strong> 
+				</div>
+				<div class="col-md-4">
+
+				    <input type="text" ng-model="transaccion.codigotransaccion" ng-disabled="bit">
+				</div>
+
+			</div>
+			<div class="row"> 
+				<div class="col-md-3">
+
+				    <strong>Fecha :</strong> 
+				</div>
+				<div class="col-md-4">
+
+				    <input type="text" name="fecha" ng-disabled="bit" class="form-control  input-lg" ng-model="transaccion.fechaalta" data-date-format="YYYY-MM-DD" id="fecha">
+
+				</div>
+
+			</div>
+
+			<div class="row"> 
+				<div class="col-md-3">
+
+				    <strong>Caja :</strong> 
+				</div>
+				<div class="col-md-4">
+
+				    <input type="text" ng-model="transaccion.caja" ng-disabled="bit">
+				</div>
+
+			</div>
+
+		  	<div class="modal-footer">
+		  		<strong> Total : {{ subtotal_transaccion | currency }} </strong>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+		        <button type="button" class="btn btn-primary" ng-click="guardatransaccion()" ng-disabled="bit">Guardar</button>
+		    </div>
+		</div>
+		</form>
+	</div>
+</div>
+
+<!-- 	<div id="tab-six" class="tab-pane">
 	    	<form ng-submit="buscarConcluidos2()">
 		        <div class="padding">
 					<div class="row">
@@ -401,5 +809,19 @@
 		    	</div>
 	    	</form>
 	    </div>
+ -->
 </div>
 </div>
+
+<script>
+
+    $('#fecha').datetimepicker({
+
+		pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+
+    });
+
+</script>

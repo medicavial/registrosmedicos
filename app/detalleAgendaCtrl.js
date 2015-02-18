@@ -39,7 +39,8 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 	    	status: 'Por confirmar',
 	    	folio: '',
 	    	fecha: FechaAct,
-	    	hora:FechaActHora
+	    	hora:FechaActHora,
+	    	movimiento: $routeParams.movimiento
 	    	
     	}
 
@@ -56,7 +57,9 @@ app.controller('detalleAgendaCtrl', function($scope, $http, busqueda, $rootScope
 				paciente:data[0].AUM_lesionado,
 				folio:data[0].AUM_folioMV,
 				descripcion:data[0].MOA_texto,
-				usuario:$rootScope.clave
+				usuario:$rootScope.clave,
+				telefono:data[0].Exp_telefono,
+				movimiento:data[0].MOA_claveint
 			}
 
 			$scope.autorizacion = data[0].AUM_clave;

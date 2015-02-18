@@ -1,0 +1,643 @@
+<div class="container" ng-init="inicio()">
+
+        <ul class="nav nav-tabs">
+
+            <li class="active">
+                <a data-target="#tab-one" ng-click="" data-toggle="tab">Ingresa Factura</a>
+            </li>
+
+<!--             <li>
+                <a data-target="#tab-two" ng-click="" data-toggle="tab">Editar Factura</a>
+            </li>
+
+            <li>
+                <a data-target="#tab-three" ng-click="" data-toggle="tab">Detalle Factura</a>
+            </li> -->
+
+        </ul>
+
+        <div class="tab-content">
+
+            <div id="tab-one" class="tab-pane active">
+
+                <div class="padding">
+                        <form >
+                            <fieldset>
+                                <legend>Datos</legend>
+                            </fieldset>
+
+                            <div class="row">
+
+                                <div class="col-md-8">
+                                    <h4>
+                                        Lesionado: <strong><span class="digito">{{ factura.lesionado }}</span></strong>
+                                    </h4>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4>
+                                        Folio: <strong><span class="digito">{{ factura.folio }}</span></strong>
+                                    </h4>
+                                </div>
+
+                            </div> 
+                            <br>
+  
+                            <fieldset>
+                                <legend>Guardar Factura</legend>
+                            </fieldset>
+
+                            <div class="row center-text">
+
+                                <div class="col-md-6">
+
+                                      <input type="file" ng-file-select="onFileSelect_xml($files)" ng-model="factura.archivo">
+                                      <div ng-file-drop="onFileSelect_xml($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+                                            ng-show="dropSupported" class="drop-box">Arrastra tu archivo XML
+
+                                      </div>
+                                      <div ng-file-drop-available="dropSupported=true" 
+                                            ng-show="!dropSupported">HTML5 Drop File is not supported!
+                                      </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                      <input type="file" ng-file-select="onFileSelect_pdf($files)" ng-model='factura.archivo'>
+                                      <div ng-file-drop="onFileSelect_pdf($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+                                            ng-show="dropSupported" class="drop-box">Arrastra tu archivo PDF
+
+                                      </div>
+                                      <div ng-file-drop-available="dropSupported=true" 
+                                            ng-show="!dropSupported">HTML5 Drop File is not supported!
+                                      </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row" ng-show="bit3">
+                                <div class="col-md-2">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="guardaArchivos()" ng-disabled="edicion">Guardar</button>
+                                </div>
+
+                            </div>
+
+                            <div class="row" ng-show="bit4">
+
+                                <div class="col-md-2">
+                                    <br>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block" data-loading-text="Enviando..." ng-click="timbrar()" ng-disabled="edicion1"> Validar </button>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <div ng-if="variable != 1">
+                                        <progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="info"><i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / 100</i></progressbar>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <br>
+                                <alert ng-repeat="alert in alerts" type="alert.type" close="alert.close()">
+                                    <span data-ng-bind-html="alert.msg"></span>{{alert.title}}
+                                </alert>
+
+                            <div ng-show="lista">
+                                <ul class="list-group">
+                                  <li class="list-group-item" ng-repeat="archivos in archivos">
+                                        <a ng-src="../registrosmedicos/Facturas/{{archivos}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{archivos}}"  class="btn btn-warning">Archivo Adjunto</a>
+                                    <button type="button" ng-click="elimina($index)" class="btn btn-success"> Eliminar</button>
+                                    {{ archivos }}
+                                  </li>
+                                </ul>     
+                            </div>
+                            <div ng-show="lista2">
+                                <ul class="list-group">
+                                  <li class="list-group-item" ng-repeat="archivos in archivos">
+                                        <a ng-src="../registrosmedicos/Facturas/{{ factura.autorizacion }}-{{ factura.movimiento }}/{{archivos}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{factura.autorizacion}}-{{factura.movimiento}}/{{archivos}}"  class="btn btn-warning">Archivo Adjunto</a>
+                                  </li>
+                                </ul>     
+                            </div>
+
+                        </form>
+
+                            <fieldset>
+                                <legend>Datos de la Factura</legend>
+                            </fieldset>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Fecha de Emisión  : <strong><span class="digito">{{ factura.fechaemision }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Autorización No. : <strong><span class="digito">{{ factura.autorizacion }}</span></strong>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>
+                                        Movimiento No. : <strong><span class="digito">{{ factura.movimiento }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div>  
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Folio Fiscal : <strong>{{ factura.foliofiscal }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        RFC : <strong>{{ factura.rfc }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Emisor : <strong>{{ factura.emisor }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        Receptor : <strong>{{ factura.receptor }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Subtotal : <strong>{{ factura.subtotal }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        IVA : <strong>{{ factura.iva }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        Total : <strong>{{ factura.total }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Descuento : <strong>{{ factura.descuento }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+    <div id="tab-three" class="tab-pane">
+
+        <h1>Busqueda</h1>
+
+            <div class="row">
+      
+                  <div class="col-lg-12">
+                    <div class="widget">
+                        <div class="widget-title"><i class="glyphicon glyphicon-folder-open"></i> Detalles de busqueda <i ng-click="avanzado = false" class="glyphicon glyphicon-remove pull-right"></i></div>
+                        <div class="widget-body">
+
+                              <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                      <span class="input-group-addon glyphicon glyphicon-qrcode"></span>
+                                      <input type="text" class="form-control" ng-model="datos.foliofiscal" placeholder="Folio Fiscal">
+                                    </div>
+                                </div>
+
+                              </div>
+
+                              <br>
+                              
+                              <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon glyphicon glyphicon-pencil"></span>
+                                      <input type="text" class="form-control" ng-model="datos.rfc" placeholder="RFC" mayusculas>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                      <input type="text" class="form-control" ng-model="datos.emisor" placeholder="Emisor" mayusculas>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <input type="text" id="fechaini2" ng-model="datos.fechaini" data-date-format="YYYY-MM-DD" class="form-control" placeholder="Fecha Emisión de Factura" />
+                                </div>
+
+                              </div>
+                              <br>
+                              <div class="text-center">
+                                    <button type="button" class="btn btn-primary" ng-click="Buscar()">Consultar</button>
+                              </div>
+
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+
+
+                            <fieldset>
+                                <legend>Datos de la Factura</legend>
+                            </fieldset>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Fecha de Emisión  : <strong><span class="digito">{{ fechaemision }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Autorización No. : <strong><span class="digito">{{ autorizacion }}</span></strong>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>
+                                        Movimiento No. : <strong><span class="digito">{{ movimiento }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div>  
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Folio Fiscal : <strong>{{ foliofiscal }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        RFC : <strong>{{ rfc }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Emisor : <strong>{{ emisor }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        Receptor : <strong>{{ receptor }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Subtotal : <strong>{{ subtotal }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        IVA : <strong>{{ iva }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        Total : <strong>{{ total }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Descuento : <strong>{{ descuento }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+            </div>
+
+            <br>
+
+            <div class="row" >
+
+                    <fieldset>
+                        <legend>Reenvío de Correo</legend>
+                    </fieldset>
+
+
+                    <div>
+                        <ul class="list-group">
+                          <li class="list-group-item" ng-repeat="archivosdetalles in archivosdetalles">
+                                <a ng-src="../registrosmedicos/Facturas/{{ autorizacion }}-{{ movimiento }}/{{archivosdetalles}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{ autorizacion }}-{{ movimiento }}/{{archivosdetalles}}"  class="btn btn-warning">Archivo Adjunto</a>
+                                {{ archivosdetalles }}
+                          </li>
+                        </ul>     
+                    </div>
+
+            </div>
+
+    </div>
+
+    <div id="tab-two" class="tab-pane">
+
+                        <div class="padding">
+                        <form >
+                            <fieldset>
+                                <legend>Datos</legend>
+                            </fieldset>
+
+                            <div class="row">
+
+                                <div class="col-md-8">
+                                    <h4>
+                                        Lesionado: <strong><span class="digito">{{ factura.lesionado }}</span></strong>
+                                    </h4>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h4>
+                                        Folio: <strong><span class="digito">{{ factura.folio }}</span></strong>
+                                    </h4>
+                                </div>
+
+                            </div> 
+                            <br>
+  
+                            <fieldset>
+                                <legend>Guardar Factura</legend>
+                            </fieldset>
+
+                            <div class="row center-text">
+
+                                <div class="col-md-6">
+
+                                      <input type="file" ng-file-select="onFileSelect_xml($files)" ng-model="factura.archivo">
+                                      <div ng-file-drop="onFileSelect_xml($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+                                            ng-show="dropSupported" class="drop-box">Arrastra tu archivo XML
+
+                                      </div>
+                                      <div ng-file-drop-available="dropSupported=true" 
+                                            ng-show="!dropSupported">HTML5 Drop File is not supported!
+                                      </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                      <input type="file" ng-file-select="onFileSelect_pdf($files)" ng-model='factura.archivo'>
+                                      <div ng-file-drop="onFileSelect_pdf($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+                                            ng-show="dropSupported" class="drop-box">Arrastra tu archivo PDF
+
+                                      </div>
+                                      <div ng-file-drop-available="dropSupported=true" 
+                                            ng-show="!dropSupported">HTML5 Drop File is not supported!
+                                      </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row" ng-show="bit3">
+                                <div class="col-md-2">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="guardaArchivos()" ng-disabled="edicion">Guardar</button>
+                                </div>
+
+                            </div>
+
+                            <div class="row" ng-show="bit4">
+
+                                <div class="col-md-2">
+                                    <br>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block" data-loading-text="Enviando..." ng-click="timbrar()" ng-disabled="edicion1"> Validar </button>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <div ng-if="variable != 1">
+                                        <progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="info"><i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / 100</i></progressbar>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <br>
+                                <alert ng-repeat="alert in alerts" type="alert.type" close="alert.close()">
+                                    <span data-ng-bind-html="alert.msg"></span>{{alert.title}}
+                                </alert>
+
+                            <div ng-show="lista">
+                                <ul class="list-group">
+                                  <li class="list-group-item" ng-repeat="archivos in archivos">
+                                        <a ng-src="../registrosmedicos/Facturas/{{archivos}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{archivos}}"  class="btn btn-warning">Archivo Adjunto</a>
+                                    <button type="button" ng-click="elimina($index)" class="btn btn-success"> Eliminar</button>
+                                    {{ archivos }}
+                                  </li>
+                                </ul>     
+                            </div>
+                            <div ng-show="lista2">
+                                <ul class="list-group">
+                                  <li class="list-group-item" ng-repeat="archivos in archivos">
+                                        <a ng-src="../registrosmedicos/Facturas/{{ factura.autorizacion }}-{{ factura.movimiento }}/{{archivos}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{factura.autorizacion}}-{{factura.movimiento}}/{{archivos}}"  class="btn btn-warning">Archivo Adjunto</a>
+                                  </li>
+                                </ul>     
+                            </div>
+
+                        </form>
+
+                            <fieldset>
+                                <legend>Datos de la Factura</legend>
+                            </fieldset>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Fecha de Emisión  : <strong><span class="digito">{{ factura.fechaemision }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Autorización No. : <strong><span class="digito">{{ factura.autorizacion }}</span></strong>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>
+                                        Movimiento No. : <strong><span class="digito">{{ factura.movimiento }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div>  
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Folio Fiscal : <strong>{{ factura.foliofiscal }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        RFC : <strong>{{ factura.rfc }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Emisor : <strong>{{ factura.emisor }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        Receptor : <strong>{{ factura.receptor }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Subtotal : <strong>{{ factura.subtotal }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        IVA : <strong>{{ factura.iva }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        Total : <strong>{{ factura.total }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Descuento : <strong>{{ factura.descuento }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+</div>
+
+<script>
+
+    $('#fechaini').datetimepicker({
+        pickDate: true,                 //en/disables the date picker
+        pickTime: false,                 //en/disables the time picker     
+        showToday: true,                 //shows the today indicator
+        language:'es'                  //sets language locale
+    });
+
+    $('#fechafin').datetimepicker({
+        pickDate: true,                 //en/disables the date picker
+        pickTime: false,                 //en/disables the time picker     
+        showToday: true,                 //shows the today indicator
+        language:'es'                  //sets language locale
+    });
+
+    $("#fechaini").on("dp.change",function (e) {
+       $('#fechafin').data("DateTimePicker").setMinDate(e.date);
+    });
+    $("#fechafin").on("dp.change",function (e) {
+       $('#fechaini').data("DateTimePicker").setMaxDate(e.date);
+    });
+
+
+    $('#fechaini2').datetimepicker({
+        pickDate: true,                 //en/disables the date picker
+        pickTime: false,                 //en/disables the time picker     
+        showToday: true,                 //shows the today indicator
+        language:'es'                  //sets language locale
+    });
+
+    $('#fechafin2').datetimepicker({
+        pickDate: true,                 //en/disables the date picker
+        pickTime: false,                 //en/disables the time picker     
+        showToday: true,                 //shows the today indicator
+        language:'es'                  //sets language locale
+    });
+
+    $("#fechaini2").on("dp.change",function (e) {
+       $('#fechafin2').data("DateTimePicker").setMinDate(e.date);
+    });
+    $("#fechafin2").on("dp.change",function (e) {
+       $('#fechaini2').data("DateTimePicker").setMaxDate(e.date);
+    });
+
+
+    $('#notificacion').popover({
+        trigger:'focus',
+        placement : 'left',
+        'html':true,
+        title : 'Estatus del Expediente',
+        content :function() {
+                    return $("#nota").html();
+                }
+    });
+
+
+</script>
+

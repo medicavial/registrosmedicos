@@ -7,6 +7,9 @@
 	    <li >
 	        <a data-target="#tab-two" ng-click="buscahospitalarios()" data-toggle="tab" >Hosptalarios</a>
 	    </li>
+	    <li >
+	        <a data-target="#tab-three" ng-click="" data-toggle="tab" >Pagos</a>
+	    </li>
 	</ul>
 
 	<div class="tab-content">
@@ -243,6 +246,175 @@
 	    		Tu usuario no tiene permisos para acceder aqui
 	    	</div> !-->
 	    </div>
+
+	     <div id="tab-three" class="tab-pane">
+
+            <div class="row">
+      
+                  <div class="col-lg-12">
+                    <div class="widget">
+                        <div class="widget-title"><i class="glyphicon glyphicon-folder-open"></i> Detalles de busqueda </div>
+                        <div class="widget-body">
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                      <span class="input-group-addon glyphicon glyphicon-qrcode"></span>
+                                      <input type="text" class="form-control" ng-model="datos.foliofiscal" placeholder="Folio Fiscal">
+                                    </div>
+                                </div>
+
+        						<div class="col-md-4">
+									<div class="input-group">
+									  <button type="submit" class="btn btn-danger btn-lg btn-block" ng-click="elimina_factura()">Eliminar Factura</button>
+								    </div>
+                              </div>
+                            </div>
+
+                              <br>
+                              
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon glyphicon glyphicon-pencil"></span>
+                                      <input type="text" class="form-control" ng-model="datos.rfc" placeholder="RFC" mayusculas>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                      <input type="text" class="form-control" ng-model="datos.emisor" placeholder="Emisor" mayusculas>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <input type="text" id="fechaini2" ng-model="datos.fechaini" data-date-format="YYYY-MM-DD" class="form-control" placeholder="Fecha Emisión de Factura" />
+                                </div>
+
+                              </div>
+                              <br>
+                              <div class="text-center">
+                                    <button type="button" class="btn btn-primary" ng-click="Buscar()">Consultar</button>
+                              </div>
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+            <br>
+
+            <div class="row">
+
+
+                            <fieldset>
+                                <legend>Datos de la Factura</legend>
+                            </fieldset>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Fecha de Emisión  : <strong><span class="digito">{{ datos.fechaemision }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4>
+                                        Autorización No. : <strong><span class="digito">{{ datos.autorizacion }}</span></strong>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>
+                                        Movimiento No. : <strong><span class="digito">{{ datos.movimiento }}</span></strong>
+                                    </h4>
+                                </div>
+                            </div>  
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Folio Fiscal : <strong>{{ datos.foliofiscal }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        RFC : <strong>{{ datos.rfc }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div >
+                                        Emisor : <strong>{{ datos.emisor }}</strong>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div >
+                                        Receptor : <strong>{{ datos.receptor }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Subtotal : <strong>{{ datos.subtotal }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        IVA : <strong>{{ datos.iva }}</strong>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div >
+                                        Total : <strong>{{ datos.total }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div >
+                                        Descuento : <strong>{{ datos.descuento }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+
+                <fieldset>
+                    <legend>Detalle de Archivos</legend>
+                </fieldset>
+
+
+                    <div>
+                        <ul class="list-group">
+                          <li class="list-group-item" ng-repeat="archivosdetalles in archivosdetalles">
+                                <a ng-src="../registrosmedicos/Facturas/{{ datos.autorizacion }}-{{ datos.movimiento }}/{{archivosdetalles}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{ datos.autorizacion }}-{{ datos.movimiento }}/{{archivosdetalles}}"  class="btn btn-warning">Archivo Adjunto</a>
+                                {{ archivosdetalles }}
+                          </li>
+                        </ul>     
+                    </div>
+
+            </div>
+
+    </div>
+
+    </div>
 	</div>
 
 </div>

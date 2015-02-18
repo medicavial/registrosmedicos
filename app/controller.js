@@ -38,6 +38,7 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 	$scope.inicio = function(){
 		$scope.titulo = 'Autorizaciones Médicas';
 		//$scope.autoriza = 0;
+			
 		$scope.altaunidad();
 		$scope.altacliente();
 		$scope.autorizacionUsuarios();
@@ -45,7 +46,7 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 		$scope.movimientos = [];
 		$scope.mensaje = '';
 		$scope.autorizacion = '';
-		$scope.edicion = false;
+
 		
 
 		$scope.datos = {
@@ -58,6 +59,13 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 			diagnostico:'',
 			folio:'',
 			usuario:$rootScope.clave
+		}
+
+		if ($rootScope.clave == 0) {
+			alert('No tienes permiso disponible para dar de alta hospitalarios solicitalo al area de sistemas');
+			$scope.edicion = true;
+		}else{
+			$scope.edicion = false;
 		}
 
 		$('#movimiento').on('hide.bs.modal', function (e) {
@@ -183,11 +191,22 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 			console.log(data);
 
 			if (data.autorizaciones.length == 0) {
+
+
+				if(!data.folio.length == 0){
+
+					$scope.datos.cliente = data.folio[0].CIA_clave;
+					$scope.datos.unidad = data.folio[0].UNI_clave;
+					$scope.datos.nombrelesionado = data.folio[0].EXP_completo;
+					$scope.datos.edad = data.folio[0].EXP_edad;
+
+				}else{
+
+					alert('El folio solicitado no existe');
+					$scope.datos.folio = '';
+
+				}
 				
-				$scope.datos.cliente = data.folio[0].CIA_clave;
-				$scope.datos.unidad = data.folio[0].UNI_clave;
-				$scope.datos.nombrelesionado = data.folio[0].EXP_completo;
-				$scope.datos.edad = data.folio[0].EXP_edad;
 				
 			}else{
 
@@ -262,8 +281,17 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 
 		busqueda.movimientos($scope.autorizacion).success(function (data){
 			$scope.movimientos = data;
+			console.log($scope.movimientos);
 		});
 
+	}
+
+	$scope.verificaMovimiento = function(){
+		
+		if ( $scope.movimiento.tipo != 2  && $scope.datos.folio == '') {
+			$scope.movimiento.tipo = '';
+			alert('No puedes ingresar otro tipo de movimiento que no sea problema documental cuando no se tiene un folio');
+		};
 	}
 
 
@@ -448,6 +476,14 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 		$scope.mensaje2 = '';
 	}
 
+	$scope.verificaMovimiento = function(){
+
+		if ( $scope.movimiento.tipo != 2 && $scope.datos.folio == '') {
+			$scope.movimiento.tipo = '';
+			alert('No puedes ingresar otro tipo de movimiento que no sea problema documental cuando no se tiene un folio');
+		};
+	}
+
 	$scope.verificaFolio = function(){
 
 		if ($scope.datos.folio != '') {
@@ -524,6 +560,7 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 
 		busqueda.movimientos($scope.autorizacion).success(function (data){
 			$scope.movimientos = data;
+			console.log($scope.movimientos);
 		});
 
 	}
@@ -533,6 +570,7 @@ function detalleAutorizacionesCtrl($scope, $http, busqueda, $rootScope, $routePa
 
 		try{
 
+			if (true) {};
 			
 			$scope.mensaje ='';
 
@@ -820,8 +858,14 @@ function hospitalariosCtrl($scope,$http, busqueda,$rootScope, $filter){
 			usuario:$rootScope.clave
 		}
 
+		if ($rootScope.clave == 0) {
+			alert('No tienes permiso disponible para dar de alta hospitalarios solicitalo al area de sistemas');
+			$scope.edicion = true;
+		}else{
+			$scope.edicion = false;
+		}
 
-		$scope.edicion = false;
+
 	}
 
 	$scope.altacliente = function(){
@@ -942,14 +986,24 @@ function hospitalariosCtrl($scope,$http, busqueda,$rootScope, $filter){
 
 			if (data.hospitalario.length == 0) {
 
-				$scope.datos.cliente = data.folio[0].CIA_clave;
-				$scope.datos.unidad = data.folio[0].UNI_clave;
-				$scope.datos.nombrelesionado = data.folio[0].EXP_completo;
-				$scope.datos.edad = data.folio[0].EXP_edad;
-				$scope.datos.fechaatencion = data.folio[0].EXP_fecreg;
-				$scope.datos.siniestro = data.folio[0].EXP_siniestro;
-				$scope.datos.poliza = data.folio[0].EXP_poliza;
-				$scope.datos.reporte = data.folio[0].EXP_reporte;
+				if (!data.folio.length == 0){
+
+					$scope.datos.cliente = data.folio[0].CIA_clave;
+					$scope.datos.unidad = data.folio[0].UNI_clave;
+					$scope.datos.nombrelesionado = data.folio[0].EXP_completo;
+					$scope.datos.edad = data.folio[0].EXP_edad;
+					$scope.datos.fechaatencion = data.folio[0].EXP_fecreg;
+					$scope.datos.siniestro = data.folio[0].EXP_siniestro;
+					$scope.datos.poliza = data.folio[0].EXP_poliza;
+					$scope.datos.reporte = data.folio[0].EXP_reporte;
+
+				}else{
+					
+					alert('El folio solicitado no existe');
+					$scope.datos.folio = '';
+					
+				}
+
 				
 			}else{
 				alert('El Folio ya tiene numero de hospitalario ' + data.hospitalario[0].HOS_clave);
@@ -1093,7 +1147,7 @@ function loginCtrl($scope, auth, $rootScope){
 
 }
 
-function busquedasCtrl($scope, busqueda, $http){
+function busquedasCtrl($scope, busqueda, $http, $rootScope){
 
 	$scope.inicio = function(){
 		$scope.buscaautorizaciones();
@@ -1118,6 +1172,16 @@ function busquedasCtrl($scope, busqueda, $http){
 			lesionado:'',
 			cliente:'',
 			unidad:''
+		}
+
+		$scope.datos = {
+
+			rfc: '',
+			emisor: '',
+			fechaEmi: '',
+			foliofiscal: '',
+			archivosdet: ''
+
 		}
 	}
 
@@ -1214,5 +1278,92 @@ function busquedasCtrl($scope, busqueda, $http){
 		$scope.hospitalario.folio = busqueda.rellenaFolio(folio);
 	}
 
+	$scope.Buscar = function(){
+
+		$scope.archivosdetalles = [];
+
+
+        try{
+
+            $http({
+
+                url:'api/api.php?funcion=buscarFactura',
+                method:'POST', 
+                contentType: "application/json; charset=utf-8", 
+                dataType: "json", 
+                data:$scope.datos
+
+            }).success(function (data){
+
+            	console.log(data);
+
+                $scope.datos.detalle = true;
+            	$scope.datos.rfc = data.rfc;
+            	$scope.datos.foliofiscal = data.foliofiscal;
+            	$scope.datos.fechaemision = data.fechaemision;
+            	$scope.datos.autorizacion = data.autorizacion;
+            	$scope.datos.movimiento = data.movimiento;
+            	$scope.datos.receptor = data.receptor;
+            	$scope.datos.subtotal = data.importe;
+            	$scope.datos.emisor = data.emisor;
+            	$scope.datos.iva = data.iva;
+            	$scope.datos.total = data.total;
+            	$scope.datos.descuento = data.descuento;
+            	$scope.archivosdetalles = data.archivo;
+
+                                
+                //console.log(data);
+            }).error( function (xhr,status,data){
+
+                alertService.add('danger', 'ERROR!!!');
+
+
+            });
+
+        }catch(err){
+
+            alert(err);
+        }
+        
+    }
+
+    $scope.elimina_factura = function(){
+
+    	console.log($scope.datos);
+    	console.log($scope.archivosdetalles);
+    	$scope.datos.usuario = $rootScope.user;
+
+
+        try{
+
+            $http({
+
+                url:'api/api.php?funcion=eliminaFactura',
+                method:'POST', 
+                contentType: "application/json; charset=utf-8", 
+                dataType: "json", 
+                data:$scope.datos
+
+            }).success(function (data){
+
+            	alert('Tu factura fue Eliminada');
+
+
+                                
+                //console.log(data);
+            }).error( function (xhr,status,data){
+
+                alertService.add('danger', 'ERROR!!!');
+
+
+            });
+
+        }catch(err){
+
+            alert(err);
+        }
+        
+    }
+	
 	
 }

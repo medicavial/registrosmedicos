@@ -966,3 +966,587 @@ Stack trace:
 #0 /home/medica/public_html/registrosmedicos/api/api.php(606): PDOStatement->execute()
 #1 {main}
   thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 606
+[03-Dec-2014 12:08:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[03-Dec-2014 12:08:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[04-Dec-2014 11:31:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OG27Z' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[04-Dec-2014 11:49:48] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[04-Dec-2014 11:50:02] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[04-Dec-2014 11:50:04] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[04-Dec-2014 11:50:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[04-Dec-2014 11:50:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Dec-2014 13:01:08] PHP Warning:  copy(../archivo/Nota Diana Carolina Guajardo Garcia USG Mamario.pdf) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2269
+[05-Dec-2014 13:01:08] PHP Warning:  unlink(../archivo/Nota Diana Carolina Guajardo Garcia USG Mamario.pdf) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2270
+[08-Dec-2014 12:34:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EY87W' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[09-Dec-2014 12:49:51] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IJ61U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[09-Dec-2014 13:39:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2572
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2572): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2572
+[09-Dec-2014 13:39:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2572
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2572): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2572
+[09-Dec-2014 13:39:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2572
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2572): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2572
+[09-Dec-2014 13:39:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2572
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2572): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2572
+[09-Dec-2014 13:39:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2572
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2572): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2572
+[10-Dec-2014 10:19:03] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[10-Dec-2014 10:19:04] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[10-Dec-2014 10:19:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[10-Dec-2014 10:19:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[10-Dec-2014 10:19:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[11-Dec-2014 10:05:36] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AD21S' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[11-Dec-2014 12:40:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OE81L' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[11-Dec-2014 13:59:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IO81G' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:732
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(732): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 732
+[15-Dec-2014 08:48:50] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 2265
+[15-Dec-2014 08:48:50] PHP Warning:  copy(../archivo/Nota Elias Rocha Garcia USG Hepatico.pdf) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2269
+[15-Dec-2014 08:48:50] PHP Warning:  unlink(../archivo/Nota Elias Rocha Garcia USG Hepatico.pdf) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2270
+[15-Dec-2014 10:42:52] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 2265
+[15-Dec-2014 10:42:52] PHP Warning:  copy(../archivo/Nota Daniela Legaria Lara IC Neurologia.pdf) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2269
+[15-Dec-2014 10:42:52] PHP Warning:  unlink(../archivo/Nota Daniela Legaria Lara IC Neurologia.pdf) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2270
+[16-Dec-2014 09:43:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EW85I' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[17-Dec-2014 13:16:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[17-Dec-2014 13:16:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[17-Dec-2014 13:16:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[17-Dec-2014 13:16:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[17-Dec-2014 20:57:34] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IR25N' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[17-Dec-2014 21:11:56] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OB614' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[19-Dec-2014 10:24:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ED61Q' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[20-Dec-2014 04:16:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ES85C' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[20-Dec-2014 09:50:02] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:06] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:15] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[20-Dec-2014 09:50:17] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IV81G' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[22-Dec-2014 10:11:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IR27J' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[22-Dec-2014 17:01:12] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AL83S' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:732
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(732): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 732
+[23-Dec-2014 15:27:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[23-Dec-2014 15:27:22] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[27-Dec-2014 16:46:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OX810' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[29-Dec-2014 11:24:01] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AK85O' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[29-Dec-2014 20:01:12] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OX23D' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[30-Dec-2014 12:13:30] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[30-Dec-2014 12:13:33] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[30-Dec-2014 12:13:34] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[30-Dec-2014 12:13:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[30-Dec-2014 12:13:39] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[30-Dec-2014 12:13:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[30-Dec-2014 12:13:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[30-Dec-2014 12:13:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[30-Dec-2014 12:13:41] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[30-Dec-2014 16:37:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OK23H' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[31-Dec-2014 12:39:51] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[31-Dec-2014 12:39:55] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[02-Jan-2015 10:44:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IG63K' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[02-Jan-2015 10:44:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IG63K' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[02-Jan-2015 10:44:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IG63K' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[02-Jan-2015 10:44:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a.AUM_clave = 'IG63K' and NOT EXISTS (select null as autorizacion from RegistroC' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1259
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1259): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1259
+[05-Jan-2015 14:51:53] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:1359
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1359): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1359
+[05-Jan-2015 14:51:58] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:01] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:01] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:01] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:01] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:01] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:02] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:02] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 14:52:02] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[05-Jan-2015 15:08:26] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'UG45O' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[06-Jan-2015 09:28:04] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'UW23I-2' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:821
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(821): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 821
+[06-Jan-2015 09:28:04] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'UW23I-2' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:821
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(821): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 821
+[06-Jan-2015 14:18:10] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:11] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:12] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:12] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:36] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:37] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:37] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:37] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2394
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2394): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2394
+[06-Jan-2015 14:18:41] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:42] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:42] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:42] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:42] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:18:44] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[06-Jan-2015 14:23:52] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AM61V' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[07-Jan-2015 12:26:03] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AUM_folioMV' in 'where clause'' in /home/medica/public_html/registrosmedicos/api/api.php:2482
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(2482): PDO->query('SELECT AUM_clav...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 2482
+[07-Jan-2015 12:33:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EV61A' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[10-Jan-2015 17:36:13] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OT87U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[12-Jan-2015 11:03:40] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AY87Z' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[12-Jan-2015 11:10:30] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OK23R' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:605
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(605): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 605
+[21-Jan-2015 16:51:22] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AG21O-1' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:3128
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(3128): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 3128
+[16-Feb-2015 18:01:08] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 3096

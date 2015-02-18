@@ -23,7 +23,8 @@ app.controller('concluidosCtrl', function($scope, $http, busqueda, $rootScope, $
 	    	proveedor :'',
 	    	observacion: '',
 	    	observacioncor: '',
-	    	preexistencia: ''
+	    	preexistencia: '',
+	    	archivo: ''
     	}
 
 
@@ -39,23 +40,24 @@ app.controller('concluidosCtrl', function($scope, $http, busqueda, $rootScope, $
 
 			$scope.datos = {
 
-				autorizacion:data[0].AUM_clave,
-				proveedor:data[0].RC_proveedor,
-				costo:data[0].RC_costo,
-				cita:data[0].RC_tipocita,
-				notas:data[0].RC_obs,
-				referencia:data[0].RC_inforeferencia,
-				fechacita:data[0].RC_fechahora,
-				horacita:data[0].RC_hora,
-				paciente:data[0].RC_paciente,
-				proveedor:data[0].RC_conproveedor,
-				observacion:data[0].RC_resobservacion,
-				observacioncor:data[0].RC_observacioncoor,
-				preexistencia:data[0].RC_preexistencia
+				autorizacion:data.clave,
+				proveedor:data.proveedor,
+				costo:data.costo,
+				cita:data.tipo,
+				notas:data.observacion,
+				referencia:data.inforeferencia,
+				fechacita:data.fecha,
+				horacita:data.hora,
+				paciente:data.paciente,
+				proveedor:data.conproveedor,
+				observacion:data.resobservacion,
+				observacioncor:data.observacioncoor,
+				preexistencia:data.preexistencia
 
 			}
 
-			$scope.autorizacion = data[0].AUM_clave;
+			$scope.autorizacion = data.clave;
+			$scope.archivo = data.archivo;
 
 		});
 

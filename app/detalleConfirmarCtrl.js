@@ -65,7 +65,8 @@ app.controller('detalleConfirmarCtrl', function($scope, $http, busqueda, $rootSc
 				folio:$routeParams.folio,
 				fechacita:data[0].RC_fechahora,
 				horacita:data[0].RC_hora,
-				proveedor1:data[0].RC_conproveedor
+				proveedor1:data[0].RC_conproveedor,
+				telefono:data[0].Exp_telefono
 
 			}
 

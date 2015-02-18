@@ -1,28 +1,103 @@
 <div class="container" ng-init="inicio()">
 
 	<br>
-	<form class="form-horizontal">
     <fieldset>
-        <legend>Seguimiento</legend>
+        <legend>Resultados</legend>
     </fieldset>
+    <div class="row">
+        <div class="col-xs-3">
+        <label for="folio">Folio:</label>
+            <input type="text" id="folio" class="form-control"  ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
+        </div>
+        <div class="col-xs-6">
+            <label for="folio">Paciente:</label>
+    <input type="text" id="paciente" class="form-control"  ng-disabled="edicion" ng-model="datos.paciente"  mayusculas >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">
+            <label for="folio">Proveedor:</label>
+    <input type="text" id="paciente" class="form-control"  ng-disabled="edicion" ng-model="datos.proveedor"  mayusculas >
+        </div>
+        <div class="col-xs-4">
+            <label for="folio">Con quien se confirmo proveedor:</label>
+            <input type="text" id="paciente" class="form-control"  ng-disabled="edicion" ng-model="datos.pconfirmo"  mayusculas >
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-6">
+            <label for="folio">Confirma Fecha de Cita</label>
+            <input type="text" class="form-control  input-lg" ng-model="datos.fecha" data-date-format="YYYY-MM-DD" id="fechaAt2" ng-disabled="edicion">
+        </div>
+           
+        <div class="col-xs-4">
+            <label for="folio">Confirma fecha de Cita</label>
+            <div class='input-group date' id='hora2'>
+                <input type='text'  ng-model="datos.hora"  data-date-format="hh:mm"  class="form-control" ng-disabled="edicion"/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form class="form-horizontal" name="formu">
+        <div class="col-md-12">
+            <label for="folio">Transcripción de Resultados:</label>
+            <textarea  name="motivo" id="motivo" class="form-control " ng-model="datos.observaciones" rows="5" mayusculas></textarea>
+        </div>
 	<div class="row">
-		
-		<div class="col-md-12">
-	        <label for="folio">Observaciones:</label>
-	        <textarea  name="motivo" id="motivo" class="form-control " ng-model="datos.observaciones" rows="5" mayusculas></textarea>
-	    </div>
-	</div>
-	<div class="row">
+		<div class="col-md-6">
+	       	<label for="folio">Preexistencia:</label>
+            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
+		</div>
 	    <div class="col-md-6">
-	       	<label for="folio">Reagendar:</label>
-            <input type="checkbox" ng-model="value2" ng-true-value="'YES'" ng-false-value="'NO'"> <br/>
+	       	<label for="folio">Reagendado:</label>
+            <input type="checkbox" ng-model="datos.reagendado" ng-true-value="SI" ng-false-value="NO"> <br/>
 		</div>	
 	</div>
-      <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="drag"
-          ng-show="dropSupported" class="drop-box" name="fname">Arrastra tu Archivo</div>
-      <div ng-file-drop-available="dropSupported=true" 
-          ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
-      <br><br>
-      <button class="upload-button" ng-click="upload.abort()">Cancel Upload</button>
+<br/>
+  <input type="file" ng-file-select="onFileSelect($files)">
+  <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+        ng-show="dropSupported" class="drop-box">Arrastra tu archivo aqui</div>
+  <div ng-file-drop-available="dropSupported=true" 
+        ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+        <br>
+
+        <span class="progress" ng-show="percent[$index] >= 0">                     
+            <div style="width:{{percent[$index]}}%">{{percent[$index]}}%</div>
+        </span> 
+
+        <div ng-show="mensaje" class="alert  animate-show text-center" ng-class="tipoalerta">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{ mensaje }}</strong>
+        </div>
+
+        <div ng-show="mensaje2" class="alert  animate-show text-center" ng-class="tipoalerta">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{ mensaje2 }}</strong>
+        </div>
+
+        <div class="row text-center">
+        <div class="col-md-3">
+            <button type="button" ng-click="guardar()" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar</button>
+            <br>
+        </div>
+        <div class="col-md-3">
+            <a href="#/seguimiento/autorizacion" ng-click="inicio()" class="btn btn-default btn-lg glyphicon glyphicon-book btn-block" > Limpiar</a>
+            <br>
+        </div>
+    </div>
+   <div ng-show="archivos.length > 0">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="archivos in archivos">
+            <img ng-src="http://www.medicavial.net/registrosmedicos/archivo/{{archivos}}" alt="imagen" width="60" height="60" />
+            <button type="button" ng-click="elimina($index)" class="btn btn-primary"> Eliminar</button>
+          </li>
+        </ul>     
+   </div>
+
 </form>
-</div>
+ </div>
+ 
