@@ -50,168 +50,157 @@ app.controller('facturaCtrl', function($scope, $http, busqueda, $location, todoF
 
     $scope.onFileSelect_xml = function($files) {
 
+        if($scope.bit2 == 1){
 
-       if($scope.bit2 == 1){
+        	alert("Ya existe un fichero XML");
 
-       	alert("Ya existe un fichero XML");
+        }else{
 
-       }else{
+	        var aux = $files[0].name.split('.');
 
-	   var aux = $files[0].name.split('.');
+            if(aux[aux .length-1] == 'xml'){
 
-	   if(aux[aux .length-1] == 'xml'){
-	      // return true;
+                for (var i = 0; i < $files.length; i++) {
+                var file = $files[i];
 
-       for (var i = 0; i < $files.length; i++) {
-       var file = $files[i];
+                $scope.variable = 2;
+                var amt = 0;
 
-		$scope.variable = 2;
-		var amt = 0;
+                //$files: an array of files selected, each file has name, size, and type.
 
-    //$files: an array of files selected, each file has name, size, and type.
+                $scope.upload = $upload.upload({
 
-      $scope.upload = $upload.upload({
-	        url: 'api/api.php?funcion=archivo_temporal', //upload.php script, node.js route, or servlet url
-	        method: 'POST',
-	        //headers: {'header-key': 'header-value'},
-	        //withCredentials: true,
-	        data: $scope.factura,
-	        file: file, // or list of files ($files) for html5 only
+        	        url: 'api/api.php?funcion=archivo_temporal', //upload.php script, node.js route, or servlet url
+        	        method: 'POST',
+        	        //headers: {'header-key': 'header-value'},
+        	        //withCredentials: true,
+        	        data: $scope.factura,
+        	        file: file, // or list of files ($files) for html5 only
 	        
-	      progress:function(evt) {
+                    progress:function(evt) {
 
-	      	console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-	          
-	          var amt =  parseInt(100.0 * evt.loaded / evt.total);
-	  
-			  $scope.countTo = amt;
-			  $scope.countFrom = 0;
-			  
-			  $timeout(function(){  
-			    $scope.progressValue = amt;
-			  }, 200);
-	      }
-	  })
+                    	console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                        var amt =  parseInt(100.0 * evt.loaded / evt.total);
 
-      .success(function (data, status, headers, config){
+                        $scope.countTo = amt;
+                        $scope.countFrom = 0;
 
-      	console.log(data);
+                        $timeout(function(){  
+                            $scope.progressValue = amt;
+                        }, 200);
+                    }
 
+                }).success(function (data, status, headers, config){
 
-                alertService.add('success', data.respuesta);
-                $scope.archivos = data.archivo;
-                $scope.variable = 1;
-                $scope.factura.leexml = data.leexml;
-                $scope.bit2 = data.bit2;
-                $scope.bit4 = data.bit4;
+                  	console.log(data);
+                    alertService.add('success', data.respuesta);
+                    $scope.archivos = data.archivo;
+                    $scope.variable = 1;
+                    $scope.factura.leexml = data.leexml;
+                    $scope.bit2 = data.bit2;
+                    $scope.bit4 = data.bit4;
 
+                    todoFactory.getxmltemporal($scope.factura.leexml).success(function(data){
+                        courses  = x2js.xml_str2json(data);
 
-                todoFactory.getxmltemporal($scope.factura.leexml).success(function(data){
-	            courses  = x2js.xml_str2json(data);
+                        $scope.factura.foliofiscal = courses.Comprobante.Complemento.TimbreFiscalDigital._UUID;
+                        $scope.factura.rfc = courses.Comprobante.Receptor._rfc;
+                        $scope.factura.emisor = courses.Comprobante.Emisor._nombre;
+                        $scope.factura.receptor = courses.Comprobante.Receptor._nombre;
+                        $scope.factura.subtotal = courses.Comprobante._subTotal;
+                        $scope.factura.iva = courses.Comprobante.Impuestos.Traslados.Traslado._importe;
+                        $scope.factura.total = courses.Comprobante._total;
+                        $scope.factura.descuento = courses.Comprobante._descuento;
+                        $scope.factura.fechaemision = courses.Comprobante._fecha;
+                    });
 
-	            $scope.factura.foliofiscal = courses.Comprobante.Complemento.TimbreFiscalDigital._UUID;
-	            $scope.factura.rfc = courses.Comprobante.Receptor._rfc;
-	            $scope.factura.emisor = courses.Comprobante.Emisor._nombre;
-	            $scope.factura.receptor = courses.Comprobante.Receptor._nombre;
-	            $scope.factura.subtotal = courses.Comprobante._subTotal;
-	            $scope.factura.iva = courses.Comprobante.Impuestos.Traslados.Traslado._importe;
-	            $scope.factura.total = courses.Comprobante._total;
-	            $scope.factura.descuento = courses.Comprobante._descuento;
-	            $scope.factura.fechaemision = courses.Comprobante._fecha;
+                }).error( function (xhr,status,data){
 
-	         });
+                    alertService.add('danger', 'Ocurrio un ERROR con tu Archivo!!!');
 
-	            
-            }).error( function (xhr,status,data){
+                });
 
-                alertService.add('danger', 'Ocurrio un ERROR con tu Archivo!!!');
+            }else{
+                alert('El archivo debe ser .xml');
+            }
 
-            });
+        }
 
-    }
-
-	   }else{
-      alert('El archivo debe ser .xml');
-      // return false;
-   }
-}
-  };
+    };
 
 
-   $scope.onFileSelect_pdf = function($files) {
+    $scope.onFileSelect_pdf = function($files) {
 
-       if($scope.bit == 1){
+        if($scope.bit == 1){
 
-       alert("Ya existe un fichero PDF");
+            alert("Ya existe un fichero PDF");
 
-    }else{
+        }else{
 
-	   var aux = $files[0].name.split('.');
+    	    var aux = $files[0].name.split('.');
 
-	   if(aux[aux .length-1] == 'pdf'){
-	      // return true;
+    	    if(aux[aux .length-1] == 'pdf'){
+    	      // return true;
 
-       for (var i = 0; i < $files.length; i++) {
-       var file = $files[i];
+                for (var i = 0; i < $files.length; i++) {
 
-		$scope.variable = 2;
-		var amt = 0;
+                    var file = $files[i];
 
-    //$files: an array of files selected, each file has name, size, and type.
+                    $scope.variable = 2;
+                    var amt = 0;
 
-      $scope.upload = $upload.upload({
-	        url: 'api/api.php?funcion=archivo_temporal', //upload.php script, node.js route, or servlet url
-	        method: 'POST',
-	        //headers: {'header-key': 'header-value'},
-	        //withCredentials: true,
-	        data: $scope.factura,
-	        file: file, // or list of files ($files) for html5 only
-	        
-	      progress:function(evt) {
+                    //$files: an array of files selected, each file has name, size, and type.
 
-	      	console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-	          
-	          var amt =  parseInt(100.0 * evt.loaded / evt.total);
-	  
-			  $scope.countTo = amt;
-			  $scope.countFrom = 0;
-			  
-			  $timeout(function(){  
-			    $scope.progressValue = amt;
-			  }, 200);
-	      }
-	  })
+                    $scope.upload = $upload.upload({
 
-      .success(function (data, status, headers, config){
+            	        url: 'api/api.php?funcion=archivo_temporal', //upload.php script, node.js route, or servlet url
+            	        method: 'POST',
+            	        //headers: {'header-key': 'header-value'},
+            	        //withCredentials: true,
+            	        data: $scope.factura,
+            	        file: file, // or list of files ($files) for html5 only
+            	        
+                        progress:function(evt) {
 
-      	console.log(data);
+                        	console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                          
+                          var amt =  parseInt(100.0 * evt.loaded / evt.total);
 
+                          $scope.countTo = amt;
+                          $scope.countFrom = 0;
+                          
+                          $timeout(function(){  
+                            $scope.progressValue = amt;
+                          }, 200);
+                        }
+                    })
+                    .success(function (data, status, headers, config){
 
-                alertService.add('success', 'Tu Archivo subio con Exito!!!');
-                $scope.archivos = data.archivo;
-                $scope.variable = 1;
-                $scope.factura.leexml = data.leexml;
-                $scope.bit = data.bit;
-                $scope.bit3 = data.bit3;
-                
+                        console.log(data);
 
-            }).error( function (xhr,status,data){
+                        alertService.add('success', 'Tu Archivo subio con Exito!!!');
+                        $scope.archivos = data.archivo;
+                        $scope.variable = 1;
+                        $scope.factura.leexml = data.leexml;
+                        $scope.bit = data.bit;
+                        $scope.bit3 = data.bit3;
+                            
+                    }).error( function (xhr,status,data){
 
-                alertService.add('danger', 'Ocurrio un ERROR con tu Archivo!!!');
+                        alertService.add('danger', 'Ocurrio un ERROR con tu Archivo!!!');
 
-            });
+                    });
 
-    }
+                }
 
-	   }else{
-      alert('El archivo debe ser .pdf');
-      // return false;
-   }
-}
-  };
+            }else{
+                alert('El archivo debe ser .pdf');
+            }
+        }
+    
+    };
 
     $scope.guardaArchivos = function(){
-
 
         try{
 
@@ -306,7 +295,7 @@ app.controller('facturaCtrl', function($scope, $http, busqueda, $location, todoF
 	}
 
 
-	    $scope.elimina = function(index){
+    $scope.elimina = function(index){
 
         try{
             
@@ -344,9 +333,8 @@ app.controller('facturaCtrl', function($scope, $http, busqueda, $location, todoF
         }
         
     }
-
-
-     $scope.Buscar = function(){
+    
+    $scope.Buscar = function(){
 
 
         try{
