@@ -60,17 +60,29 @@
 	<br>
 	<div class="row">
 		
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<div class="form-group" ng-class="{'has-error':!autorizacion}">
 		        <label for="folio">Lesionado</label>
 		        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.nombrelesionado"  mayusculas required>
 		    </div>
 	    </div>
 
-	    <div class="col-md-6">
+	    <div class="col-md-4">
 	        <label for="folio">Medico Tratante</label>
 	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.medico"  mayusculas >
 	    </div>
+
+		<div class="col-sm-4">
+
+			<br>
+			<label class="radio-inline">
+			  <input type="radio" name="valor" id="1" ng-model="datos.tipoautorizacion" value="1" ng-disabled="edicion"><strong> Ambulatorio Vial </strong>
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="valor" id="2" ng-model="datos.tipoautorizacion" value="2" ng-disabled="edicion"><strong>HQNX </strong>
+			</label>
+
+		</div>
 
 	</div>
 	<br>

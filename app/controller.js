@@ -58,6 +58,7 @@ function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 			medico:'',
 			diagnostico:'',
 			folio:'',
+			tipoautorizacion: '',
 			usuario:$rootScope.clave
 		}
 
@@ -1181,7 +1182,6 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 			fechaEmi: '',
 			foliofiscal: '',
 			archivosdet: ''
-
 		}
 	}
 
@@ -1310,6 +1310,7 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
             	$scope.datos.total = data.total;
             	$scope.datos.descuento = data.descuento;
             	$scope.archivosdetalles = data.archivo;
+            	$scope.datos.estatus = data.estatus;
 
                                 
                 //console.log(data);

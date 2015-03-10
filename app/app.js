@@ -252,7 +252,6 @@ app.factory('todoFactory',function($http){
     });
 
 
-
 app.factory('busqueda', function($http){
     return{
         administrador:function(){

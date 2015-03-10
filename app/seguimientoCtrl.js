@@ -111,9 +111,6 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
                 $scope.tipoalerta = 'alert-success';
                 $location.path("/cita");
                 
-
-
-
                 
                 //console.log(data);
             }).error( function (xhr,status,data){

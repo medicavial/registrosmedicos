@@ -202,7 +202,7 @@ if ($funcion == 'busquedaAutorizacion') {
             $criterio6 = " AND ";
         }
 
-        $criterio6 .= "AutorizacionMedica.EMP_claveint = $cliente ";
+        $criterio6 .= "AutorizacionMedica.EMP_claveint = $cliente";
 
     }else{
         $criterio6 = "";
@@ -217,7 +217,7 @@ if ($funcion == 'busquedaAutorizacion') {
 
     echo json_encode($autorizaciones);
 
-    // echo $sql;
+     //echo $sql;
 
 }
 
@@ -544,6 +544,7 @@ if ($funcion == 'guardaAutorizacion') {
     $diagnostico = $datos->diagnostico;
     $usuario = $datos->usuario;
     $folio = $datos->folio;
+    $tipoautorizacion = $datos->tipoautorizacion;
     //$usuariocomercial = $datos->autorizacioncomercial;
     
     $clave = generar_clave(); //generar clave
@@ -571,7 +572,8 @@ if ($funcion == 'guardaAutorizacion') {
                      AUM_folioMV,
                      USU_registro,
                      AUM_fechaReg,
-                     UCO_claveint                     
+                     UCO_claveint,
+                     TA_clave                     
               ) 
               VALUES
               (
@@ -586,7 +588,8 @@ if ($funcion == 'guardaAutorizacion') {
                     :folio,
                     :usuario,
                     now(),
-                    :usuariocomercial
+                    :usuariocomercial,
+                    :tipoautorizacion
               )";
         
         $temporal = $db->prepare($sql);
@@ -601,6 +604,7 @@ if ($funcion == 'guardaAutorizacion') {
         $temporal->bindParam("folio", $folio, PDO::PARAM_STR, 10);
         $temporal->bindParam("usuario", $usuario, PDO::PARAM_INT);
         $temporal->bindParam("usuariocomercial", $usuariocomercial, PDO::PARAM_INT);
+        $temporal->bindParam("tipoautorizacion", $tipoautorizacion, PDO::PARAM_INT);
         
         if ($temporal->execute()){
 
@@ -837,7 +841,6 @@ if ($funcion == 'guardaMovimiento') {
                     $medico = $row['AUM_medico'];
                     $diagnostico = $row['diagnostico'];
                 }
-
 
                 $sql = "SELECT UCO_Nombre FROM UsuarioComercial WHERE UCO_claveint = $usuariocomercial";
                 foreach ($db->query($sql) as $row) {
@@ -1283,7 +1286,6 @@ if ($funcion == 'consultaAut') {
                 INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
                 where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave and b.RC_movimiento=f.MOA_claveint) and (f.TIM_claveint='3'
                 or f.TIM_claveint='4') and AUM_fechareg>='2014-11-01'
-               -- and   AUM_fechareg>= '2014-10-27' --
                 ORDER BY fecha  DESC";
 
         $result = $db->query($sql);
@@ -3097,9 +3099,12 @@ if ($funcion == 'guardafactura') {
 
     foreach ($archivos as  $archi) {
 
+         unlink("../Facturas/$archi");
+
         copy("../Facturas/$archi", "../Facturas/$autorizacion-$movimiento/$archi");
         // unlink("../Facturas/$archi");
-    }           
+    } 
+         
         $respuesta = array('respuesta' => "Los Datos se Guardaron");
                 
         echo json_encode($respuesta);        
@@ -3203,12 +3208,6 @@ if ($funcion == 'timbrar') {
                 $archivo[] = $archivo1;
 
             }
-        }
-
-        foreach ($archivo as $archi) {
-
-            unlink("../Facturas/$archi");
-            
         }
 
         $sql = "UPDATE PagosFactura a 
@@ -3477,10 +3476,10 @@ if ($funcion == 'buscarFactura'){
     }else{
         
         $sql = "SELECT AUM_clave as autorizacion, TIM_claveint as movimiento, RFC as rfc, foliofiscal as foliofiscal, emisor as emisor,
-                receptor as receptor, importe as importe, iva as iva, total as total, descuento as descuento, fecha_emision as fechaemision 
+                receptor as receptor, importe as importe, iva as iva, total as total, descuento as descuento, fecha_emision as fechaemision,
+                cont_enviado as enviado, PF_pValidar as validado, PF_pTransferencia as transferencia 
                 FROM PagosFactura
                 WHERE rfc like '$rfc%' or foliofiscal like '$emisor%' or emisor like '$emisor%' or fecha_emision like '$fecha%'";
-
 
         foreach ($db->query($sql) as $row) {
 
@@ -3495,6 +3494,18 @@ if ($funcion == 'buscarFactura'){
             $iva = $row['iva'];
             $total = $row['total'];
             $descuento = $row['descuento'];
+            $enviado = $row['enviado'];
+            $validado = $row['validado'];
+            $transferencia = $row['transferencia'];
+
+            if ($transferencia != 1) {
+
+
+                $status = "Xml por Validar ";
+            }else{
+
+                $status  = "Relación de Factura realizada, falta Transferencia";
+            }
 
         }
 
@@ -3517,7 +3528,7 @@ if ($funcion == 'buscarFactura'){
         }
 
          $respuesta = array('rfc' => $rfc, 'emisor' => $emisor, 'foliofiscal' => $foliofiscal, 'fechaemision' => $fechaemision, 'autorizacion' => $autorizacion,
-                            'movimiento' => $movimiento, 'receptor' => $receptor, 'importe' => $importe, 'iva' => $iva, 'total' => $total, 'descuento' => $descuento, 'archivo' => $archivo);
+                            'movimiento' => $movimiento, 'receptor' => $receptor, 'importe' => $importe, 'iva' => $iva, 'total' => $total, 'descuento' => $descuento, 'archivo' => $archivo, 'estatus' => $status);
 
         echo json_encode($respuesta);
 
@@ -3659,7 +3670,7 @@ if ($funcion == 'eliminaFactura') {
         if ($temporal1->execute()){
 
            
-            $respuesta = array('respuesta' => "Los Datos se guardaron Correctamente", 'bit' => 1);
+            $respuesta = array('respuesta' => "tu factura fue Eliminada", 'bit' => 1);
             //$correo($html);
 
 
@@ -3671,6 +3682,7 @@ if ($funcion == 'eliminaFactura') {
         //echo $sql;
     
 }
+
 
 
 ?>
