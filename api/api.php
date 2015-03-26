@@ -2,20 +2,6 @@
 
 date_default_timezone_set('America/Mexico_City');
 
-
-function conectar(){
-
-    //$host='www.medicavial.net";
-    $host="localhost";
-    $user="medica_webusr";
-    $password="tosnav50";
-    $conn=mysql_connect($host,$user,$password) or die('Error al conectar: ' . mysql_error());
-    mysql_select_db("medica_registromv",$conn);
-    
-	return $conn;
-}
-
-
 function generar_clave(){ 
 
         $pares = '24680';

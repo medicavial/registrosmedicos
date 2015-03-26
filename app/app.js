@@ -1,5 +1,5 @@
 //creamos la aplicacion
-app = angular.module('app', ['ngRoute' ,'ngCookies','ui.bootstrap','angularFileUpload','ngAnimate','ui.grid','ui.grid.edit']);
+app = angular.module('app', ['ngRoute' ,'ngCookies','ui.bootstrap','angularFileUpload','ngAnimate','ui.grid','ui.grid.edit','webStorageModule']);
 
 //configuramos las rutas y asignamos html y controlador segun la ruta
 app.config(function($routeProvider){
@@ -13,10 +13,12 @@ app.config(function($routeProvider){
             templateUrl: 'vistas/agenda.html',
             controller : 'detalleAgendaCtrl'
     });
+
     $routeProvider.when('/autorizaciones',{
             templateUrl: 'vistas/autorizaciones.html',
             controller : 'autorizacionesCtrl'
     });
+
     $routeProvider.when('/autorizacion/:clave',{
             templateUrl: 'vistas/autorizaciones.html',
             controller : 'detalleAutorizacionesCtrl'
@@ -26,6 +28,7 @@ app.config(function($routeProvider){
             templateUrl: 'vistas/concluidos.html',
             controller : 'concluidosCtrl'
     });
+
     $routeProvider.when('/confirma/:autorizacion/:paciente/:folio',{
             templateUrl: 'vistas/confirma.html',
             controller : 'detalleConfirmarCtrl'
@@ -77,7 +80,6 @@ app.config(function($routeProvider){
 
     $routeProvider.when('/monitor',{
             templateUrl: 'vistas/monitor.html'
-
     });
 
     $routeProvider.when('/observacion/:autorizacion/:tipo/:movimiento',{
@@ -112,20 +114,22 @@ app.config(function($routeProvider){
 });
 
 //notificaciones que se ejecutan cuando la aplicacion inicia
-app.run(function ($rootScope , auth ,$cookies, $cookieStore, $location){
+app.run(function ($rootScope , auth , $location, webStorage){
+
+    //generamos al rootscope las variables que tenemos en las cookies para no perder la sesion 
+
+    $rootScope.username = webStorage.session.get('username');
+    $rootScope.permiso = webStorage.session.get('permiso');
+    $rootScope.user = webStorage.session.get('user');
+    $rootScope.clave = webStorage.session.get('clave');
+    $rootScope.hospitalario = webStorage.session.get('hospitalario');
 
     $rootScope.$on('$routeChangeStart', function(){
         //llamamos a checkStatus, el cual lo hemos definido en la factoria auth
         //la cuál hemos inyectado en la acción run de la aplicación
-
-
-        $rootScope.username =  $cookies.username;
-        $rootScope.permiso = $cookies.permiso;
-        $rootScope.user = $cookies.user;
-        $rootScope.clave = $cookies.clave;
-        $rootScope.hospitalario = $cookies.hospitalario;
-
+        
         auth.checkStatus();
+
     });
 
     $rootScope.logout = function(){
@@ -138,14 +142,6 @@ app.run(function ($rootScope , auth ,$cookies, $cookieStore, $location){
     $('#tooltip1').tooltip({placement : 'bottom'});
     $('#tooltip2').tooltip({placement : 'bottom'});
 
-
-    //generamos al rootscope las variables que tenemos en las cookies para no perder la sesion 
-    $rootScope.username =  $cookies.username;
-    $rootScope.permiso = $cookies.permiso;
-    $rootScope.user = $cookies.user;
-    $rootScope.clave = $cookies.clave;
-    $rootScope.hospitalario = $cookies.hospitalario;
-
 });
 
 
@@ -154,7 +150,7 @@ app.run(function ($rootScope , auth ,$cookies, $cookieStore, $location){
 //$cookieStore para actualizar o eliminar
 //$location para cargar otras rutas
 
-app.factory("auth", function($cookies,$cookieStore,$location, $rootScope, $http)
+app.factory("auth", function($location, $rootScope, $http, webStorage)
 {
     return{
         login : function(username, password)
@@ -180,11 +176,13 @@ app.factory("auth", function($cookies,$cookieStore,$location, $rootScope, $http)
                 }else{
                     
                     //creamos la cookie con el nombre que nos han pasado
-                    $cookies.username = data[0].Uni_nombre;
-                    $cookies.permiso = data[0].Per_clave;
-                    $cookies.user = data[0].Usu_login;
-                    $cookies.clave = data[0].USU_claveMV;
-                    $cookies.hospitalario = data[0].Hospitalario;
+                    webStorage.local.clear();
+
+                    webStorage.session.add('username', data[0].Uni_nombre);
+                    webStorage.session.add('permiso', data[0].Per_clave);
+                    webStorage.session.add('user', data[0].Usu_login);
+                    webStorage.session.add('clave', data[0].USU_claveMV);
+                    webStorage.session.add('hospitalario', data[0].Hospitalario);
 
                     $rootScope.username =  data[0].Uni_nombre;
                     $rootScope.permiso = data[0].Per_clave;
@@ -208,14 +206,14 @@ app.factory("auth", function($cookies,$cookieStore,$location, $rootScope, $http)
         logout : function()
         {
             //al hacer logout eliminamos la cookie con $cookieStore.remove y los rootscope
-            $cookieStore.remove("username"),
-            $cookieStore.remove("permiso");
-            $cookieStore.remove("user");
-            $cookieStore.remove("clave");
+            webStorage.session.clear();
+            webStorage.local.clear();
+
             $rootScope.username =  '';
             $rootScope.permiso = '';
             $rootScope.user = '';
             $rootScope.clave = '';
+            $rootScope.hospitalario = '';
 
             //mandamos al login
             $location.path("/login");
@@ -224,12 +222,12 @@ app.factory("auth", function($cookies,$cookieStore,$location, $rootScope, $http)
         checkStatus : function()
         {
             //creamos un array con las rutas que queremos controlar
-            if($location.path() != "/login" && typeof($cookies.username) == "undefined")
+            if($location.path() != "/login" && webStorage.session.get('username') == null)
             {   
                 $location.path("/login");
             }
             //en el caso de que intente acceder al login y ya haya iniciado sesión lo mandamos a la home
-            if($location.path() == "/login" && typeof($cookies.username) != "undefined")
+            if($location.path() == "/login" && webStorage.session.get('username') != null)
             {
                 $location.path("/home");
             }
@@ -717,21 +715,32 @@ app.directive('numeros', function(){
 
 //funcion para convertir mayusculas
 app.directive('mayusculas', function() {
-   return {
-     require: 'ngModel',
-     link: function(scope, element, attrs, modelCtrl) {
-        var capitalize = function(inputValue) {
-           var capitalized = inputValue.toUpperCase();
-           if(capitalized !== inputValue) {
-              modelCtrl.$setViewValue(capitalized);
-              modelCtrl.$render();
-            }         
-            return capitalized;
-         }
-         modelCtrl.$parsers.push(capitalize);
-         capitalize(scope[attrs.ngModel]);  // capitalize initial value
-     }
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, modelCtrl) {
+            var capitalize = function(inputValue) {
+                
+                if (inputValue) {
+                    
+                    var capitalized = inputValue.toUpperCase();
+                    if(capitalized !== inputValue) {
+                        modelCtrl.$setViewValue(capitalized);
+                        modelCtrl.$render();
+                    }         
+                    return capitalized;
+                };
+
+            }
+
+            modelCtrl.$parsers.push(capitalize);
+
+            if (modelCtrl.$modelValue.length > 0) {
+                
+                capitalize(scope[attrs.ngModel]);  
+            }
+        }
    };
+   
 });
 
 

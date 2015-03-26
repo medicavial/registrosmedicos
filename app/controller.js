@@ -31,8 +31,6 @@ function entero(e, field) {
 
 }
 
-
-
 function autorizacionesCtrl($scope,$http, busqueda, $rootScope, $filter){
 	
 	$scope.inicio = function(){
