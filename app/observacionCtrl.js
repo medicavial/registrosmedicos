@@ -13,7 +13,9 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 
 		$scope.datos= {
 
-            autorizacion : '',
+            autorizacion : $routeParams.autorizacion,
+            tipo: $routeParams.tipo,
+            movimiento: $routeParams.movimiento,
 	    	proveedor :'',
 	    	costo : '',
 	    	cita:'',
@@ -37,7 +39,9 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 	$scope.detalleAut = function(){
 
 
-		busqueda.detalleobservacion($routeParams.autorizacion).success(function (data){
+		busqueda.detalleobservacion($routeParams.autorizacion,$routeParams.tipo,$routeParams.movimiento).success(function (data){
+
+			$scope.archivo=[];
 
 			console.log(data);
 
@@ -55,7 +59,8 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 				proveedor:data.conproveedor,
 				observacionres:data.resobservacion,
 				observacion:data.observacioncoor,
-				preexistencia:data.preexistencia
+				preexistencia:data.preexistencia,
+				movimiento:data.movimiento
 
 			}
 

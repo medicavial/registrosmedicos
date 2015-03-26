@@ -1698,3 +1698,119 @@ Stack trace:
 [09-Mar-2015 17:01:22] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
 [09-Mar-2015 17:21:46] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
 [09-Mar-2015 18:10:48] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[10-Mar-2015 17:24:31] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[11-Mar-2015 08:56:32] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[11-Mar-2015 10:52:07] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[11-Mar-2015 10:54:51] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[11-Mar-2015 14:23:46] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EK656' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[12-Mar-2015 01:46:55] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AS676' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[12-Mar-2015 09:05:06] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[12-Mar-2015 12:07:06] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[12-Mar-2015 17:24:36] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[12-Mar-2015 18:03:41] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[13-Mar-2015 09:17:57] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[13-Mar-2015 09:36:01] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[13-Mar-2015 09:46:26] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[13-Mar-2015 11:55:53] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[13-Mar-2015 12:04:27] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[13-Mar-2015 13:53:55] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IM078' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[13-Mar-2015 14:39:35] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[14-Mar-2015 14:41:30] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ER29E' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[14-Mar-2015 18:20:47] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EY23T' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[16-Mar-2015 12:35:41] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OH81U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[16-Mar-2015 22:15:39] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IJ65W' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:736
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(736): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 736
+[17-Mar-2015 10:32:18] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OV65U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[17-Mar-2015 10:38:37] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EG65E' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[17-Mar-2015 11:01:23] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[17-Mar-2015 11:34:46] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[17-Mar-2015 11:59:53] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[18-Mar-2015 02:50:54] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OJ61U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[18-Mar-2015 13:35:15] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[19-Mar-2015 12:24:25] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EP09U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[20-Mar-2015 13:52:02] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[20-Mar-2015 13:54:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IF45D' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[23-Mar-2015 09:33:48] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[23-Mar-2015 10:28:39] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[23-Mar-2015 11:33:15] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IT23N' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[23-Mar-2015 12:31:53] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AS812' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[24-Mar-2015 13:27:30] PHP Warning:  opendir(../archivo/UK4IT/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 1477
+[24-Mar-2015 13:27:30] PHP Warning:  readdir(): supplied argument is not a valid Directory resource in /home/medica/public_html/registrosmedicos/api/api.php on line 1478
+[24-Mar-2015 13:40:03] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[24-Mar-2015 14:10:26] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'IG47E' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:609
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(609): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 609
+[24-Mar-2015 15:16:53] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[24-Mar-2015 15:17:44] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 2271
+[24-Mar-2015 15:17:44] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[24-Mar-2015 15:25:50] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File exists in /home/medica/public_html/registrosmedicos/api/api.php on line 2271
+[24-Mar-2015 15:25:50] PHP Warning:  Invalid argument supplied for foreach() in /home/medica/public_html/registrosmedicos/api/api.php on line 2273
+[25-Mar-2015 13:49:21] PHP Warning:  opendir(../archivo/EE49V-1/) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/medica/public_html/registrosmedicos/api/api.php on line 1481
+[25-Mar-2015 13:49:21] PHP Warning:  readdir(): supplied argument is not a valid Directory resource in /home/medica/public_html/registrosmedicos/api/api.php on line 1482
+[25-Mar-2015 14:59:21] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AB87U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:610
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(610): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 610
+[26-Mar-2015 04:57:07] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'ED41O' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:610
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(610): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 610

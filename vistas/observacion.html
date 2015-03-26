@@ -92,7 +92,11 @@
     <fieldset>
         <legend>Observaciones de Coordinación Medica</legend>
     </fieldset>
-    <a ng-src="../archivo/{{datos.autorizacion}}/{{archivo}}" target="_blank" ng-href="archivo/{{datos.autorizacion}}/{{archivo}}"  class="btn btn-primary">Imagen Adjunta</a>
+    <div ng-repeat="archivo in archivo">
+
+    <a ng-src="../archivo/{{datos.autorizacion}}-{{datos.movimiento}}/{{archivo}}" target="_blank" ng-href="archivo/{{datos.autorizacion}}-{{datos.movimiento}}/{{archivo}}"  class="btn btn-primary">Imagen Adjunta</a><br>
+
+    </div>
     <div class="form-group">
         <label class="control-label col-xs-3">Observaciones:</label>
         <div class="col-xs-9">

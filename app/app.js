@@ -80,7 +80,7 @@ app.config(function($routeProvider){
 
     });
 
-    $routeProvider.when('/observacion/:autorizacion',{
+    $routeProvider.when('/observacion/:autorizacion/:tipo/:movimiento',{
             templateUrl: 'vistas/observacion.html',
             controller : 'observacionCtrl'
     });
@@ -95,7 +95,7 @@ app.config(function($routeProvider){
             controller : 'pruebasCtrl'
     });
 
-    $routeProvider.when('/seguimiento/:autorizacion',{
+    $routeProvider.when('/seguimiento/:autorizacion/:tipo/:movimiento',{
             templateUrl: 'vistas/seguimiento.html',
             controller : 'seguimientoCtrl'
     });
@@ -296,8 +296,8 @@ app.factory('busqueda', function($http){
         detallehospitalario:function(clave){
             return $http.get('api/api.php?funcion=detalleHospitalario&numero='+clave);
         },
-        detalleobservacion:function(autorizacion){
-            return $http.get('api/api.php?funcion=detalleobservacion&autorizacion='+autorizacion);
+        detalleobservacion:function(autorizacion, tipo, movimiento){
+            return $http.get('api/api.php?funcion=detalleobservacion&autorizacion='+autorizacion+'&tipo='+tipo+'&movimiento='+movimiento);
         },
         detalleresultado:function(autorizacion){
             return $http.get('api/api.php?funcion=detalleres&autorizacion='+autorizacion);

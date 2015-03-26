@@ -37,6 +37,7 @@ function generar_clave(){
 
 function conectarMySQL(){
 
+    //$dbhost="www.medicavial.net";
     $dbhost="localhost";
     $dbuser="medica_webusr";
     $dbpass="tosnav50";
@@ -1440,6 +1441,8 @@ if ($funcion == 'detalleAgenda') {
     if ($funcion == 'detalleobservacion') {
 
     $numeroautorizacion = $_REQUEST['autorizacion'];
+    $tipo = $_REQUEST['tipo'];
+    $movimiento = $_REQUEST['movimiento'];
 
     $db = conectarMySQL();
 
@@ -1472,31 +1475,28 @@ if ($funcion == 'detalleAgenda') {
 
         $db = null;
 
-            $ruta = "../archivo/$numeroautorizacion/";
+            $ruta = "../archivo/$numeroautorizacion-$movimiento/";
 
-    $directorio = opendir($ruta); //ruta actual
-        while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
+
+      $directorio = opendir("../archivo/$numeroautorizacion-$movimiento/"); //ruta actual
+        while ($archivo1 = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
         {
-            if (is_dir($archivo))//verificamos si es o no un directorio
+            if (is_dir($archivo1))//verificamos si es o no un directorio
             {
-                   $archivo; //de ser un directorio lo envolvemos entre corchetes
+                //echo "[".$archivo . "]<br />"; //de ser un directorio lo envolvemos entre corchetes
             }
             else
-            {
-                   $archivo;
+            {   
+     
+                    $archivo[] = $archivo1;
+                
+            
+            }
         }
-        $archi.= $archivo;
-    }    
-     $nombre = $archi;
-     $string_sin_modificar = $nombre; 
-     $nombre1 = substr($string_sin_modificar, 3); 
 
-
-       
-
-        $respuesta  = array('archivo' => $nombre1, 'proveedor' => $proveedor, 'clave' => $clave, 'costo' => $costo, 'tipo' => $tipo, 'observacion' => $obs
+        $respuesta  = array('archivo' => $archivo, 'proveedor' => $proveedor, 'clave' => $clave, 'costo' => $costo, 'tipo' => $tipo, 'observacion' => $obs
                            , 'inforeferencia' => $referencia, 'fecha' => $fechahora, 'hora' => $hora, 'paciente' => $paciente, 'conproveedor' => $conproveedor
-                           , 'resobservacion' => $resobservacion, 'observacioncoor' => $observacioncoor, 'preexistencia' => $preexistencia);
+                           , 'resobservacion' => $resobservacion, 'observacioncoor' => $observacioncoor, 'preexistencia' => $preexistencia, 'movimiento' => $movimiento);
 
         
         //echo $archivo;
@@ -2263,16 +2263,18 @@ if ($funcion == 'guardaresultado') {
    // $nombre = $_REQUEST['nombre'];
 
     $autorizacion = $datos->autorizacion;
+    $movimiento = $datos->movimiento;
     $observaciones = $datos->observaciones;
     $preexistencia = $datos->preexistencia;
     $reagendado = $datos->reagendado;
     $archivos = $datos->archivo;
 
-    mkdir("../archivo/".$autorizacion."/", 0755);
+
+    mkdir("../archivo/".$autorizacion."-".$movimiento."/", 0755);
 
     foreach ($archivos as  $archi) {
 
-        copy("../archivo/$archi", "../archivo/$autorizacion/$archi");
+        copy("../archivo/$archi", "../archivo/$autorizacion-$movimiento/$archi");
         unlink("../archivo/$archi");
     }
        
@@ -2311,7 +2313,7 @@ if ($funcion == 'guardaresultado') {
             $respuesta = array('respuesta' => "Los Datos No se Guardaron Verifique su Información");
         }
         
-        echo json_encode($respuesta);
+        //echo json_encode($respuesta);
         
 }
 
@@ -2327,7 +2329,7 @@ if ($funcion == 'consultaResultados') {
 
     }else{
         
-        $sql = "SELECT distinct CONCAT(a.AUM_clave,'-',RC_movimiento) AS autorizacion1,a.AUM_clave as autorizacion,RC_movimiento as movimiento ,RC_status ,TIM_nombre as tipo, AUM_folioMV as folio ,RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+        $sql = "SELECT distinct CONCAT(a.AUM_clave,'-',RC_movimiento) AS autorizacion1,a.AUM_clave as autorizacion,RC_movimiento as movimiento ,RC_status ,TIM_nombre as tipo, d.TIM_claveint as clave_tipo,AUM_folioMV as folio ,RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
                 INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint
                 INNER JOIN AutorizacionMedica c on a.AUM_clave=c.AUM_clave
                 INNER JOIN MovimientoAut d on c.AUM_clave=d.AUM_clave
@@ -2418,10 +2420,11 @@ if ($funcion == 'consultaObservacion') {
 
     }else{
         
-        $sql = "SELECT distinct CONCAT(a.AUM_clave,'-',RC_movimiento) AS autorizacion1,a.AUM_clave as autorizacion, TIM_nombre as tipo, RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+        $sql = "SELECT distinct CONCAT(a.AUM_clave,'-',RC_movimiento) AS autorizacion1,a.AUM_clave as autorizacion, b.TIM_claveint as clave_tipo, 
+                RC_movimiento as movimiento ,TIM_nombre as tipo, RC_costo as costo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
                 INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint
                 INNER JOIN MovimientoAut c on a.AUM_clave=c.AUM_clave
-                WHERE RC_status='4' limit 100";
+                WHERE RC_status='4'";
 
         $result = $db->query($sql);
         $observacion = $result->fetchAll(PDO::FETCH_OBJ);

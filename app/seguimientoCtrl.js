@@ -10,6 +10,8 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
         $scope.datos = {
 
             autorizacion : $routeParams.autorizacion,
+            tipo: $routeParams.tipo,
+            movimiento: $routeParams.movimiento,
             observaciones:'',
             reagendado:'No',
             preexistencia:'No',
@@ -20,7 +22,7 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
             pconfirmo:'',
             fecha:'',
             hora:''
-      
+
 
              }
 
@@ -93,8 +95,8 @@ app.controller('seguimientoCtrl', function($scope, $rootScope,$upload, $http, $r
 
         try{
 
-            console.log($scope.datos);
             $scope.mensaje2 ='';
+            $scope.datos.archivo = $scope.archivos;
 
             $http({
 

@@ -217,7 +217,7 @@
 									          <td>{{res.costo}}</td>
 									          <td>{{res.paciente}}</td>
 									          <td>
-									              <a ng-href="#/seguimiento/{{res.autorizacion}}" class="btn btn-primary">Resultados</a>
+									              <a ng-href="#/seguimiento/{{res.autorizacion}}/{{res.clave_tipo}}/{{res.movimiento}}" class="btn btn-primary">Resultados</a>
 									          </td>
 									        </tr> 
 									    </tbody>
@@ -282,7 +282,7 @@
 									          <td>{{obs.costo}}</td>
 									          <td>{{obs.paciente}}</td>
 									          <td>
-									              <a ng-href="#/observacion/{{obs.autorizacion}}" class="btn btn-primary">Observaciones</a>
+									              <a ng-href="#/observacion/{{obs.autorizacion}}/{{obs.clave_tipo}}/{{obs.movimiento}}" class="btn btn-primary">Observaciones</a>
 									          </td>
 									        </tr> 
 									    </tbody>
