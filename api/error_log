@@ -1814,3 +1814,109 @@ Stack trace:
 #0 /home/medica/public_html/registrosmedicos/api/api.php(610): PDOStatement->execute()
 #1 {main}
   thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 610
+[26-Mar-2015 12:35:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OW83A' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[26-Mar-2015 14:31:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1249
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1249): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1249
+[26-Mar-2015 18:20:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AW21G' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[28-Mar-2015 17:35:48] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AR430' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[30-Mar-2015 11:30:23] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_cla' at line 3' in /home/medica/public_html/registrosmedicos/api/api.php:1249
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(1249): PDO->query('SELECT  a.AUM_c...')
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 1249
+[31-Mar-2015 17:08:17] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AB83I' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[31-Mar-2015 17:33:24] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OV41V' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[31-Mar-2015 19:27:43] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AP21L' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[01-Apr-2015 01:27:30] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OS87X' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[01-Apr-2015 09:59:32] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EG83P' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[06-Apr-2015 09:34:12] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'UL09U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[06-Apr-2015 12:04:14] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OJ81K' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[06-Apr-2015 14:06:28] PHP Warning:  unlink(../archivo/) [<a href='function.unlink'>function.unlink</a>]: Is a directory in /home/medica/public_html/registrosmedicos/api/api.php on line 2996
+[06-Apr-2015 16:15:09] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AX65G' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[06-Apr-2015 17:59:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'UL29W' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[06-Apr-2015 20:48:16] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AM81U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[06-Apr-2015 20:49:28] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OP43R' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[07-Apr-2015 16:35:08] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'OV23U' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[08-Apr-2015 13:47:53] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EC25K' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[09-Apr-2015 00:11:38] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EV87A' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[09-Apr-2015 12:45:00] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'AG834' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596
+[09-Apr-2015 13:34:46] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'EJ85S' for key 'PRIMARY'' in /home/medica/public_html/registrosmedicos/api/api.php:596
+Stack trace:
+#0 /home/medica/public_html/registrosmedicos/api/api.php(596): PDOStatement->execute()
+#1 {main}
+  thrown in /home/medica/public_html/registrosmedicos/api/api.php on line 596

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" tipoDeComprobante="ingreso" metodoDePago="NO IDENTIFICADO" total="1896.60" TipoCambio="1.0000" Moneda="MXN" LugarExpedicion="CUAUHTEMOC,D.F." NumCtaPago="NO IDENTIFICADO" fecha="2014-07-17T12:23:28" sello="cpDRbIMV+U5Oh9esqjSe7CWXvsIihhB7sO6WFEEUcKn1JA7k3F0sDIyE+KRYUEMmAgorLKdB7b+Ah4OVB3a7fIXtDzapkh6JXESdP00b9XRa+SkQEAEZci5AreQmWZE/VugfDJnzO5FpjcEcz92daFOIlKrnIPYnCqvFACi4Zz0=" folio="150350" version="3.2" serie="C" formaDePago="PAGO EN UNA SOLA EXHIBICION" subTotal="1635.00" descuento="0.00" noCertificado="00001000000201686937" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAyMDE2ODY5MzcwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMDgwMzAxMDU1M1oXDTE2MDgwMzAxMDU1M1owgbIxHDAaBgNVBAMTE01FRElDQVZJQUwgU0EgREUgQ1YxHDAaBgNVBCkTE01FRElDQVZJQUwgU0EgREUgQ1YxHDAaBgNVBAoTE01FRElDQVZJQUwgU0EgREUgQ1YxJTAjBgNVBC0THE1FRDAxMTAxMlRENCAvIEFBU0E0MTA4MDhTSEExHjAcBgNVBAUTFSAvIEFBU0E0MTA4MDhIQkNMTkwwMjEPMA0GA1UECxMGTUFUUklaMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQChqA6FG1oC5Vod0fnwFqKj+rjwNnJ2xBD8LURnPWugAFK//Cr4ZZqkTXgfqIVJZ2BeBOh8GGRxwzW0n05eBVeLNc1doHoJDDcPDJZQ34s2ubYVHGOqX8aVx7PVRxfocuc54o3t9nyeRHXzQMgViOrmoFtzoSlLKLK1aZMCv4J/EQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAnQBbDglF9BNGVBeDjHFuTYclPxMQyVH/KL/UKZ0ZKX7tyIO9IS++QYEUIW0zY0l5l3EfCSrVALWTei8HQsZq7up6eZj4npFMs6gULMqTJ7DD4Lc3QcpPdAVWOALOx4ZwRzGy4erAhzD5ixFLLGEF7GROCyjsZ1FhbKQsO5IX9i6WlqpyW3d65nJxL+1mKnu1XXjL6aY9A/b6iXbvwKlDiP7W5u6AXjrUo+ohfac/S22t7TkDwJ0C1JtuJxUGq6eEJgzQXnq88XIxwM+svg5YT8RldH6fZkbXWrNYegvrgCbp60kmLwhKtxv8QHUSXxNzwHEBlzjsuRJXias4TG49xw==" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd">
+  <cfdi:Emisor nombre="MEDICAVIAL SA DE CV" rfc="MED011012TD4">
+    <cfdi:DomicilioFiscal calle="AV. ÁLVARO OBREGÓN" noExterior="151" noInterior="9" colonia="ROMA" municipio="CUAUHTÉMOC" estado="DISTRITO FEDERAL" pais="MÉXICO" codigoPostal="06700" />
+    <cfdi:ExpedidoEn calle="AV. ÁLVARO OBREGÓN" noExterior="151" noInterior="9" colonia="ROMA" municipio="CUAUHTÉMOC" estado="DISTRITO FEDERAL" pais="MÉXICO" codigoPostal="06700" />
+    <cfdi:RegimenFiscal Regimen="GENERAL DE LA LEY P.M." />
+  </cfdi:Emisor>
+  <cfdi:Receptor nombre="QUALITAS COMPAÑÍA DE SEGUROS, S.A. DE C.V." rfc="QCS931209G49">
+    <cfdi:Domicilio calle="JOSÉ MARÍA CASTORENA" noExterior="426" colonia="SAN JOSÉ DE LOS CEDROS" municipio="CUAJIMALPA" estado="DISTRITO FEDERAL" pais="MÉXICO" codigoPostal="05200" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto descripcion="CEMS002855 - JUAN CARLOS HERNANDEZ CAMACHO" valorUnitario="1635.00" importe="1635.00" cantidad="1.00" unidad="NO APLICA" noIdentificacion="PLC" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="261.60">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="261.60" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+<cfdi:Addenda xmlns:ecfd="http://www.southconsulting.com/schemas/strict" xsi:schemaLocation="http://www.southconsulting.com/schemas/strict http://www.southconsulting.com/schemas/strict/ecfd.xsd">
+    <ecfd:ECFD version="1.0">
+      <ecfd:Documento ID="T33C150350">
+        <ecfd:Encabezado>
+          <ecfd:IdDoc>
+            <ecfd:NroAprob>383549</ecfd:NroAprob>
+            <ecfd:AnoAprob>2012</ecfd:AnoAprob>
+            <ecfd:Tipo>33</ecfd:Tipo>
+            <ecfd:Serie>C</ecfd:Serie>
+            <ecfd:Folio>150350</ecfd:Folio>
+            <ecfd:Estado>ORIGINAL</ecfd:Estado>
+            <ecfd:FechaEmis>2014-07-17T12:23:28</ecfd:FechaEmis>
+            <ecfd:FormaPago>PAGO EN UNA SOLA EXHIBICION</ecfd:FormaPago>
+            <ecfd:MedioPago>NO IDENTIFICADO</ecfd:MedioPago>
+            <ecfd:LugarExpedicion>CUAUHTEMOC,D.F.</ecfd:LugarExpedicion>
+            <ecfd:NumCtaPago>NO IDENTIFICADO</ecfd:NumCtaPago>
+            <ecfd:TermPagoCdg>1</ecfd:TermPagoCdg>
+            <ecfd:Area>
+              <ecfd:IdArea>001</ecfd:IdArea>
+              <ecfd:IdRevision>010</ecfd:IdRevision>
+            </ecfd:Area>
+          </ecfd:IdDoc>
+          <ecfd:ExEmisor>
+            <ecfd:RFCEmisor>MED011012TD4</ecfd:RFCEmisor>
+            <ecfd:NmbEmisor>MEDICAVIAL SA DE CV</ecfd:NmbEmisor>
+            <ecfd:CodigoExEmisor>
+              <ecfd:TpoCdgIntEmisor>EXT</ecfd:TpoCdgIntEmisor>
+              <ecfd:CdgIntEmisor>21737</ecfd:CdgIntEmisor>
+            </ecfd:CodigoExEmisor>
+            <ecfd:DomFiscal>
+              <ecfd:Calle>AV. ÁLVARO OBREGÓN</ecfd:Calle>
+              <ecfd:NroExterior>151</ecfd:NroExterior>
+              <ecfd:NroInterior>9</ecfd:NroInterior>
+              <ecfd:Colonia>ROMA</ecfd:Colonia>
+              <ecfd:Municipio>CUAUHTÉMOC</ecfd:Municipio>
+              <ecfd:Estado>DISTRITO FEDERAL</ecfd:Estado>
+              <ecfd:Pais>MÉXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>06700</ecfd:CodigoPostal>
+            </ecfd:DomFiscal>
+            <ecfd:LugarExped>
+              <ecfd:Calle>AV. ÁLVARO OBREGÓN</ecfd:Calle>
+              <ecfd:NroExterior>151</ecfd:NroExterior>
+              <ecfd:NroInterior>9</ecfd:NroInterior>
+              <ecfd:Colonia>ROMA</ecfd:Colonia>
+              <ecfd:Municipio>CUAUHTÉMOC</ecfd:Municipio>
+              <ecfd:Estado>DISTRITO FEDERAL</ecfd:Estado>
+              <ecfd:Pais>MÉXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>06700</ecfd:CodigoPostal>
+            </ecfd:LugarExped>
+            <ecfd:ContactoEmisor>
+              <ecfd:Tipo>otro</ecfd:Tipo>
+              <ecfd:Nombre>Maria Guadalupue Hernandez Peña</ecfd:Nombre>
+              <ecfd:eMail>ghernandez@medicavial.com.mx</ecfd:eMail>
+              <ecfd:Telefono>55144700</ecfd:Telefono>
+            </ecfd:ContactoEmisor>
+          </ecfd:ExEmisor>
+          <ecfd:ExReceptor>
+            <ecfd:RFCRecep>QCS931209G49</ecfd:RFCRecep>
+            <ecfd:NmbRecep>QUALITAS COMPAÑÍA DE SEGUROS, S.A. DE C.V.</ecfd:NmbRecep>
+            <ecfd:DomFiscalRcp>
+              <ecfd:Calle>JOSÉ MARÍA CASTORENA</ecfd:Calle>
+              <ecfd:NroExterior>426</ecfd:NroExterior>
+              <ecfd:Colonia>SAN JOSÉ DE LOS CEDROS</ecfd:Colonia>
+              <ecfd:Municipio>CUAJIMALPA</ecfd:Municipio>
+              <ecfd:Estado>DISTRITO FEDERAL</ecfd:Estado>
+              <ecfd:Pais>MÉXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>05200</ecfd:CodigoPostal>
+            </ecfd:DomFiscalRcp>
+            <ecfd:LugarRecep>
+              <ecfd:Calle>JOSÉ MARÍA CASTORENA</ecfd:Calle>
+              <ecfd:NroExterior>426</ecfd:NroExterior>
+              <ecfd:Colonia>SAN JOSÉ DE LOS CEDROS</ecfd:Colonia>
+              <ecfd:Municipio>CUAJIMALPA</ecfd:Municipio>
+              <ecfd:Estado>DISTRITO FEDERAL</ecfd:Estado>
+              <ecfd:Pais>MÉXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>05200</ecfd:CodigoPostal>
+            </ecfd:LugarRecep>
+            <ecfd:ContactoReceptor>
+              <ecfd:Tipo>coordinador</ecfd:Tipo>
+              <ecfd:Nombre>Liliana Segura</ecfd:Nombre>
+              <ecfd:eMail>lsegura@qualitas.com.mx</ecfd:eMail>
+              <ecfd:Telefono>50025500</ecfd:Telefono>
+            </ecfd:ContactoReceptor>
+          </ecfd:ExReceptor>
+          <ecfd:Totales>
+            <ecfd:Moneda>MXN</ecfd:Moneda>
+            <ecfd:FctConv>1.0000</ecfd:FctConv>
+            <ecfd:SubTotal>1635.00</ecfd:SubTotal>
+            <ecfd:MntDcto>0</ecfd:MntDcto>
+            <ecfd:PctDcto>0</ecfd:PctDcto>
+            <ecfd:MntBase>1635.00</ecfd:MntBase>
+            <ecfd:MntImp>261.60</ecfd:MntImp>
+            <ecfd:VlrPagar>1896.60</ecfd:VlrPagar>
+            <ecfd:VlrPalabras>MIL OCHOCIENTOS  NOVENTA Y SEIS PESOS 60/100 M. N.</ecfd:VlrPalabras>
+          </ecfd:Totales>
+          <ecfd:ExImpuestos>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16</ecfd:TasaImp>
+            <ecfd:MontoImp>261.60</ecfd:MontoImp>
+          </ecfd:ExImpuestos>
+          <ecfd:Poliza>
+            <ecfd:Tipo>autos</ecfd:Tipo>
+            <ecfd:Numero>0860175069</ecfd:Numero>
+            <ecfd:TpoCliente>0</ecfd:TpoCliente>
+            <ecfd:NroReporte>04140517282</ecfd:NroReporte>
+            <ecfd:NroSint>00000000000</ecfd:NroSint>
+          </ecfd:Poliza>
+          <ecfd:Servicio>
+            <ecfd:Tipo>hospitalario</ecfd:Tipo>
+            <ecfd:Numero>1</ecfd:Numero>
+            <ecfd:NroExp>00000000000</ecfd:NroExp>
+            <ecfd:Mandante>JUAN CARLOS HERNANDEZ CAMACHO</ecfd:Mandante>
+          </ecfd:Servicio>
+        </ecfd:Encabezado>
+        <ecfd:Detalle>
+          <ecfd:NroLinDet>1</ecfd:NroLinDet>
+          <ecfd:CdgItem>
+            <ecfd:TpoCodigo>INT</ecfd:TpoCodigo>
+            <ecfd:VlrCodigo>PLC</ecfd:VlrCodigo>
+          </ecfd:CdgItem>
+          <ecfd:IndListaItem>0</ecfd:IndListaItem>
+          <ecfd:TpoListaItem>0</ecfd:TpoListaItem>
+          <ecfd:DscLang>ES</ecfd:DscLang>
+          <ecfd:DscItem>CEMS002855 - JUAN CARLOS HERNANDEZ CAMACHO</ecfd:DscItem>
+          <ecfd:QtyItem>1.000</ecfd:QtyItem>
+          <ecfd:UnmdItem>NO APLICA</ecfd:UnmdItem>
+          <ecfd:PrcNetoItem>1635.00</ecfd:PrcNetoItem>
+          <ecfd:MontoNetoItem>1635.00</ecfd:MontoNetoItem>
+        </ecfd:Detalle>
+        <ecfd:TimeStamp>2014-07-17T15:44:28</ecfd:TimeStamp>
+      </ecfd:Documento>
+      <ecfd:Personalizados>
+        <ecfd:campoString name="IDMEDICAVIAL">1</ecfd:campoString>
+        <ecfd:campoString name="Linea01">21737</ecfd:campoString>
+        <ecfd:campoString name="Linea02">000000000000</ecfd:campoString>
+        <ecfd:campoString name="Linea03">00000000000</ecfd:campoString>
+        <ecfd:campoString name="Linea04">0860175069</ecfd:campoString>
+        <ecfd:campoString name="Linea05">0</ecfd:campoString>
+        <ecfd:campoString name="Linea06">04140517282</ecfd:campoString>
+        <ecfd:campoString name="Linea07" />
+        <ecfd:campoString name="Linea08" />
+        <ecfd:campoString name="Linea09" />
+        <ecfd:campoString name="Linea10" />
+        <ecfd:campoString name="Linea11" />
+        <ecfd:campoString name="Linea12">CEMS002855</ecfd:campoString>
+        <ecfd:campoString name="Linea13">R.C. PERSONAS</ecfd:campoString>
+        <ecfd:campoString name="Linea14">JUAN CARLOS HERNANDEZ CAMACHO</ecfd:campoString>
+        <ecfd:campoString name="Linea15">UNICA</ecfd:campoString>
+        <ecfd:campoString name="Linea16">ESGUINCE CERVICAL GRADO 2</ecfd:campoString>
+        <ecfd:campoString name="Linea17">ESGUINCE CERVICAL GRADO II / DORSOLUMBALGIA POSTRAUMATICA</ecfd:campoString>
+        <ecfd:campoString name="Linea18" />
+        <ecfd:campoString name="Linea19" />
+        <ecfd:campoString name="Linea20" />
+        <ecfd:campoString name="Linea21" />
+        <ecfd:campoString name="Linea22" />
+        <ecfd:campoString name="Linea23" />
+        <ecfd:campoString name="Linea24" />
+        <ecfd:campoString name="Linea25" />
+        <ecfd:campoString name="Linea26" />
+        <ecfd:campoString name="Linea27" />
+        <ecfd:campoString name="Linea28" />
+        <ecfd:campoString name="Linea29" />
+        <ecfd:campoString name="Linea30" />
+        <ecfd:campoString name="Titulo01">Código Proveedor:</ecfd:campoString>
+        <ecfd:campoString name="Titulo02">Fol. Elect.:</ecfd:campoString>
+        <ecfd:campoString name="Titulo03">Primera atención ambulatoria sobre el siniestro número:</ecfd:campoString>
+        <ecfd:campoString name="Titulo04">de la póliza número:</ecfd:campoString>
+        <ecfd:campoString name="Titulo05">Inciso:</ecfd:campoString>
+        <ecfd:campoString name="Titulo06">Reporte:</ecfd:campoString>
+        <ecfd:campoString name="Titulo07" />
+        <ecfd:campoString name="Titulo08" />
+        <ecfd:campoString name="Titulo09" />
+        <ecfd:campoString name="Titulo10" />
+        <ecfd:campoString name="Titulo11" />
+        <ecfd:campoString name="Titulo12">Folio MV:</ecfd:campoString>
+        <ecfd:campoString name="Titulo13">Riesgo Afectado:</ecfd:campoString>
+        <ecfd:campoString name="Titulo14">Lesionado:</ecfd:campoString>
+        <ecfd:campoString name="Titulo15">Tipo de Lesión:</ecfd:campoString>
+        <ecfd:campoString name="Titulo16">Lesión:</ecfd:campoString>
+        <ecfd:campoString name="Titulo17">Diagnóstico Médico:</ecfd:campoString>
+        <ecfd:campoString name="Observaciones11">La presente factura ampara un paquete médico que incluye suministros ilimitados que requiera el paciente de: consultas médicas, radiografias, medicamentos, ortesis (collarines, fajas, etc...), material de curación, interconsultas con otras especialid</ecfd:campoString>
+        <ecfd:campoString name="Observaciones12">ades médicas, sesiones de terapia física y rehabilitación, de acuerdo al tipo de lesión ambulatoria presentada.</ecfd:campoString>
+        <ecfd:campoString name="Observaciones21" />
+        <ecfd:campoString name="Observaciones22" />
+        <ecfd:campoString name="Observaciones31" />
+        <ecfd:campoString name="Observaciones32" />
+        <ecfd:campoString name="Addenda01" />
+        <ecfd:campoString name="VLRPAGSINDEDUPAL" />
+        <ecfd:campoString name="VLRDEDU" />
+        <ecfd:campoString name="VLRPAGSINDEDU" />
+        <ecfd:campoString name="Titulo18" />
+        <ecfd:campoString name="Titulo19" />
+        <ecfd:campoString name="Titulo20" />
+        <ecfd:campoString name="Linea30" />
+        <ecfd:campoString name="Linea03">00000000000</ecfd:campoString>
+        <ecfd:campoString name="OFICINAENT">010</ecfd:campoString>
+        <ecfd:campoString name="FOLIOELEC">000000000000</ecfd:campoString>
+        <ecfd:campoString name="OBSVADD">Atención ambulatoria del paciente JUAN CARLOS HERNANDEZ CAMACHO</ecfd:campoString>
+        <ecfd:campoString name="NROINTERNO">07</ecfd:campoString>
+        <ecfd:campoString name="TOTALCONIVA">1635.00</ecfd:campoString>
+        <ecfd:campoString name="TOTALSINIVA">0.00</ecfd:campoString>
+        <ecfd:campoString name="montoDescProntoPago">0.00</ecfd:campoString>
+        <ecfd:campoString name="porcentaDescProntoPago">0</ecfd:campoString>
+        <ecfd:campoString name="montoDescPrecioLista">0.00</ecfd:campoString>
+        <ecfd:campoString name="porcentajeDesPrecioLista">0</ecfd:campoString>
+        <ecfd:campoString name="montoDescEspecial">0.00</ecfd:campoString>
+        <ecfd:campoString name="RegimenFiscal">GENERAL DE LA LEY P.M.</ecfd:campoString>
+        <ecfd:campoString name="CuentaDePago">NO IDENTIFICADO</ecfd:campoString>
+        <ecfd:campoString name="LugarDeExpedicion">CUAUHTEMOC,D.F.</ecfd:campoString>
+      </ecfd:Personalizados>
+    </ecfd:ECFD>
+  </cfdi:Addenda>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital version="1.0" UUID="9d0e276d-ee80-41a2-936a-2b784dc2a861" FechaTimbrado="2014-07-18T10:25:42" selloCFD="cpDRbIMV+U5Oh9esqjSe7CWXvsIihhB7sO6WFEEUcKn1JA7k3F0sDIyE+KRYUEMmAgorLKdB7b+Ah4OVB3a7fIXtDzapkh6JXESdP00b9XRa+SkQEAEZci5AreQmWZE/VugfDJnzO5FpjcEcz92daFOIlKrnIPYnCqvFACi4Zz0=" noCertificadoSAT="00001000000300171326" selloSAT="F3K2eAR9xUmbwx/Hhjyi+Fb3FOHq+/61QcYkD98hHKLa9oGhalzSuzlymFaN+7Y5Lqy5LpsWGi2p+GGf5as8e/dwRdwpYPSgR4BR/9bFh2yiXHyvhLjSQDfsWy05yIAlPsggSRTCZR+IJX84wUgkPTLzRffNgBsO/bqUpOypcAw=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>
