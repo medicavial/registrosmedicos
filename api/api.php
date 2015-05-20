@@ -234,7 +234,6 @@ if ($funcion == 'busquedaHospitalarios') {
                 INNER JOIN Compania ON Compania.Cia_clave =  Hospitalario.EMP_claveint
                 LEFT JOIN RiesgoAfectado ON RiesgoAfectado.RIE_clave = Hospitalario.RIE_claveInt";
 
-                //INNER JOIN Usuario ON Usuario.USU_claveMV = Hospitalario.USU_capturo
     
     if ($folio != '') {
         
@@ -1213,9 +1212,12 @@ if ($funcion == 'buscarAutorizacion') {
 
 
 
-    $sql = "SELECT  a.AUM_clave as autorizacion, AUM_lesionado as lesionado, UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente FROM AutorizacionMedica a
+    $sql = "SELECT  CONCAT(a.AUM_clave,'-',MOA_claveint) as  autorizacion1,a.AUM_clave as autorizacion, AUM_lesionado as lesionado, TIM_nombre as tipo ,MOA_claveint as movimiento ,f.TIM_claveint as clave_tipo ,UNI_nombreMV as unidad, AUM_fechareg as fecha, Cia_nombrecorto as cliente 
+            FROM AutorizacionMedica a
             INNER JOIN Unidad d on a.Uni_claveint=d.Uni_clave
-            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave WHERE ";
+            INNER JOIN Compania e on a.EMP_claveint=e.cia_clave 
+            INNER JOIN MovimientoAut f on a.AUM_clave=f.AUM_clave
+            INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint WHERE";
 
     if ($folio != '') {
 
@@ -1240,7 +1242,8 @@ if ($funcion == 'buscarAutorizacion') {
 
     }    
 
-         $criterio3 = "and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave)";
+         $criterio3 = "and NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave) and 
+                        (f.TIM_claveint='3' or f.TIM_claveint='4') and AUM_fechareg>='2014-11-01'";
 
 
     $sql .= $criterio1 . $criterio2 . $criterio3;
@@ -1272,7 +1275,7 @@ if ($funcion == 'consultaAut') {
                 INNER JOIN MovimientoAut f on a.AUM_clave=f.AUM_clave
                 INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
                 where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave and b.RC_movimiento=f.MOA_claveint) and (f.TIM_claveint='3'
-                or f.TIM_claveint='4') and AUM_fechareg>='2014-11-01'
+                or f.TIM_claveint='4') and AUM_fechareg>='2014-11-01' and TA_clave<>'2'
                 ORDER BY fecha  DESC";
 
         $result = $db->query($sql);
@@ -1288,7 +1291,7 @@ if ($funcion == 'consultaAut') {
                 INNER JOIN MovimientoAut f on a.AUM_clave=f.AUM_clave
                 INNER JOIN TipoMovimiento g on f.TIM_claveint=g.TIM_claveint
                 where NOT EXISTS (select null as autorizacion from RegistroCitas b WHERE b.AUM_clave=a.AUM_clave and b.RC_movimiento=f.MOA_claveint) and (f.TIM_claveint='3'
-                or f.TIM_claveint='4') and AUM_fechareg>='2014-11-01'";
+                or f.TIM_claveint='4') and AUM_fechareg>='2014-11-01' and TA_clave<>'2'";
 
         foreach ($db->query($sql) as $row) {
             $contador = $row['contador'];
@@ -2354,7 +2357,9 @@ if ($funcion == 'buscarResultados') {
 
 
 
-    $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+    $sql = "SELECT CONCAT(a.AUM_clave,'-',RC_movimiento) as  autorizacion1,AUM_clave as autorizacion, 
+            TIM_nombre as tipo ,RC_movimiento as movimiento, b.TIM_claveint as clave_tipo ,RC_paciente as paciente, RC_proveedor as proveedor 
+            FROM RegistroCitas a
             INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint WHERE";
 
     if ($folio != '') {
@@ -2443,7 +2448,9 @@ if ($funcion == 'buscarObservacion') {
 
 
 
-    $sql = "SELECT AUM_clave as autorizacion, TIM_nombre as tipo, RC_paciente as paciente, RC_proveedor as proveedor FROM RegistroCitas a
+    $sql = "SELECT CONCAT(a.AUM_clave,'-',RC_movimiento) as  autorizacion1,AUM_clave as autorizacion, 
+            TIM_nombre as tipo ,RC_movimiento as movimiento, b.TIM_claveint as clave_tipo ,RC_paciente as paciente, RC_proveedor as proveedor 
+            FROM RegistroCitas a
             INNER JOIN TipoMovimiento b on a.RC_tipocita=b.TIM_claveint WHERE";
 
     if ($folio != '') {
