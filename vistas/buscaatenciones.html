@@ -1,0 +1,109 @@
+<div ng-init="inicio()">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>Busqueda de Atenciones</h1>
+		</div>
+	</div>
+
+	<fieldset>
+		<legend>Datos</legend>
+	</fieldset>
+	<form ng-submit="buscar()">
+		<div class="row">
+			<div class="col-md-2">
+		        <label for="folio">Folio </label>
+		        <input type="text" id="folio" class="form-control " ng-model="datos.folio" folio>
+		    </div>
+			<div class="col-md-4">
+		        <label for="folio">Lesionado </label>
+		        <input type="text" id="lesionado" class="form-control " ng-model="datos.lesionado" mayusculas>
+		    </div>
+		    <div class="col-md-2">
+		        <label for="folio">Poliza </label>
+		        <input type="text" id="folio" class="form-control " ng-model="datos.poliza" mayusculas>
+		    </div>
+		    <div class="col-md-2">
+		        <label for="folio">Siniestro </label>
+		        <input type="text" id="folio" class="form-control " ng-model="datos.siniestro" mayusculas>
+		    </div>
+		    <div class="col-md-2">
+		        <label for="folio">Reporte </label>
+		        <input type="text" id="folio" class="form-control " ng-model="datos.reporte" mayusculas>
+		    </div>
+		</div>
+		<br>
+		<label for="folio">Fecha Atención </label>
+		<div class="row">
+			<div class="col-md-2">
+				<input type="text" class="form-control " ng-model="datos.fechaini" data-date-format="YYYY-MM-DD" id="fechaIn" placeholder="Inicio">
+			</div>
+			<div class="col-md-2">
+				<input type="text" class="form-control" ng-model="datos.fechafin" data-date-format="YYYY-MM-DD" id="fechaFin" placeholder="Fin">
+			</div>
+			<div class="col-md-2">
+		        
+					<select name="unidad" class="form-control" ng-model="datos.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades">
+						<option value="">Unidad</option>
+					</select>
+		    </div>
+			<div class="col-md-2">
+				<button type="submit" id="boton" data-loading-text="Buscando..." class="btn btn-primary btn-block">Buscar</button>
+			</div>
+		</div>
+	</form>
+	<br>
+	<div class="table-responsive">
+		<table datatable="ng" dt-options="dtOptions" class="table">
+	        <thead>
+	        <tr>
+	            <th>Folio</th>
+	            <th>Lesionado</th>
+	            <th>Poliza</th>
+	            <th>Siniestro</th>
+	            <th>Reporte</th>
+	            <th>Atención</th>
+	            <th>Unidad</th>
+	            <th>Cliente</th>
+	            <th>Estatus</th>
+	        </tr>
+	        </thead>
+	        <tbody>
+	        <tr ng-repeat="dato in listado">
+	            <td>{{ dato.folio }}</td>
+	            <td>{{ dato.lesionado }}</td>
+	            <td>{{ dato.poliza }}</td>
+	            <td>{{ dato.siniestro }}</td>
+	            <td>{{ dato.reporte }}</td>
+	            <td>{{ dato.fecharegistro }}</td>
+	            <td>{{ dato.unidad }}</td>
+	            <td>{{ dato.cliente }}</td>
+	            <td>{{ dato.estatus }}</td>
+	        </tr>
+	        </tbody>
+	    </table>
+	</div>
+
+</div>
+
+<script>
+	
+	$('#fechaIn').datetimepicker({
+		pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+	});
+    $('#fechaFin').datetimepicker({
+    	pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+    });
+    $("#fechaIn").on("dp.change",function (e) {
+       $('#fechaFin').data("DateTimePicker").setMinDate(e.date);
+    });
+    $("#fechaFin").on("dp.change",function (e) {
+       $('#fechaIn').data("DateTimePicker").setMaxDate(e.date);
+    });
+
+</script>

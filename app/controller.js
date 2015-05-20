@@ -1364,5 +1364,117 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
         
     }
 	
+}
+
+
+function buscaAtencionesCtrl($scope, busqueda, DTOptionsBuilder){
+
+	$scope.inicio = function(){
+		$scope.limpia();
+		$scope.altaunidad();
+	}
+
+	$scope.limpia = function(){
+		$scope.datos = {
+			folio:'',
+			lesionado:'',
+			reporte:'',
+			siniestro:'',
+			poliza:'',
+			fechaini:'',
+			fechafin:'',
+			unidad:''
+		}
+	}
+
+	$scope.altaunidad = function(){
+
+		busqueda.unidades().success(function (data){
+			$scope.unidades = data;
+		});
+
+	}
+
+	$scope.buscar = function(){
+		$('#boton').button('loading');
+		busqueda.expedientes($scope.datos).success(function (data){
+			$scope.listado = data;
+			$('#boton').button('reset');
+			$scope.limpia();
+		});
+	};
+
+	$scope.dtOptions = DTOptionsBuilder.newOptions()
+	.withOption('lengthMenu', [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "Todo"] ])
+    // .withOption('responsive', true)
+    .withPaginationType('full_numbers')
+    .withOption('language', {
+        paginate: {
+            first: "«",
+            last: "»",
+            next: "→",
+            previous: "←"
+        },
+        search: "Buscar:",
+        loadingRecords: "Cargando Información....",
+        lengthMenu: "    Mostrar _MENU_ entradas",
+        processing: "Procesando Información",
+        infoEmpty: "No se encontro información",
+        emptyTable: "Sin Información disponible",
+        info: "Mostrando pagina _PAGE_ de _PAGES_ , Registros encontrados _TOTAL_ ",
+        infoFiltered: " - encontrados _MAX_ coincidencias"
+    });
+
+    // .withOption('rowCallback', function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+    //     $('td', nRow).bind('click', function() {
+    //         $scope.$apply(function() {
+    //             $scope.muestraDetalle(aData);
+    //         });
+    //     });
+    //     return nRow;
+    // });
+
+
+    // Add Bootstrap compatibility
+    // .withBootstrap()
+    // Add ColVis compatibility
+    // .withColVis()
+    // Add a state change function
+    // .withOption("colVis",{
+    //     buttonText: "Mostrar / Ocultar Columnas"
+    // })
+    // Exclude the last column from the list
+    // .withColVisOption('aiExclude', [2])
+
+    // Add ColReorder compatibility
+    // .withColReorder()
+    // Set order
+    // .withColReorderOrder([1, 0, 2])
+    // Fix last right column
+    // .withColReorderOption('iFixedColumnsRight', 1)
+    //Add Table tools compatibility
+    // .withTableTools('js/swf/copy_csv_xls_pdf.swf')
+    // .withTableToolsButtons([
+
+    //     {
+    //         "sExtends":     "copy",
+    //          "sButtonText": "Copiar"
+    //     },
+    //     {
+    //         'sExtends': 'collection',
+    //         'sButtonText': 'Exportar',
+    //         'aButtons': ['xls', 'pdf']
+    //     }
+    // ]);
 	
 }
+
+
+app.controller('autorizacionesCtrl',autorizacionesCtrl);
+app.controller('detalleAutorizacionesCtrl',detalleAutorizacionesCtrl);
+app.controller('detalleHospitalariosCtrl',detalleHospitalariosCtrl);
+app.controller('hospitalariosCtrl',hospitalariosCtrl);
+app.controller('impresionCtrl',impresionCtrl);
+app.controller('loginCtrl',loginCtrl);
+app.controller('busquedasCtrl',busquedasCtrl);
+app.controller('buscaAtencionesCtrl',buscaAtencionesCtrl);

@@ -23,8 +23,8 @@ function generar_clave(){
 
 function conectarMySQL(){
 
-    //$dbhost="www.medicavial.net";
-    $dbhost="localhost";
+    $dbhost="www.medicavial.net";
+    //$dbhost="localhost";
     $dbuser="medica_webusr";
     $dbpass="tosnav50";
     $dbname="medica_registromv";
@@ -36,6 +36,260 @@ function conectarMySQL(){
 //Obtenemos la funcion que necesitamos y yo tengo que mandar 
 //la URL de la siguiente forma api/api.php?funcion=login
 $funcion = $_REQUEST['funcion'];
+
+
+if($funcion == 'buscaExpedientes'){
+    
+    //Obtenemos los datos que mandamos de angular
+    $postdata = file_get_contents("php://input");
+    //aplicacmos json_decode para manejar los datos como arreglos de php
+    //En este caso lo que mando es este objeto JSON {user:username,psw:password}
+    $data = json_decode($postdata);
+    $conexion = conectarMySQL();
+    
+    //Obtenemos los valores de usuario y contraseña 
+    $fechaini = $data->fechaini;
+    $fechafin = $data->fechafin;
+    $folio = $data->folio;
+    $lesionado = $data->lesionado;
+    $poliza = $data->poliza;
+    $reporte = $data->reporte;
+    $siniestro = $data->siniestro;
+    $valorUni = $data->unidad;
+
+    $sql = "SELECT Expediente.Exp_folio as folio, UNI_nombreMV as unidad, Exp_poliza as poliza,
+            Exp_siniestro as siniestro,Exp_reporte as reporte,
+            CASE 
+                WHEN EXP_cancelado = 0 THEN 'Activo'
+                ELSE 'Cancelado'
+            END as estatus,
+            Exp_completo as lesionado, Exp_fecreg as fecharegistro, Cia_nombrecorto as cliente, RIE_nombre as riesgo
+            FROM Expediente
+                inner join Unidad on Unidad.Uni_clave = Expediente.Uni_clave 
+                inner join Compania on Compania.Cia_clave = Expediente.Cia_clave
+                left join RiesgoAfectado on RiesgoAfectado.RIE_clave = Expediente.RIE_clave
+            Where Unidad.Uni_clave <> 8";
+
+
+    if ($folio != '') {
+        
+        $criterio1 .= " AND Expediente.Exp_folio = '$folio'";
+
+    }else{
+        $criterio1 = "";
+    }
+
+    if ($fechaini != '' && $fechafin != '') {
+
+       $criterio2 .= " AND Exp_fecreg BETWEEN '$fechaini 00:00:00' and '$fechafin 23:59:59'";
+       
+    }else{
+        $criterio2 = "";
+    }
+
+    if ($lesionado != '') {
+
+        $criterio3 .= " AND Exp_completo like '%$lesionado%' ";
+
+    }else{
+        $criterio3 = "";
+    }
+
+    if ($poliza != '') {
+
+        $criterio4 .= " AND Exp_poliza = $poliza ";
+
+    }else{
+
+        $criterio4 = "";
+
+    }
+
+    if ($reporte != '') {
+
+        $criterio5 .= " AND EXP_reporte = $reporte ";
+
+    }else{
+        $criterio5 = "";
+    }
+
+
+    if ($siniestro != '') {
+
+        $criterio6 .= " AND Exp_siniestro = $siniestro ";
+
+    }else{
+
+        $criterio6 = "";
+    }
+
+
+    $sql .= $criterio1 . $criterio2 . $criterio3 . $criterio4 . $criterio5 . $criterio6;
+    
+    if($criterio1 == '' && $criterio2 == '' && $criterio3 == '' && $criterio4 == '' && $criterio5 == '' && $criterio6 == ''){
+
+        $sql .= " ORDER BY Exp_fecreg DESC LIMIT 0,100";
+    }
+
+
+    $result = $conexion->query($sql);
+
+    $datos = $result->fetchAll(PDO::FETCH_OBJ);
+    
+    echo json_encode($datos);
+
+    $conexion = null;
+
+}
+
+if($funcion == 'detalleExpediente'){
+    
+    //expediente = folio 
+    $expediente = $_REQUEST['expediente'];
+
+    $conexion = conectarMySQL();
+
+    $sql = "SELECT  Expediente.Exp_folio as folio,Exp_completo as lesionado, UNI_nombreMV as unidad, 
+                    ExpedienteInfo.Exp_poliza as poliza, ExpedienteInfo.Exp_siniestro as siniestro ,ExpedienteInfo.EXP_reporte as reporte,
+                    DATE(Exp_fecreg) as fechaatencion , Expediente.EXP_edad as edad, Expediente.EXP_sexo as sexo,EXP_fechaCaptura as fechacaptura,
+                    ExpedienteInfo.EXP_fechaExpedicion as fechaexpedicion, ExpedienteInfo.EXP_orden as orden,  RIE_nombre as riesgo, 
+                    POS_nombre as posicion, EXP_ajustador as ajustador, EXP_obsAjustador as observaciones, TLE_nombre as lesion,
+                    EXP_diagnostico as descripcion, FAC_folioFiscal as sat, CONCAT(FAC_serie,FAC_folio) as foliointerno,
+                    FAC_fecha as fechafactura, FAC_importe as importe, FAC_iva as iva, FAC_total as total, Cia_rfc as rfc,
+                    Cia_nombrecorto as empresa, LesE_clave as clasificacion
+            FROM Expediente
+                inner join Unidad on Unidad.Uni_clave = Expediente.Uni_clave 
+                inner join Compania on Compania.Cia_clave = Expediente.Cia_clave
+                left join ClasificacionLes ON ClasificacionLes.Exp_folio = Expediente.Exp_folio
+                left join RiesgoAfectado on RiesgoAfectado.RIE_clave = Expediente.RIE_clave
+                left join ExpedienteInfo on ExpedienteInfo.EXP_folio = Expediente.EXP_folio
+                left join Posicion on Posicion.POS_clave = ExpedienteInfo.POS_claveint
+                left join LesionMV on LesionMV.LES_clave = ExpedienteInfo.LES_empresa
+                left join TipoLesion on TipoLesion.TLE_claveint = LesionMV.TLE_claveint 
+            WHERE Unidad.Uni_clave = $unidad and Expediente.EXP_folio = '$expediente' and EXP_cancelado = 0 ";
+
+    $result = $conexion->query($sql);
+    $datos = $result->fetch(PDO::FETCH_OBJ);
+
+    $documentos = array();
+
+    $sqlEtapas ="SELECT DOC_clave,DOC_folio,DOC_etapa,DOC_entrega,UNI_clave,DATE(DOC_fecha) as DOC_fecha ,DATE(DOC_fechaReg) as DOC_fechaReg ,DATE(DOC_fechaImp) as DOC_fechaImp FROM Documento
+                WHERE DOC_folio = '$expediente' ORDER BY DOC_etapa,DOC_entrega";
+
+    foreach ($conexion->query($sqlEtapas) as $item) {
+
+        $dato = array();
+
+        $clave = $item['DOC_clave'];
+        $dato['documento'] = $item['DOC_clave'];
+        $dato['etapa'] = $item['DOC_etapa'];
+        $dato['entrega'] = $item['DOC_entrega'];
+        $dato['unidad'] = $item['UNI_clave'];
+        $dato['original'] = $item['DOC_fecha'];
+        $dato['originalRegistro'] = $item['DOC_fechaReg'];
+        // fecha en que se subio a esta tabla
+        $dato['fechasubio'] = $item['DOC_fechaImp'];
+
+        //Obtener pagos de ese folio y etapa
+        $queryPagos="SELECT *
+        FROM PagoUnidad
+        where DOC_clave = $clave";
+
+        $result = $conexion->query($queryPagos);
+        $pagos = $result->fetchAll(PDO::FETCH_OBJ);
+        $dato['pagos'] = $pagos;
+
+        array_push($documentos,$dato);
+
+    }          
+
+    $sqlTick = "SELECT TSeg_clave as clave, TSeg_etapa as etapa, Tseg_fechaactualizacion as fecha, TSub_nombre as subcategoria, TCat_nombre as categoria, TStatus_nombre as estatus, TSeg_obs as observa, Usu_nombre 
+                FROM TicketSeguimiento 
+                LEFT JOIN TicketSubcat ON TicketSubcat.TSub_clave = TicketSeguimiento.TSub_clave
+                LEFT JOIN TicketCat ON TicketCat.TCat_clave = TicketSeguimiento.TCat_clave
+                LEFT JOIN TicketStatus ON TicketStatus.TStatus_clave = TicketSeguimiento.TStatus_clave
+                LEFT JOIN Usuario on Usuario.Usu_login=TicketSeguimiento.Usu_registro
+                WHERE Exp_folio = '$expediente' and TicketSeguimiento.TCat_clave <> 4";
+
+    $tickets = array();
+
+    //obtenemos datos para la busqueda de la factura
+    foreach ($conexion->query($sqlTick) as $item) {
+
+        $dato = array();
+
+        $id = $item['clave'];
+        $dato['id'] = $item['clave'];
+        $dato['etapa'] = $item['etapa'];
+        $dato['fecha'] = $item['fecha'];
+        $dato['subcategoria'] = $item['subcategoria'];
+        $dato['categoria'] = $item['categoria'];
+        $dato['estatus'] = $item['estatus'];
+        $dato['observaciones'] = $item['observa'];
+        $dato['usuario'] = $item['Usu_nombre'];
+
+        //Obtener comunicacion
+        $querycomunicacion="SELECT TC_descripcion as Descripcion, TC_fechareg as Fecha, Usuario.Usu_nombre as Usuario
+        FROM TicketComunicacion
+        inner join Usuario on Usuario.Usu_login=TicketComunicacion.Usu_registro
+        where TSeg_clave=$id And Exp_folio='$expediente'";
+
+        $result = $conexion->query($querycomunicacion);
+        $comunicacion = $result->fetchAll(PDO::FETCH_OBJ);
+        $dato['comunicacion'] = $comunicacion;
+
+        //Obtener notas
+        $querynotas="SELECT TN_descripcion as Descripcion, TN_fechareg as Fecha, Usuario.Usu_nombre as Usuario
+        FROM TicketNotas 
+        inner join Usuario on Usuario.Usu_login=TicketNotas.Usu_registro
+        where TSeg_clave=$id And Exp_folio='$expediente'";
+
+        $result = $conexion->query($querynotas);
+        $notas = $result->fetchAll(PDO::FETCH_OBJ);
+        $dato['notas'] = $notas;
+
+        array_push($tickets,$dato);
+
+    }
+
+
+    $sqlAut = "SELECT * FROM AutorizacionMedica
+            INNER JOIN Unidad ON Unidad.Uni_clave = AutorizacionMedica.UNI_claveint
+            INNER JOIN Compania ON Compania.Cia_clave =  AutorizacionMedica.EMP_claveint
+            where AUM_folioMV = '$expediente'";
+
+    $result = $conexion->query($sqlAut);
+    $autorizacion = $result->fetch();
+
+    foreach ($conexion->query($sqlAut) as $item) {
+        $numeroautorizacion = $item['AUM_clave'];
+    }
+    
+    $sqlMov = "SELECT * FROM MovimientoAut 
+            INNER JOIN TipoMovimiento ON MovimientoAut.TIM_claveint = TipoMovimiento.TIM_claveint 
+            INNER JOIN Usuario ON MovimientoAut.USU_registro = Usuario.USU_claveMV
+            WHERE AUM_clave = '$numeroautorizacion' ";
+
+    $result = $conexion->query($sqlMov);
+    $movimientos = $result->fetchAll(PDO::FETCH_OBJ);
+
+
+    $sqlHos = "SELECT * FROM Hospitalario where Exp_folio = '$expediente'";
+    $result = $conexion->query($sqlHos);
+    $hospitalario = $result->fetch();
+
+    $resultado['detalle'] = $datos;
+    // $resultado['tickets'] = $tickets;
+    $resultado['autorizacion'] = $autorizacion;
+    $resultado['movimientos'] = $movimientos;
+    $resultado['hospitalario'] = $hospitalario;
+    $resultado['documentos'] = $documentos;
+    
+    echo json_encode($resultado);
+
+    $conexion = null;
+
+}
 
 if ($funcion == 'empresas') {
 
@@ -606,10 +860,7 @@ if ($funcion == 'guardaAutorizacion') {
         echo json_encode($respuesta);
 
     }
-
-
-
-    
+ 
 }
 
 if ($funcion == 'guardaHospitalario') {
@@ -980,7 +1231,7 @@ if ($funcion == 'unidades') {
 
     }else{
         
-        $sql = "SELECT Uni_clave as id, Uni_nombreMV as Nombre FROM Unidad Where Uni_activa='S' ORDER BY Uni_nombreMV";
+        $sql = "SELECT Uni_clave as id, Uni_nombreMV as Nombre FROM Unidad Where Uni_activa='S' and UNI_clave <> 8 ORDER BY Uni_nombreMV";
 
         $result = $db->query($sql);
         $unidades = $result->fetchAll(PDO::FETCH_OBJ);
