@@ -23,8 +23,8 @@ function generar_clave(){
 
 function conectarMySQL(){
 
-    $dbhost="www.medicavial.net";
-    //$dbhost="localhost";
+    //$dbhost="www.medicavial.net";
+    $dbhost="localhost";
     $dbuser="medica_webusr";
     $dbpass="tosnav50";
     $dbname="medica_registromv";
@@ -73,7 +73,7 @@ if($funcion == 'buscaExpedientes'){
 
     if ($folio != '') {
         
-        $criterio1 .= " AND Expediente.Exp_folio = '$folio'";
+        $criterio1 = " AND Expediente.Exp_folio = '$folio'";
 
     }else{
         $criterio1 = "";
@@ -81,15 +81,17 @@ if($funcion == 'buscaExpedientes'){
 
     if ($fechaini != '' && $fechafin != '') {
 
-       $criterio2 .= " AND Exp_fecreg BETWEEN '$fechaini 00:00:00' and '$fechafin 23:59:59'";
+       $criterio2 = " AND Exp_fecreg BETWEEN '$fechaini 00:00:00' and '$fechafin 23:59:59'";
        
+    }elseif ($fechaini != '' && $fechafin == '') {
+        $criterio2 = " AND Exp_fecreg BETWEEN '$fechaini 00:00:00' and now() ";
     }else{
         $criterio2 = "";
     }
 
     if ($lesionado != '') {
 
-        $criterio3 .= " AND Exp_completo like '%$lesionado%' ";
+        $criterio3 = " AND Exp_completo like '%$lesionado%' ";
 
     }else{
         $criterio3 = "";
@@ -97,7 +99,7 @@ if($funcion == 'buscaExpedientes'){
 
     if ($poliza != '') {
 
-        $criterio4 .= " AND Exp_poliza = $poliza ";
+        $criterio4 = " AND Exp_poliza = $poliza ";
 
     }else{
 
@@ -107,7 +109,7 @@ if($funcion == 'buscaExpedientes'){
 
     if ($reporte != '') {
 
-        $criterio5 .= " AND EXP_reporte = $reporte ";
+        $criterio5 = " AND EXP_reporte = $reporte ";
 
     }else{
         $criterio5 = "";
@@ -116,19 +118,29 @@ if($funcion == 'buscaExpedientes'){
 
     if ($siniestro != '') {
 
-        $criterio6 .= " AND Exp_siniestro = $siniestro ";
+        $criterio6 = " AND Exp_siniestro = $siniestro ";
 
     }else{
 
         $criterio6 = "";
     }
 
+    if ($valorUni != '') {
 
-    $sql .= $criterio1 . $criterio2 . $criterio3 . $criterio4 . $criterio5 . $criterio6;
+        $criterio7 = " AND Expediente.UNI_clave = $valorUni ";
+
+    }else{
+
+        $criterio7 = "";
+    }
+
+
+    $sql .= $criterio1 . $criterio2 . $criterio3 . $criterio4 . $criterio5 . $criterio6 . $criterio7;
     
-    if($criterio1 == '' && $criterio2 == '' && $criterio3 == '' && $criterio4 == '' && $criterio5 == '' && $criterio6 == ''){
-
-        $sql .= " ORDER BY Exp_fecreg DESC LIMIT 0,100";
+    if($criterio1 == '' && $criterio2 == '' && $criterio3 == '' && $criterio4 == '' && $criterio5 == '' && $criterio6 == '' && $criterio7 == ''){
+        $sql .= " ORDER BY Exp_fecreg DESC LIMIT 0,1000";
+    }elseif ($criterio7 != '' && $criterio2 == '') {
+        $sql .= ' ORDER BY Exp_fecreg DESC LIMIT 0,1000';
     }
 
 

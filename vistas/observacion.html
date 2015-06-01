@@ -93,8 +93,8 @@
         <legend>Observaciones de Coordinación Medica</legend>
     </fieldset>
     <div ng-repeat="archivo in archivo">
-
-    <a ng-src="../archivo/{{datos.autorizacion}}-{{datos.movimiento}}/{{archivo}}" target="_blank" ng-href="archivo/{{datos.autorizacion}}-{{datos.movimiento}}/{{archivo}}"  class="btn btn-primary">Imagen Adjunta</a><br>
+    <!-- Poner ruta completa en una variable por favor =) -->
+    <a ng-src="ruta" target="_blank" ng-href="archivo/{{datos.autorizacion}}-{{datos.movimiento}}/{{archivo}}"  class="btn btn-primary">Imagen Adjunta</a><br>
 
     </div>
     <div class="form-group">
@@ -106,7 +106,7 @@
     <div class="row">
 		<div class="col-md-6">
 	       	<label for="folio">Preexistencia:</label>
-            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="SI" ng-false-value="NO"> <br/>
+            <input type="checkbox" ng-model="datos.preexistencia" ng-true-value="'SI'" ng-false-value="'NO'"> <br/>
 		</div>	
 	</div>
     <br>

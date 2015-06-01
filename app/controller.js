@@ -1149,6 +1149,7 @@ function loginCtrl($scope, auth, $rootScope){
 function busquedasCtrl($scope, busqueda, $http, $rootScope){
 
 	$scope.inicio = function(){
+
 		$scope.buscaautorizaciones();
 		$scope.altaunidad();
 		$scope.altacliente();
@@ -1181,8 +1182,9 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 			foliofiscal: '',
 			archivosdet: ''
 		}
-	}
 
+	}
+	
 	$scope.buscaautorizaciones = function(){
 
 		busqueda.autorizaciones().success(function (data){
@@ -1190,7 +1192,7 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 		});
 
 	}
-
+	
 	$scope.buscahospitalarios = function(){
 		
 		busqueda.hospitalarios().success(function (data){
@@ -1222,7 +1224,7 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 			$scope.autorizacion.fechafin = '';
 		};
 
-		console.log($scope.autorizacion);
+		// console.log($scope.autorizacion);
 		$http({
 			url:'api/api.php?funcion=busquedaAutorizacion',
 			method:'POST', 
@@ -1238,6 +1240,7 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 			alert('Ocurrio un error de conexion intente nuevamente si persiste el problema comunicate al area de sistemas');
 
 		});
+
 	}
 
 	$scope.buscarHos = function(){
@@ -1247,7 +1250,7 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 			$scope.hospitalario.fechafin = '';
 		};
 		
-		console.log($scope.hospitalario);
+		// console.log($scope.hospitalario);
 		$http({
 			url:'api/api.php?funcion=busquedaHospitalarios',
 			method:'POST', 
@@ -1269,11 +1272,13 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
 	$scope.verificaFolioA = function(folio){
 
 		$scope.autorizacion.folio = busqueda.rellenaFolio(folio);
+
 	}
 
 	$scope.verificaFolioH = function(folio){
 
 		$scope.hospitalario.folio = busqueda.rellenaFolio(folio);
+
 	}
 
 	$scope.Buscar = function(){
@@ -1332,7 +1337,6 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
     	console.log($scope.archivosdetalles);
     	$scope.datos.usuario = $rootScope.user;
 
-
         try{
 
             $http({
@@ -1360,6 +1364,7 @@ function busquedasCtrl($scope, busqueda, $http, $rootScope){
         }catch(err){
 
             alert(err);
+
         }
         
     }

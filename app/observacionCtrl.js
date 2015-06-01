@@ -67,6 +67,8 @@ app.controller('observacionCtrl', function($scope, $http, busqueda, $rootScope, 
 			$scope.autorizacion = data.clave;
 			$scope.archivo = data.archivo;
 
+			$scope.ruta = '../archivo/' + $scope.datos.autorizacion + '-' + $scope.datos.movimiento +'/' + $scope.archivo;
+
 		});
 
 	}

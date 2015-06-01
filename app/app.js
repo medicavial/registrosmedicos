@@ -159,6 +159,90 @@ app.run(function ($rootScope , auth , $location, webStorage){
 
 });
 
+app.factory("auth", function($location, $rootScope, $http, webStorage,$route){
+    return{
+        login : function(username, password)
+        {   
+            $('#boton').button('loading');
+
+            $http({
+                url:'api/api.php?funcion=login',
+                method:'POST', 
+                contentType: 'application/json', 
+                dataType: "json", 
+                data:{user:username,psw:password}
+            }).success( function (data){
+                
+                $('#boton').button('reset');
+
+                console.log(data);
+
+                if(data.respuesta){
+
+                    $rootScope.mensaje = data.respuesta;
+
+                }else{
+                    
+                    //creamos la cookie con el nombre que nos han pasado
+                    webStorage.local.clear();
+
+                    webStorage.session.add('username', data[0].Uni_nombre);
+                    webStorage.session.add('permiso', data[0].Per_clave);
+                    webStorage.session.add('user', data[0].Usu_login);
+                    webStorage.session.add('clave', data[0].USU_claveMV);
+                    webStorage.session.add('hospitalario', data[0].Hospitalario);
+
+                    $rootScope.username =  data[0].Uni_nombre;
+                    $rootScope.permiso = data[0].Per_clave;
+                    $rootScope.user = data[0].Usu_login;
+                    $rootScope.clave = data[0].USU_claveMV;
+                    $rootScope.hospitalario = data[0].Hospitalario;
+
+                    $location.path("/");
+
+                }
+                
+            }).error( function (xhr,status,data){
+
+                $('#boton').button('reset');
+                alert('Existe Un Problema de Conexion Intente Cargar Nuevamente la Pagina');
+
+            });
+
+            
+        },
+        logout : function()
+        {
+            //al hacer logout eliminamos la cookie con $cookieStore.remove y los rootscope
+            webStorage.session.clear();
+            webStorage.local.clear();
+            
+            $rootScope.username =  '';
+            $rootScope.permiso = '';
+            $rootScope.user = '';
+            $rootScope.clave = '';
+            $rootScope.hospitalario = '';
+            
+            $location.path("/login");
+            $route.reload();
+
+        },
+        checkStatus : function()
+        {
+            //creamos un array con las rutas que queremos controlar
+            if($location.path() != "/login" && webStorage.session.get('username') == null)
+            {   
+                $location.path("/login");
+            }
+            //en el caso de que intente acceder al login y ya haya iniciado sesión lo mandamos a la home
+            if($location.path() == "/login" && webStorage.session.get('username') != null)
+            {
+                $location.path("/home");
+            }
+        }
+    }
+});
+
 
 //factoria que controla la autentificación, devuelve un objeto
 //$cookies para crear cookies

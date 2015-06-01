@@ -8,7 +8,7 @@
 	        <a data-target="#tab-two" ng-click="buscahospitalarios()" data-toggle="tab" >Hosptalarios</a>
 	    </li>
 	    <li >
-	        <a data-target="#tab-three" ng-click="" data-toggle="tab" >Pagos</a>
+	        <a data-target="#tab-three" data-toggle="tab" >Pagos</a>
 	    </li>
 	</ul>
 
@@ -124,7 +124,7 @@
 	    	</form>
 	    </div>
 	    <div id="tab-two" class="tab-pane">
-	    <!--	<div ng-show="hospitalario == 1"> !-->
+	 
 		    	<form ng-submit="buscarHos()">
 			        <div class="padding">
 				    	<div class="row">
@@ -241,13 +241,10 @@
 						</div>		
 			    	</div>
 			    </form>
-	<!--    	</div> 
-   	    	<div ng-hide="hospitalario == 0">
-	    		Tu usuario no tiene permisos para acceder aqui
-	    	</div> !-->
+
 	    </div>
 
-	     <div id="tab-three" class="tab-pane">
+	    <div id="tab-three" class="tab-pane">
 
             <div class="row">
       
@@ -411,7 +408,8 @@
                     <div>
                         <ul class="list-group">
                           <li class="list-group-item" ng-repeat="archivosdetalles in archivosdetalles">
-                                <a ng-src="../registrosmedicos/Facturas/{{ datos.autorizacion }}-{{ datos.movimiento }}/{{archivosdetalles}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{ datos.autorizacion }}-{{ datos.movimiento }}/{{archivosdetalles}}"  class="btn btn-warning">Archivo Adjunto</a>
+                          	   <!-- Poner ruta completa como variable por fa =) -->
+                               <!--  <a ng-src="../registrosmedicos/Facturas/{{ datos.autorizacion }}-{{ datos.movimiento }}/{{archivosdetalles}}" target="_blank" ng-href="../registrosmedicos/Facturas/{{ datos.autorizacion }}-{{ datos.movimiento }}/{{archivosdetalles}}"  class="btn btn-warning">Archivo Adjunto</a> -->
                                 {{ archivosdetalles }}
                           </li>
                         </ul>     
